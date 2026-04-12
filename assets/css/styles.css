@@ -183,6 +183,11 @@ a {
     padding: 28px;
 }
 
+.panel--form {
+    display: grid;
+    gap: 18px;
+}
+
 .panel--results {
     position: sticky;
     top: 24px;
@@ -355,7 +360,30 @@ button {
 }
 
 .ad-slot__box--leaderboard {
-    min-height: 230px;
+    min-height: 250px;
+}
+
+.ad-slot__box--compact {
+    min-height: 100px;
+}
+
+.ad-slot__box--inline {
+    min-height: 120px;
+}
+
+.ad-slot--form-compact,
+.ad-slot--results-inline {
+    background: linear-gradient(180deg, rgba(255, 250, 242, 0.96), rgba(248, 240, 230, 0.9));
+}
+
+.ad-slot--form-compact {
+    padding: 16px;
+}
+
+.ad-slot--results-inline {
+    margin-bottom: 16px;
+    padding: 16px;
+    border-style: dashed;
 }
 
 .guides-grid {
@@ -481,6 +509,10 @@ summary {
         position: static;
     }
 
+    .ad-slot--hero .ad-slot__box {
+        min-height: 160px;
+    }
+
     .site-header,
     .site-footer {
         border-radius: 24px;
@@ -509,5 +541,15 @@ summary {
 
     .mobile-results-bar {
         display: grid;
+    }
+
+    .ad-slot--form-compact,
+    .ad-slot--results-inline {
+        padding: 14px;
+    }
+
+    .ad-slot__box--compact,
+    .ad-slot__box--inline {
+        min-height: 90px;
     }
 }

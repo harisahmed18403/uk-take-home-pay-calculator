@@ -141,6 +141,11 @@ $calculatorBootstrap = [
                     <button type="submit" data-calculator-submit>Calculate take-home pay</button>
                     <p class="live-note" data-live-note hidden>Results update instantly as you edit the form.</p>
                 </form>
+
+                <aside class="ad-slot ad-slot--form-compact" aria-label="Advertisement">
+                    <div class="ad-slot__label">Sponsored</div>
+                    <div class="ad-slot__box ad-slot__box--compact">320 x 100 sticky companion</div>
+                </aside>
             </section>
 
             <section class="panel panel--results" data-calculator-results>
@@ -200,6 +205,11 @@ $calculatorBootstrap = [
                                 <strong data-result-field="total_deductions"></strong>
                             </article>
                         </div>
+
+                        <aside class="ad-slot ad-slot--results-inline" aria-label="Advertisement">
+                            <div class="ad-slot__label">Sponsored</div>
+                            <div class="ad-slot__box ad-slot__box--inline">Responsive in-results ad slot</div>
+                        </aside>
 
                         <div class="breakdown-table" data-breakdown-table>
                             <div><span>Tax year</span><strong data-result-meta="tax_year_label"></strong></div>
@@ -265,6 +275,11 @@ $calculatorBootstrap = [
                         </article>
                     </div>
 
+                    <aside class="ad-slot ad-slot--results-inline" aria-label="Advertisement">
+                        <div class="ad-slot__label">Sponsored</div>
+                        <div class="ad-slot__box ad-slot__box--inline">Responsive in-results ad slot</div>
+                    </aside>
+
                     <div class="breakdown-table" data-breakdown-table>
                         <div><span>Tax year</span><strong data-result-meta="tax_year_label"><?= htmlspecialchars((string) $result['tax_year_label']) ?></strong></div>
                         <div><span>Region</span><strong data-result-meta="region"><?= htmlspecialchars(ucwords(str_replace('-', ' ', (string) $result['region']))) ?></strong></div>
@@ -319,8 +334,8 @@ $calculatorBootstrap = [
             </section>
 
             <aside class="ad-slot ad-slot--hero" aria-label="Advertisement">
-                <div class="ad-slot__label">Ad placement</div>
-                <div class="ad-slot__box ad-slot__box--leaderboard">728 x 90 leaderboard</div>
+                <div class="ad-slot__label">Sponsored</div>
+                <div class="ad-slot__box ad-slot__box--leaderboard">300 x 250 above-the-fold feature ad</div>
             </aside>
         </main>
 
@@ -330,7 +345,7 @@ $calculatorBootstrap = [
                 <p>Offer comparisons are usually framed around gross salary. What matters in practice is the cash left after PAYE tax, National Insurance, pension, and loan deductions. This calculator keeps that view front and centre.</p>
             </article>
             <aside class="ad-slot" aria-label="Advertisement">
-                <div class="ad-slot__label">Ad placement</div>
+                <div class="ad-slot__label">Sponsored</div>
                 <div class="ad-slot__box ad-slot__box--rectangle">300 x 250 in-content slot</div>
             </aside>
         </section>

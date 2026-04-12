@@ -67,7 +67,9 @@ final class WebsiteTest extends TestCase
 
         self::assertStringContainsString('Calculate your UK take-home pay in seconds.', $html);
         self::assertStringContainsString('Calculator', $html);
-        self::assertStringContainsString('728 x 90 leaderboard', $html);
+        self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
+        self::assertStringContainsString('320 x 100 sticky companion', $html);
+        self::assertStringContainsString('Responsive in-results ad slot', $html);
         self::assertStringContainsString('300 x 250 in-content slot', $html);
         self::assertStringContainsString('data-calculator-form', $html);
         self::assertStringContainsString('Results update instantly as you edit the form.', $html);
@@ -104,6 +106,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('£39,519.60', $html);
         self::assertStringContainsString('Income Tax', $html);
         self::assertStringContainsString('National Insurance', $html);
+        self::assertStringContainsString('Responsive in-results ad slot', $html);
     }
 
     public function testValidationErrorsRender(): void
