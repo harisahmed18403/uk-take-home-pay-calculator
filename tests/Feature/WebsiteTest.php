@@ -124,6 +124,7 @@ final class WebsiteTest extends TestCase
     {
         $calculatorClass = $this->request('GET', '/assets/js/take-home-pay-calculator.js');
         $calculatorForm = $this->request('GET', '/assets/js/calculator-form.js');
+        $styles = $this->request('GET', '/assets/css/styles.css');
 
         self::assertStringContainsString('class TakeHomePayCalculator', $calculatorClass);
         self::assertStringContainsString('window.TakeHomePayCalculator = TakeHomePayCalculator', $calculatorClass);
@@ -135,6 +136,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('mobileResultsBar.hidden = true;', $calculatorForm);
         self::assertStringContainsString('IntersectionObserver', $calculatorForm);
         self::assertStringContainsString('resultsObserver.observe(resultsHeading);', $calculatorForm);
+        self::assertStringContainsString('.mobile-results-bar[hidden]', $styles);
     }
 
     public function testGuidesPageShowsFormulasAndStepByStepWalkthrough(): void

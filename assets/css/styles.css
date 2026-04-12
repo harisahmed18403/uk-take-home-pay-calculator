@@ -434,6 +434,10 @@ summary {
     cursor: pointer;
 }
 
+.mobile-results-bar[hidden] {
+    display: none !important;
+}
+
 .mobile-results-bar__prompt {
     display: block;
     font-size: 0.82rem;
