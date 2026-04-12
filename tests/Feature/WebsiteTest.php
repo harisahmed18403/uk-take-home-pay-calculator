@@ -139,12 +139,10 @@ final class WebsiteTest extends TestCase
     public static function secondaryPages(): array
     {
         return [
-            ['about', 'About the calculator'],
             ['guides', 'UK tax guides'],
             ['faq', 'Frequently asked questions'],
             ['privacy', 'Privacy policy'],
             ['cookies', 'Cookie policy'],
-            ['contact', 'Contact'],
         ];
     }
 

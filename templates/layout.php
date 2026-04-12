@@ -41,10 +41,8 @@ $calculatorBootstrap = [
         <a class="brand" href="index.php">Take Home Pay UK</a>
         <nav class="site-nav" aria-label="Main navigation">
             <a href="index.php">Calculator</a>
-            <a href="index.php?page=about">About</a>
             <a href="index.php?page=guides">Guides</a>
             <a href="index.php?page=faq">FAQ</a>
-            <a href="index.php?page=contact">Contact</a>
         </nav>
     </header>
 
@@ -356,13 +354,7 @@ $calculatorBootstrap = [
         </section>
     <?php else: ?>
         <main class="page-content">
-            <?php if ($page === 'about'): ?>
-                <section class="legal-card">
-                    <h1>About the calculator</h1>
-                    <p>This website estimates UK take-home pay using annualised PAYE assumptions for the selected tax year. It is designed for fast salary comparisons rather than payroll processing.</p>
-                    <p>It supports England, Wales, Northern Ireland, and Scotland, as well as common tax codes, pension treatments, and student loan deductions.</p>
-                </section>
-            <?php elseif ($page === 'guides'): ?>
+            <?php if ($page === 'guides'): ?>
                 <section class="legal-card">
                     <h1>UK tax guides</h1>
                     <?php foreach ($guides as $guide): ?>
@@ -386,11 +378,6 @@ $calculatorBootstrap = [
                 <section class="legal-card">
                     <h1>Cookie policy</h1>
                     <p>This site can operate without functional cookies. Advertising or analytics tags should only be added with a clear cookie notice and consent flow where required.</p>
-                </section>
-            <?php elseif ($page === 'contact'): ?>
-                <section class="legal-card">
-                    <h1>Contact</h1>
-                    <p>Questions about the calculator, partnerships, or advertising can be sent to <a href="mailto:<?= htmlspecialchars($companyEmail) ?>"><?= htmlspecialchars($companyEmail) ?></a>.</p>
                 </section>
             <?php endif; ?>
         </main>

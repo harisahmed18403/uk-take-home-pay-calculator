@@ -18,7 +18,7 @@ final class App
     public function handle(array $get, array $post): array
     {
         $page = (string) ($get['page'] ?? 'home');
-        $validPages = ['home', 'about', 'guides', 'faq', 'privacy', 'cookies', 'contact'];
+        $validPages = ['home', 'guides', 'faq', 'privacy', 'cookies'];
         if (!in_array($page, $validPages, true)) {
             $page = 'home';
         }
@@ -35,7 +35,6 @@ final class App
                 ['title' => 'Student loan deductions', 'body' => 'Repayments are based on income over your plan threshold and can stack with postgraduate loans.'],
                 ['title' => 'Pension treatment', 'body' => 'Salary sacrifice can reduce both Income Tax and NI, while net pay usually reduces taxable pay only.'],
             ],
-            'companyEmail' => 'hello@takehomepay.local',
         ];
 
         if ($page === 'home' && strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET')) === 'POST') {
@@ -72,12 +71,10 @@ final class App
     private function pageTitle(string $page): string
     {
         return match ($page) {
-            'about' => 'About the calculator',
             'guides' => 'UK tax guides',
             'faq' => 'Frequently asked questions',
             'privacy' => 'Privacy policy',
             'cookies' => 'Cookie policy',
-            'contact' => 'Contact',
             default => 'UK Take Home Pay Calculator',
         };
     }

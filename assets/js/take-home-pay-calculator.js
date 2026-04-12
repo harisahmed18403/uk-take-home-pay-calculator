@@ -6,16 +6,19 @@ class TakeHomePayCalculator {
 
     validate(input) {
         const errors = [];
+        const salary = this.toNumber(input.salary);
+        const bonus = this.toNumber(input.bonus);
+        const pensionPercent = this.toNumber(input.pension_percent);
 
-        if (!Number.isFinite(input.salary) || input.salary <= 0) {
+        if (String(input.salary ?? "").trim() === "" || salary <= 0) {
             errors.push("Enter a salary greater than zero.");
         }
 
-        if (!Number.isFinite(input.bonus) || input.bonus < 0) {
+        if (String(input.bonus ?? "").trim() !== "" && bonus < 0) {
             errors.push("Bonus must be zero or more.");
         }
 
-        if (!Number.isFinite(input.pension_percent) || input.pension_percent < 0 || input.pension_percent > 100) {
+        if (String(input.pension_percent ?? "").trim() !== "" && (pensionPercent < 0 || pensionPercent > 100)) {
             errors.push("Pension contribution must be between 0 and 100 percent.");
         }
 
