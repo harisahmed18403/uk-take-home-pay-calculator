@@ -44,6 +44,8 @@
         Array.from(document.querySelectorAll("[data-mobile-result]")).map((node) => [node.getAttribute("data-mobile-result"), node])
     );
     const baseBreakdownCount = 4;
+    let resultsAreInView = false;
+    let resultsObserver = null;
 
     form.dataset.live = "true";
 
@@ -79,6 +81,7 @@
 
         window.addEventListener("scroll", syncMobileResultsBar, { passive: true });
         window.addEventListener("resize", syncMobileResultsBar);
+        initializeResultsObserver();
     }
 
     update();
@@ -227,14 +230,35 @@
             return;
         }
 
+        const resultsVisible = resultsAreInView || isResultShellVisible();
+
+        mobileResultsBar.hidden = resultsVisible;
+    }
+
+    function initializeResultsObserver() {
+        if (!("IntersectionObserver" in window)) {
+            return;
+        }
+
+        resultsObserver = new IntersectionObserver(function (entries) {
+            const entry = entries[0];
+            resultsAreInView = entry ? entry.isIntersecting && entry.intersectionRatio >= 0.15 : false;
+            syncMobileResultsBar();
+        }, {
+            threshold: [0, 0.15, 0.5],
+        });
+
+        resultsObserver.observe(resultShell);
+    }
+
+    function isResultShellVisible() {
         const resultsRect = resultShell.getBoundingClientRect();
         const visibleTop = Math.max(resultsRect.top, 0);
         const visibleBottom = Math.min(resultsRect.bottom, window.innerHeight);
         const visibleHeight = Math.max(0, visibleBottom - visibleTop);
         const visibilityRatio = resultsRect.height > 0 ? visibleHeight / resultsRect.height : 0;
-        const resultsVisible = visibilityRatio > 0.12;
 
-        mobileResultsBar.hidden = resultsVisible;
+        return visibilityRatio >= 0.15;
     }
 
     function formatRegion(region) {

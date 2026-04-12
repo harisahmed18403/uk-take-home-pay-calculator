@@ -132,6 +132,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('scrollIntoView', $calculatorForm);
         self::assertStringContainsString('syncMobileResultsBar', $calculatorForm);
         self::assertStringContainsString('mobileResultsBar.hidden = true;', $calculatorForm);
+        self::assertStringContainsString('IntersectionObserver', $calculatorForm);
     }
 
     public function testGuidesPageShowsFormulasAndStepByStepWalkthrough(): void
