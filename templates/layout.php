@@ -17,6 +17,8 @@ use TakeHomePay\Support\BasePath;
 /** @var string $siteUrl */
 /** @var string $sitemapUrl */
 /** @var string $ogImageUrl */
+/** @var string $lastUpdatedIso */
+/** @var string $lastUpdatedHuman */
 /** @var array<int, array<string, mixed>> $jsonLd */
 /** @var array<string, array<string, mixed>> $taxYears */
 /** @var array<string, mixed> $form */
@@ -64,10 +66,13 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
     <meta property="og:image:alt" content="No Cap Tools UK take-home pay calculator preview">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:updated_time" content="<?= htmlspecialchars($lastUpdatedIso) ?>">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= htmlspecialchars($title) ?>">
     <meta name="twitter:description" content="<?= htmlspecialchars($metaDescription) ?>">
     <meta name="twitter:image" content="<?= htmlspecialchars($ogImageUrl) ?>">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="<?= htmlspecialchars($sitemapUrl) ?>">
     <link rel="icon" href="<?= htmlspecialchars($assetUrl('assets/favicons/favicon.svg')) ?>" type="image/svg+xml">
     <link rel="icon" href="<?= htmlspecialchars($assetUrl('assets/favicons/favicon-32x32.png')) ?>" sizes="32x32" type="image/png">
     <link rel="icon" href="<?= htmlspecialchars($assetUrl('assets/favicons/favicon-16x16.png')) ?>" sizes="16x16" type="image/png">
@@ -102,6 +107,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     <a href="#salary-guides">Read the tax guides</a>
                     <a href="#salary-faq">Check the FAQ</a>
                 </nav>
+                <p class="update-note">Last updated <?= htmlspecialchars($lastUpdatedHuman) ?> for 2026/27 thresholds and deduction rules.</p>
                 <div class="hero-metrics">
                     <div>
                         <span>Tax year</span>
@@ -516,6 +522,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             <a href="<?= htmlspecialchars($routeUrl('privacy')) ?>">Privacy</a>
             <a href="<?= htmlspecialchars($routeUrl('cookies')) ?>">Cookies</a>
             <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a>
+            <a href="<?= htmlspecialchars(BasePath::sitemap($basePath)) ?>">Sitemap</a>
         </nav>
     </footer>
 </div>

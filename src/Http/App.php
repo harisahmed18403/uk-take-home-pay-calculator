@@ -45,6 +45,7 @@ final class App
         $pageMeta = $this->pageMeta($page, $basePath);
         $faqItems = $this->faqItems();
         $guides = $this->guides();
+        $lastUpdated = $this->lastUpdated();
 
         $data = [
             'page' => $page,
@@ -59,7 +60,9 @@ final class App
             'siteUrl' => Site::siteUrl($basePath),
             'sitemapUrl' => Site::absoluteUrl('/sitemap.xml'),
             'ogImageUrl' => Site::absoluteUrl(BasePath::asset('assets/seo/og-image.png', $basePath)),
-            'jsonLd' => $this->jsonLd($page, $pageMeta['canonical'], $faqItems, $basePath),
+            'lastUpdatedIso' => gmdate('c', $lastUpdated),
+            'lastUpdatedHuman' => gmdate('j F Y', $lastUpdated),
+            'jsonLd' => $this->jsonLd($page, $pageMeta['canonical'], $faqItems, $basePath, $lastUpdated),
             'taxYears' => TaxYears::all(),
             'form' => $this->defaultFormState(),
             'result' => null,
@@ -272,10 +275,11 @@ final class App
      * @param array<int, array{question:string, answer:string}> $faqItems
      * @return array<int, array<string, mixed>>
      */
-    private function jsonLd(string $page, string $canonicalUrl, array $faqItems, string $basePath): array
+    private function jsonLd(string $page, string $canonicalUrl, array $faqItems, string $basePath, int $lastUpdated): array
     {
         $siteUrl = Site::siteUrl($basePath);
         $siteName = 'No Cap Tools';
+        $lastUpdatedIso = gmdate('c', $lastUpdated);
         $graph = [
             [
                 '@context' => 'https://schema.org',
@@ -315,6 +319,7 @@ final class App
             ],
             'primaryImageOfPage' => Site::absoluteUrl(BasePath::asset('assets/seo/og-image.png', $basePath)),
             'inLanguage' => 'en-GB',
+            'dateModified' => $lastUpdatedIso,
         ];
 
         if ($page === 'home') {
@@ -332,6 +337,7 @@ final class App
                     'price' => '0',
                     'priceCurrency' => 'GBP',
                 ],
+                'dateModified' => $lastUpdatedIso,
             ];
         }
 
@@ -357,6 +363,7 @@ final class App
                 'description' => 'A step-by-step outline of how the UK take-home pay calculator annualises income, applies deductions, and derives net pay.',
                 'step' => $guideSteps,
                 'totalTime' => 'PT5M',
+                'dateModified' => $lastUpdatedIso,
             ];
         }
 
@@ -442,6 +449,22 @@ final class App
 XML;
 
         return sprintf($template, implode("\n", $items));
+    }
+
+    private function lastUpdated(): int
+    {
+        $paths = [
+            dirname(__DIR__, 2) . '/src/Data/TaxYears.php',
+            dirname(__DIR__, 2) . '/src/Http/App.php',
+            dirname(__DIR__, 2) . '/templates/layout.php',
+        ];
+
+        $timestamps = array_map(
+            static fn (string $path): int => file_exists($path) ? (int) filemtime($path) : time(),
+            $paths
+        );
+
+        return max($timestamps);
     }
 
     /**

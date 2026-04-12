@@ -179,6 +179,12 @@ a {
     line-height: 1.65;
 }
 
+.update-note {
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
 .hero-metrics,
 .result-grid,
 .guides-grid {
