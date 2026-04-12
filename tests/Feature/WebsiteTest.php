@@ -78,6 +78,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('data-result-field="net_annual"', $html);
         self::assertStringContainsString('data-mobile-results-bar', $html);
         self::assertStringContainsString('data-mobile-result="net_monthly"', $html);
+        self::assertStringContainsString('data-results-heading', $html);
         self::assertLessThan(
             strpos($html, 'Calculate your UK take-home pay in seconds.'),
             strpos($html, '<section class="panel panel--form">')
@@ -133,7 +134,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('syncMobileResultsBar', $calculatorForm);
         self::assertStringContainsString('mobileResultsBar.hidden = true;', $calculatorForm);
         self::assertStringContainsString('IntersectionObserver', $calculatorForm);
-        self::assertStringContainsString('resultsObserver.observe(resultsSection);', $calculatorForm);
+        self::assertStringContainsString('resultsObserver.observe(resultsHeading);', $calculatorForm);
     }
 
     public function testGuidesPageShowsFormulasAndStepByStepWalkthrough(): void

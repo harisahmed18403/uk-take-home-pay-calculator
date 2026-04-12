@@ -17,8 +17,9 @@
     const postgraduateToggle = document.querySelector("[data-postgraduate-toggle]");
     const mobileResultsBar = document.querySelector("[data-mobile-results-bar]");
     const resultsSection = document.querySelector("[data-calculator-results]");
+    const resultsHeading = document.querySelector("[data-results-heading]");
 
-    if (!form || !errorsBox || !emptyState || !resultShell || !breakdownTable || !assumptionsList || !resultsSection) {
+    if (!form || !errorsBox || !emptyState || !resultShell || !breakdownTable || !assumptionsList || !resultsSection || !resultsHeading) {
         return;
     }
 
@@ -230,7 +231,7 @@
             return;
         }
 
-        const resultsVisible = resultsAreInView || isResultsSectionVisible();
+        const resultsVisible = resultsAreInView || isResultsHeadingVisible();
 
         mobileResultsBar.hidden = resultsVisible;
     }
@@ -248,11 +249,11 @@
             threshold: [0, 0.01],
         });
 
-        resultsObserver.observe(resultsSection);
+        resultsObserver.observe(resultsHeading);
     }
 
-    function isResultsSectionVisible() {
-        const resultsRect = resultsSection.getBoundingClientRect();
+    function isResultsHeadingVisible() {
+        const resultsRect = resultsHeading.getBoundingClientRect();
 
         return resultsRect.top < window.innerHeight && resultsRect.bottom > 0;
     }

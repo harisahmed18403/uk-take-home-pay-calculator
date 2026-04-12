@@ -145,7 +145,7 @@ $calculatorBootstrap = [
 
             <section class="panel panel--results" data-calculator-results>
                 <div class="results-header">
-                    <h2>Your results</h2>
+                    <h2 data-results-heading>Your results</h2>
                     <p class="section-copy">Annualised estimate based on the selected tax year and deductions.</p>
                 </div>
 
