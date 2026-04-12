@@ -6,6 +6,7 @@ namespace TakeHomePay\Http;
 
 use TakeHomePay\Data\TaxYears;
 use TakeHomePay\Services\TakeHomePayCalculator;
+use TakeHomePay\Support\BasePath;
 use TakeHomePay\Support\Format;
 
 final class App
@@ -26,6 +27,7 @@ final class App
         $data = [
             'page' => $page,
             'title' => $this->pageTitle($page),
+            'basePath' => BasePath::current(),
             'taxYears' => TaxYears::all(),
             'form' => $this->defaultFormState(),
             'result' => null,

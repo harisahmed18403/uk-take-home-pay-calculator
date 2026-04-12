@@ -3,9 +3,11 @@
 declare(strict_types=1);
 
 use TakeHomePay\Support\Format;
+use TakeHomePay\Support\BasePath;
 
 /** @var string $page */
 /** @var string $title */
+/** @var string $basePath */
 /** @var array<string, array<string, mixed>> $taxYears */
 /** @var array<string, mixed> $form */
 /** @var array<string, mixed>|null $result */
@@ -25,6 +27,8 @@ $calculatorBootstrap = [
         'Student loan repayments use current published thresholds for the selected tax year.',
     ],
 ];
+$assetUrl = static fn (string $path): string => BasePath::asset($path, $basePath);
+$routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($targetPage, $basePath);
 ?>
 <!DOCTYPE html>
 <html lang="en-GB">
@@ -33,16 +37,16 @@ $calculatorBootstrap = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($title) ?></title>
     <meta name="description" content="Calculate UK take-home pay with current tax, National Insurance, pension, and student loan assumptions.">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="<?= htmlspecialchars($assetUrl('assets/css/styles.css')) ?>">
 </head>
 <body>
 <div class="page-shell">
     <header class="site-header">
-        <a class="brand" href="index.php">Take Home Pay UK</a>
+        <a class="brand" href="<?= htmlspecialchars($routeUrl()) ?>">Take Home Pay UK</a>
         <nav class="site-nav" aria-label="Main navigation">
-            <a href="index.php">Calculator</a>
-            <a href="index.php?page=guides">Guides</a>
-            <a href="index.php?page=faq">FAQ</a>
+            <a href="<?= htmlspecialchars($routeUrl()) ?>">Calculator</a>
+            <a href="<?= htmlspecialchars($routeUrl('guides')) ?>">Guides</a>
+            <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a>
         </nav>
     </header>
 
@@ -63,7 +67,7 @@ $calculatorBootstrap = [
                     </div>
                 <?php endif; ?>
 
-                <form method="post" action="index.php" class="calculator-form" data-calculator-form novalidate>
+                <form method="post" action="<?= htmlspecialchars($routeUrl()) ?>" class="calculator-form" data-calculator-form novalidate>
                     <label>
                         <span>Salary</span>
                         <input type="number" step="0.01" min="0" name="salary" value="<?= htmlspecialchars((string) $form['salary']) ?>" required>
@@ -416,9 +420,9 @@ $calculatorBootstrap = [
     <footer class="site-footer">
         <div>Estimate only. Figures can differ from payroll outputs.</div>
         <nav aria-label="Footer navigation">
-            <a href="index.php?page=privacy">Privacy</a>
-            <a href="index.php?page=cookies">Cookies</a>
-            <a href="index.php?page=faq">FAQ</a>
+            <a href="<?= htmlspecialchars($routeUrl('privacy')) ?>">Privacy</a>
+            <a href="<?= htmlspecialchars($routeUrl('cookies')) ?>">Cookies</a>
+            <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a>
         </nav>
     </footer>
 </div>
@@ -426,8 +430,8 @@ $calculatorBootstrap = [
     <script>
         window.takeHomePayCalculatorConfig = <?= json_encode($calculatorBootstrap, JSON_THROW_ON_ERROR | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
     </script>
-    <script src="assets/js/take-home-pay-calculator.js"></script>
-    <script src="assets/js/calculator-form.js"></script>
+    <script src="<?= htmlspecialchars($assetUrl('assets/js/take-home-pay-calculator.js')) ?>"></script>
+    <script src="<?= htmlspecialchars($assetUrl('assets/js/calculator-form.js')) ?>"></script>
 <?php endif; ?>
 </body>
 </html>

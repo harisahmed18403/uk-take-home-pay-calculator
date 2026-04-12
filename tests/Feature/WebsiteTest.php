@@ -63,7 +63,7 @@ final class WebsiteTest extends TestCase
 
     public function testHomePageRendersCalculatorAndAdSlots(): void
     {
-        $html = $this->request('GET', '/index.php');
+        $html = $this->request('GET', '/');
 
         self::assertStringContainsString('Calculate your UK take-home pay in seconds.', $html);
         self::assertStringContainsString('Calculator', $html);
@@ -73,14 +73,16 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('300 x 250 in-content slot', $html);
         self::assertStringContainsString('data-calculator-form', $html);
         self::assertStringContainsString('Results update instantly as you edit the form.', $html);
-        self::assertStringContainsString('assets/js/take-home-pay-calculator.js', $html);
-        self::assertStringContainsString('assets/js/calculator-form.js', $html);
+        self::assertStringContainsString('/assets/js/take-home-pay-calculator.js', $html);
+        self::assertStringContainsString('/assets/js/calculator-form.js', $html);
         self::assertStringContainsString('window.takeHomePayCalculatorConfig =', $html);
         self::assertStringContainsString('"2026-2027"', $html);
         self::assertStringContainsString('data-result-field="net_annual"', $html);
         self::assertStringContainsString('data-mobile-results-bar', $html);
         self::assertStringContainsString('data-mobile-result="net_monthly"', $html);
         self::assertStringContainsString('data-results-heading', $html);
+        self::assertStringContainsString('href="/?page=guides"', $html);
+        self::assertStringContainsString('action="/"', $html);
         self::assertLessThan(
             strpos($html, 'Calculate your UK take-home pay in seconds.'),
             strpos($html, '<section class="panel panel--form">')
@@ -142,6 +144,18 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('.mobile-results-bar[hidden]', $styles);
     }
 
+    public function testHomePageSupportsConfiguredBasePath(): void
+    {
+        $html = $this->request('GET', '/uk-take-home-pay-calculator/', [], [
+            'APP_BASE_PATH' => '/uk-take-home-pay-calculator',
+        ]);
+
+        self::assertStringContainsString('href="/uk-take-home-pay-calculator/?page=guides"', $html);
+        self::assertStringContainsString('href="/uk-take-home-pay-calculator/assets/css/styles.css"', $html);
+        self::assertStringContainsString('src="/uk-take-home-pay-calculator/assets/js/calculator-form.js"', $html);
+        self::assertStringContainsString('action="/uk-take-home-pay-calculator/"', $html);
+    }
+
     public function testGuidesPageShowsFormulasAndStepByStepWalkthrough(): void
     {
         $html = $this->request('GET', '/index.php?page=guides');
@@ -176,13 +190,13 @@ final class WebsiteTest extends TestCase
     /**
      * @param array<string, string> $data
      */
-    private function request(string $method, string $path, array $data = []): string
+    private function request(string $method, string $path, array $data = [], array $headers = []): string
     {
         $options = [
             'http' => [
                 'method' => $method,
                 'ignore_errors' => true,
-                'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+                'header' => $this->headers($headers),
             ],
         ];
 
@@ -196,5 +210,21 @@ final class WebsiteTest extends TestCase
         self::assertNotFalse($html, 'Expected HTTP response from local PHP server.');
 
         return (string) $html;
+    }
+
+    /**
+     * @param array<string, string> $headers
+     */
+    private function headers(array $headers): string
+    {
+        $headerLines = [
+            "Content-Type: application/x-www-form-urlencoded",
+        ];
+
+        foreach ($headers as $name => $value) {
+            $headerLines[] = $name . ': ' . $value;
+        }
+
+        return implode("\r\n", $headerLines) . "\r\n";
     }
 }

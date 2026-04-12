@@ -2,11 +2,17 @@
 
 declare(strict_types=1);
 
+require __DIR__ . '/src/Support/BasePath.php';
+
+$basePath = \TakeHomePay\Support\BasePath::current();
 $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
-$publicFile = $requestPath !== false ? __DIR__ . $requestPath : null;
+$relativePath = $requestPath !== false
+    ? \TakeHomePay\Support\BasePath::stripFromRequestPath($requestPath, $basePath)
+    : null;
+$publicFile = $relativePath !== null ? __DIR__ . $relativePath : null;
 $extension = $publicFile !== null ? pathinfo($publicFile, PATHINFO_EXTENSION) : '';
 
-if ($publicFile !== null && $requestPath !== '/' && is_file($publicFile) && $extension !== 'php') {
+if ($publicFile !== null && $relativePath !== '/' && is_file($publicFile) && $extension !== 'php') {
     return false;
 }
 
