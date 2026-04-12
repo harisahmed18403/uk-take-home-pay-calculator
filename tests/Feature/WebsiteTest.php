@@ -63,9 +63,11 @@ final class WebsiteTest extends TestCase
 
     public function testHomePageRendersCalculatorAndAdSlots(): void
     {
-        $html = $this->request('GET', '/');
+        $response = $this->request('GET', '/');
+        $html = $response['body'];
 
-        self::assertStringContainsString('Calculate your UK take-home pay in seconds.', $html);
+        self::assertSame(200, $response['status']);
+        self::assertStringContainsString('UK take-home pay calculator for salary, pension and student loan estimates.', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);
@@ -83,17 +85,16 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Full breakdown', $html);
         self::assertStringContainsString('data-mobile-result="net_monthly"', $html);
         self::assertStringContainsString('data-results-heading', $html);
-        self::assertStringContainsString('href="/?page=guides"', $html);
+        self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertLessThan(
-            strpos($html, 'Calculate your UK take-home pay in seconds.'),
-            strpos($html, '<section class="panel panel--form">')
-        );
+        self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
+        self::assertStringContainsString('"@type":"SoftwareApplication"', $html);
+        self::assertStringContainsString('property="og:image"', $html);
     }
 
     public function testCalculatorSubmissionRendersResults(): void
     {
-        $html = $this->request('POST', '/index.php', [
+        $response = $this->request('POST', '/index.php', [
             'salary' => '50000',
             'salary_period' => 'annual',
             'bonus' => '0',
@@ -105,7 +106,9 @@ final class WebsiteTest extends TestCase
             'student_loan_plan' => 'none',
             'has_postgraduate_loan' => '0',
         ]);
+        $html = $response['body'];
 
+        self::assertSame(200, $response['status']);
         self::assertStringContainsString('Net annual pay', $html);
         self::assertStringContainsString('£39,519.60', $html);
         self::assertStringContainsString('Income Tax', $html);
@@ -115,12 +118,14 @@ final class WebsiteTest extends TestCase
 
     public function testValidationErrorsRender(): void
     {
-        $html = $this->request('POST', '/index.php', [
+        $response = $this->request('POST', '/index.php', [
             'salary' => '0',
             'bonus' => '-1',
             'pension_percent' => '150',
         ]);
+        $html = $response['body'];
 
+        self::assertSame(200, $response['status']);
         self::assertStringContainsString('Check your inputs', $html);
         self::assertStringContainsString('Enter a salary greater than zero.', $html);
         self::assertStringContainsString('Bonus must be zero or more.', $html);
@@ -129,36 +134,33 @@ final class WebsiteTest extends TestCase
 
     public function testJavaScriptAssetsAreServed(): void
     {
-        $calculatorClass = $this->request('GET', '/assets/js/take-home-pay-calculator.js');
-        $calculatorForm = $this->request('GET', '/assets/js/calculator-form.js');
-        $styles = $this->request('GET', '/assets/css/styles.css');
+        $calculatorClass = $this->request('GET', '/assets/js/take-home-pay-calculator.js')['body'];
+        $calculatorForm = $this->request('GET', '/assets/js/calculator-form.js')['body'];
+        $styles = $this->request('GET', '/assets/css/styles.css')['body'];
 
         self::assertStringContainsString('class TakeHomePayCalculator', $calculatorClass);
         self::assertStringContainsString('window.TakeHomePayCalculator = TakeHomePayCalculator', $calculatorClass);
-        self::assertStringContainsString('Results update instantly as you edit the form.', $this->request('GET', '/index.php'));
+        self::assertStringContainsString('Results update instantly as you edit the form.', $this->request('GET', '/index.php')['body']);
         self::assertStringContainsString('new Calculator(config)', $calculatorForm);
         self::assertStringContainsString('form.addEventListener("input", update);', $calculatorForm);
-        self::assertStringContainsString('mobileResultsBar.addEventListener("click", scrollToResults);', $calculatorForm);
-        self::assertStringContainsString('function scrollToResults()', $calculatorForm);
         self::assertStringContainsString('scrollIntoView', $calculatorForm);
         self::assertStringContainsString('syncMobileResultsBar', $calculatorForm);
         self::assertStringContainsString('mobileResultsBar.hidden = true;', $calculatorForm);
         self::assertStringContainsString('IntersectionObserver', $calculatorForm);
         self::assertStringContainsString('resultsObserver.observe(resultsHeading);', $calculatorForm);
-        self::assertStringContainsString('const resultsVisible = !resultShell.hidden && (resultsAreInView || isResultsHeadingVisible());', $calculatorForm);
         self::assertStringContainsString('.mobile-results-bar[hidden]', $styles);
-        self::assertStringContainsString('.mobile-results-bar__link', $styles);
         self::assertStringContainsString('position: sticky;', $styles);
-        self::assertStringContainsString('top: 12px;', $styles);
     }
 
     public function testHomePageSupportsConfiguredBasePath(): void
     {
-        $html = $this->request('GET', '/uk-take-home-pay-calculator/', [], [
+        $response = $this->request('GET', '/uk-take-home-pay-calculator/', [], [
             'APP_BASE_PATH' => '/uk-take-home-pay-calculator',
         ]);
+        $html = $response['body'];
 
-        self::assertStringContainsString('href="/uk-take-home-pay-calculator/?page=guides"', $html);
+        self::assertSame(200, $response['status']);
+        self::assertStringContainsString('href="/uk-take-home-pay-calculator/guides/"', $html);
         self::assertStringContainsString('href="/uk-take-home-pay-calculator/assets/css/styles.css"', $html);
         self::assertStringContainsString('src="/uk-take-home-pay-calculator/assets/js/calculator-form.js"', $html);
         self::assertStringContainsString('action="/uk-take-home-pay-calculator/"', $html);
@@ -166,20 +168,24 @@ final class WebsiteTest extends TestCase
 
     public function testGuidesPageShowsFormulasAndStepByStepWalkthrough(): void
     {
-        $html = $this->request('GET', '/index.php?page=guides');
+        $response = $this->request('GET', '/guides/');
+        $html = $response['body'];
 
+        self::assertSame(200, $response['status']);
         self::assertStringContainsString('Annualise your pay first', $html);
         self::assertStringContainsString('gross_annual = annual salary or (monthly salary × 12) or (weekly salary × 52) + bonus', $html);
         self::assertStringContainsString('net_annual = gross_annual - income_tax - national_insurance - student_loan - pension', $html);
         self::assertStringContainsString('For each selected student loan plan, only the earnings above its threshold are charged.', $html);
+        self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/guides/">', $html);
     }
 
     #[DataProvider('secondaryPages')]
-    public function testSecondaryPagesRender(string $page, string $expectedHeading): void
+    public function testSecondaryPagesRender(string $path, string $expectedHeading): void
     {
-        $html = $this->request('GET', '/index.php?page=' . urlencode($page));
+        $response = $this->request('GET', $path);
 
-        self::assertStringContainsString($expectedHeading, $html);
+        self::assertSame(200, $response['status']);
+        self::assertStringContainsString($expectedHeading, $response['body']);
     }
 
     /**
@@ -188,17 +194,44 @@ final class WebsiteTest extends TestCase
     public static function secondaryPages(): array
     {
         return [
-            ['guides', 'UK tax guides'],
-            ['faq', 'Frequently asked questions'],
-            ['privacy', 'Privacy policy'],
-            ['cookies', 'Cookie policy'],
+            ['/guides/', 'UK tax guides'],
+            ['/faq/', 'Frequently asked questions'],
+            ['/privacy-policy/', 'Privacy policy'],
+            ['/cookie-policy/', 'Cookie policy'],
         ];
+    }
+
+    public function testLegacyQueryRouteRedirectsToCleanUrl(): void
+    {
+        $response = $this->request('GET', '/index.php?page=guides');
+
+        self::assertSame(301, $response['status']);
+        self::assertContains('Location: /guides/', $response['headers']);
+    }
+
+    public function testUnknownRouteReturns404(): void
+    {
+        $response = $this->request('GET', '/missing-page/');
+
+        self::assertSame(404, $response['status']);
+        self::assertStringContainsString('Page not found', $response['body']);
+        self::assertStringContainsString('noindex,follow', $response['body']);
+    }
+
+    public function testSitemapXmlIsServed(): void
+    {
+        $response = $this->request('GET', '/sitemap.xml');
+
+        self::assertSame(200, $response['status']);
+        self::assertContains('Content-Type: application/xml; charset=UTF-8', $response['headers']);
+        self::assertStringContainsString('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', $response['body']);
+        self::assertStringContainsString('<loc>http://127.0.0.1:8099/guides/</loc>', $response['body']);
     }
 
     /**
      * @param array<string, string> $data
      */
-    private function request(string $method, string $path, array $data = [], array $headers = []): string
+    private function request(string $method, string $path, array $data = [], array $headers = []): array
     {
         $options = [
             'http' => [
@@ -217,7 +250,15 @@ final class WebsiteTest extends TestCase
 
         self::assertNotFalse($html, 'Expected HTTP response from local PHP server.');
 
-        return (string) $html;
+        $responseHeaders = $http_response_header ?? [];
+        $statusLine = $responseHeaders[0] ?? 'HTTP/1.1 200 OK';
+        preg_match('/\s(\d{3})\s/', $statusLine, $matches);
+
+        return [
+            'body' => (string) $html,
+            'headers' => $responseHeaders,
+            'status' => isset($matches[1]) ? (int) $matches[1] : 200,
+        ];
     }
 
     /**

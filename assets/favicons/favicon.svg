@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title>No Cap Tools favicon</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef8a5f"/>
+      <stop offset="100%" stop-color="#d95d39"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#bg)"/>
+  <rect x="88" y="88" width="336" height="336" rx="92" fill="#fffaf2" opacity="0.22"/>
+  <path d="M166 176h180" stroke="#1f2a2e" stroke-width="24" stroke-linecap="round"/>
+  <path d="M166 232h180" stroke="#1f2a2e" stroke-width="24" stroke-linecap="round"/>
+  <path d="M166 288h180" stroke="#1f2a2e" stroke-width="24" stroke-linecap="round"/>
+  <path d="M166 344h100" stroke="#1f2a2e" stroke-width="24" stroke-linecap="round"/>
+  <path d="M302 146c-45 0-82 28-82 79 0 48 31 75 79 75 23 0 46-6 70-18" fill="none" stroke="#1f2a2e" stroke-width="28" stroke-linecap="round"/>
+  <path d="M278 120v282" stroke="#1f2a2e" stroke-width="28" stroke-linecap="round"/>
+</svg>

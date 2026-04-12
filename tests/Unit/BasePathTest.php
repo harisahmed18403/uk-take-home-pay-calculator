@@ -42,8 +42,13 @@ final class BasePathTest extends TestCase
             BasePath::asset('assets/css/styles.css', '/uk-take-home-pay-calculator')
         );
         self::assertSame(
-            '/uk-take-home-pay-calculator/?page=faq',
+            '/uk-take-home-pay-calculator/faq/',
             BasePath::route('faq', '/uk-take-home-pay-calculator')
         );
+        self::assertSame(
+            '/uk-take-home-pay-calculator/sitemap.xml',
+            BasePath::sitemap('/uk-take-home-pay-calculator')
+        );
+        self::assertSame('guides', BasePath::pageFromPath('/guides/'));
     }
 }

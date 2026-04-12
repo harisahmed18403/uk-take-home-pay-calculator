@@ -29,5 +29,11 @@ require $autoload;
 $app = new \TakeHomePay\Http\App();
 $response = $app->handle($_GET, $_POST);
 
+foreach ($response['headers'] ?? [] as $header) {
+    header($header);
+}
+
 http_response_code($response['status']);
-echo $response['content'];
+if ($response['content'] !== '') {
+    echo $response['content'];
+}

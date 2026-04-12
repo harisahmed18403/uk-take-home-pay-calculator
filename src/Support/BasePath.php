@@ -6,6 +6,15 @@ namespace TakeHomePay\Support;
 
 final class BasePath
 {
+    /** @var array<string, string> */
+    private const PAGE_SLUGS = [
+        'home' => '',
+        'guides' => 'guides',
+        'faq' => 'faq',
+        'privacy' => 'privacy-policy',
+        'cookies' => 'cookie-policy',
+    ];
+
     public static function current(): string
     {
         $value = $_ENV['APP_BASE_PATH']
@@ -57,12 +66,37 @@ final class BasePath
     {
         $normalizedBasePath = self::normalize($basePath);
         $prefix = $normalizedBasePath === '' ? '' : $normalizedBasePath;
-        $url = $prefix . '/';
+        $slug = self::PAGE_SLUGS[$page] ?? '';
 
-        if ($page !== '' && $page !== 'home') {
-            $url .= '?page=' . rawurlencode($page);
+        if ($slug === '') {
+            return $prefix . '/';
         }
 
-        return $url;
+        return $prefix . '/' . $slug . '/';
+    }
+
+    public static function sitemap(string $basePath): string
+    {
+        $normalizedBasePath = self::normalize($basePath);
+        $prefix = $normalizedBasePath === '' ? '' : $normalizedBasePath;
+
+        return $prefix . '/sitemap.xml';
+    }
+
+    public static function pageFromPath(string $path): ?string
+    {
+        $normalizedPath = trim($path, '/');
+
+        if ($normalizedPath === '') {
+            return 'home';
+        }
+
+        foreach (self::PAGE_SLUGS as $page => $slug) {
+            if ($slug !== '' && $normalizedPath === $slug) {
+                return $page;
+            }
+        }
+
+        return null;
     }
 }

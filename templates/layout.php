@@ -7,12 +7,23 @@ use TakeHomePay\Support\BasePath;
 
 /** @var string $page */
 /** @var string $title */
+/** @var string $metaDescription */
+/** @var string $canonicalUrl */
+/** @var string $robotsMeta */
+/** @var string $openGraphType */
+/** @var string $siteName */
 /** @var string $basePath */
+/** @var string $originUrl */
+/** @var string $siteUrl */
+/** @var string $sitemapUrl */
+/** @var string $ogImageUrl */
+/** @var array<int, array<string, mixed>> $jsonLd */
 /** @var array<string, array<string, mixed>> $taxYears */
 /** @var array<string, mixed> $form */
 /** @var array<string, mixed>|null $result */
 /** @var array<int, string> $errors */
 /** @var array<int, array<string, string>> $guides */
+/** @var array<int, array{question:string, answer:string}> $faqItems */
 /** @var Format $format */
 
 $calculatorBootstrap = [
@@ -36,8 +47,37 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($title) ?></title>
-    <meta name="description" content="Calculate UK take-home pay with current tax, National Insurance, pension, and student loan assumptions.">
+    <meta name="description" content="<?= htmlspecialchars($metaDescription) ?>">
+    <meta name="robots" content="<?= htmlspecialchars($robotsMeta) ?>">
+    <meta name="author" content="No Cap Tools">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl) ?>">
+    <link rel="alternate" hreflang="en-GB" href="<?= htmlspecialchars($canonicalUrl) ?>">
+    <link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($canonicalUrl) ?>">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="<?= htmlspecialchars($openGraphType) ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($siteName) ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($title) ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($metaDescription) ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($canonicalUrl) ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($ogImageUrl) ?>">
+    <meta property="og:image:alt" content="No Cap Tools UK take-home pay calculator preview">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?= htmlspecialchars($title) ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($metaDescription) ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($ogImageUrl) ?>">
+    <link rel="icon" href="<?= htmlspecialchars($assetUrl('assets/favicons/favicon.svg')) ?>" type="image/svg+xml">
+    <link rel="icon" href="<?= htmlspecialchars($assetUrl('assets/favicons/favicon-32x32.png')) ?>" sizes="32x32" type="image/png">
+    <link rel="icon" href="<?= htmlspecialchars($assetUrl('assets/favicons/favicon-16x16.png')) ?>" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="<?= htmlspecialchars($assetUrl('assets/favicons/apple-touch-icon.png')) ?>">
+    <link rel="manifest" href="<?= htmlspecialchars($assetUrl('assets/favicons/site.webmanifest')) ?>">
+    <meta name="theme-color" content="#d95d39">
     <link rel="stylesheet" href="<?= htmlspecialchars($assetUrl('assets/css/styles.css')) ?>">
+    <?php foreach ($jsonLd as $schema): ?>
+        <script type="application/ld+json"><?= json_encode($schema, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
+    <?php endforeach; ?>
 </head>
 <body>
 <div class="page-shell">
@@ -51,7 +91,47 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
     </header>
 
     <?php if ($page === 'home'): ?>
-        <main class="calculator-layout">
+        <main>
+        <section class="hero-layout">
+            <section class="hero-card">
+                <div class="eyebrow">UK PAYE estimate</div>
+                <h1>UK take-home pay calculator for salary, pension and student loan estimates.</h1>
+                <p class="lede">Calculate 2026/27 UK net salary using PAYE tax, National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
+                <div class="hero-metrics">
+                    <div>
+                        <span>Tax year</span>
+                        <strong>2026/27 ready</strong>
+                    </div>
+                    <div>
+                        <span>Includes</span>
+                        <strong>Income Tax, NI, pension</strong>
+                    </div>
+                    <div>
+                        <span>Student loans</span>
+                        <strong>Plan 1, 2, 4, 5 and PG</strong>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="ad-slot ad-slot--hero" aria-label="Advertisement">
+                <div class="ad-slot__label">Sponsored</div>
+                <div class="ad-slot__box ad-slot__box--leaderboard">300 x 250 above-the-fold feature ad</div>
+            </aside>
+        </section>
+
+        <section class="content-band">
+            <article class="content-panel">
+                <h2>Estimate UK net pay quickly, then inspect the deduction breakdown.</h2>
+                <p>The calculator is designed for salary comparisons, budgeting, and sense-checking job offers. It annualises your earnings, applies the selected tax year, and shows how Income Tax, National Insurance, pension treatment, and student loan plans affect your monthly and weekly take-home pay.</p>
+                <p>Use the supporting <a href="<?= htmlspecialchars($routeUrl('guides')) ?>">guides</a> for the methodology and the <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a> for common edge cases such as Scottish tax bands, postgraduate loans, or pension salary sacrifice.</p>
+            </article>
+            <aside class="ad-slot" aria-label="Advertisement">
+                <div class="ad-slot__label">Sponsored</div>
+                <div class="ad-slot__box ad-slot__box--rectangle">300 x 250 in-content slot</div>
+            </aside>
+        </section>
+
+        <section class="calculator-layout">
             <section class="panel panel--form">
                 <h2>Calculator</h2>
                 <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
@@ -314,44 +394,6 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     </div>
                 <?php endif; ?>
             </section>
-        </main>
-
-        <main class="hero-layout">
-            <section class="hero-card">
-                <div class="eyebrow">UK PAYE estimate</div>
-                <h1>Calculate your UK take-home pay in seconds.</h1>
-                <p class="lede">Built for salary comparisons, offer decisions, and fast after-tax estimates with pension and student loan support.</p>
-                <div class="hero-metrics">
-                    <div>
-                        <span>Tax year</span>
-                        <strong>2026/27 ready</strong>
-                    </div>
-                    <div>
-                        <span>Includes</span>
-                        <strong>Income Tax, NI, pension</strong>
-                    </div>
-                    <div>
-                        <span>Student loans</span>
-                        <strong>Plan 1, 2, 4, 5 and PG</strong>
-                    </div>
-                </div>
-            </section>
-
-            <aside class="ad-slot ad-slot--hero" aria-label="Advertisement">
-                <div class="ad-slot__label">Sponsored</div>
-                <div class="ad-slot__box ad-slot__box--leaderboard">300 x 250 above-the-fold feature ad</div>
-            </aside>
-        </main>
-
-        <section class="content-band">
-            <article class="content-panel">
-                <h2>Why this calculator is useful</h2>
-                <p>Offer comparisons are usually framed around gross salary. What matters in practice is the cash left after PAYE tax, National Insurance, pension, and loan deductions. This calculator keeps that view front and centre.</p>
-            </article>
-            <aside class="ad-slot" aria-label="Advertisement">
-                <div class="ad-slot__label">Sponsored</div>
-                <div class="ad-slot__box ad-slot__box--rectangle">300 x 250 in-content slot</div>
-            </aside>
         </section>
 
         <section class="guides-grid">
@@ -365,26 +407,22 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
 
         <section class="faq-band">
             <div class="faq-card">
-                <h2>Frequently asked questions</h2>
-                <details>
-                    <summary>Does this cover Scotland?</summary>
-                    <p>Yes. Scottish tax bands are available when you choose Scotland or use a tax code that starts with <code>S</code>.</p>
-                </details>
-                <details>
-                    <summary>Can I include student loans and pension?</summary>
-                    <p>Yes. The calculator supports undergraduate student loan plans, postgraduate loans, and three pension treatments.</p>
-                </details>
-                <details>
-                    <summary>Where would ads appear?</summary>
-                    <p>Dedicated ad containers sit around supporting content, not between the core input form and the results.</p>
-                </details>
+                <h2>Frequently asked questions about UK take-home pay</h2>
+                <?php foreach ($faqItems as $faqItem): ?>
+                    <details>
+                        <summary><?= htmlspecialchars($faqItem['question']) ?></summary>
+                        <p><?= htmlspecialchars($faqItem['answer']) ?></p>
+                    </details>
+                <?php endforeach; ?>
             </div>
         </section>
+        </main>
     <?php else: ?>
         <main class="page-content">
             <?php if ($page === 'guides'): ?>
                 <section class="legal-card">
                     <h1>UK tax guides</h1>
+                    <p>These guides explain how the calculator translates gross salary into annual, monthly, and weekly take-home pay. They are written to make the assumptions behind PAYE deductions explicit rather than hiding the calculation steps.</p>
                     <?php foreach ($guides as $guide): ?>
                         <article class="guide-row">
                             <h2><?= htmlspecialchars($guide['title']) ?></h2>
@@ -402,16 +440,28 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <section class="legal-card">
                     <h1>Frequently asked questions</h1>
                     <p>The calculator uses the published thresholds included in the selected tax year and displays the assumptions used for each result.</p>
+                    <?php foreach ($faqItems as $faqItem): ?>
+                        <article class="guide-row">
+                            <h2><?= htmlspecialchars($faqItem['question']) ?></h2>
+                            <p><?= htmlspecialchars($faqItem['answer']) ?></p>
+                        </article>
+                    <?php endforeach; ?>
                 </section>
             <?php elseif ($page === 'privacy'): ?>
                 <section class="legal-card">
                     <h1>Privacy policy</h1>
-                    <p>This demo calculator does not store salary inputs on the server. If analytics or advertising is added later, the policy should be expanded before launch.</p>
+                    <p>This calculator does not require an account and does not intentionally store the salary, tax code, pension, or student loan values that you enter. Any future analytics, advertising, or user-tracking changes should be documented here before they are released.</p>
                 </section>
             <?php elseif ($page === 'cookies'): ?>
                 <section class="legal-card">
                     <h1>Cookie policy</h1>
-                    <p>This site can operate without functional cookies. Advertising or analytics tags should only be added with a clear cookie notice and consent flow where required.</p>
+                    <p>This site can operate without functional cookies. If analytics, advertising, or personalisation tags are added later, they should only be deployed with a clear notice and any consent controls required by UK law.</p>
+                </section>
+            <?php elseif ($page === 'not-found'): ?>
+                <section class="legal-card">
+                    <h1>Page not found</h1>
+                    <p>The page you requested does not exist. Use the main calculator, guides, or FAQ to continue exploring the site.</p>
+                    <p><a href="<?= htmlspecialchars($routeUrl()) ?>">Return to the UK take-home pay calculator</a></p>
                 </section>
             <?php endif; ?>
         </main>

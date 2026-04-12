@@ -19,4 +19,4 @@ cd "$APP_DIR"
 composer install --no-dev --optimize-autoloader --no-interaction
 
 install -d "$LANDING_DIR"
-install -m 0644 deploy/root/index.html "$LANDING_DIR/index.html"
+cp -a deploy/root/. "$LANDING_DIR/"
