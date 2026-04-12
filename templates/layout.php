@@ -47,33 +47,6 @@ $calculatorBootstrap = [
     </header>
 
     <?php if ($page === 'home'): ?>
-        <main class="hero-layout">
-            <section class="hero-card">
-                <div class="eyebrow">UK PAYE estimate</div>
-                <h1>Calculate your UK take-home pay in seconds.</h1>
-                <p class="lede">Built for salary comparisons, offer decisions, and fast after-tax estimates with pension and student loan support.</p>
-                <div class="hero-metrics">
-                    <div>
-                        <span>Tax year</span>
-                        <strong>2026/27 ready</strong>
-                    </div>
-                    <div>
-                        <span>Includes</span>
-                        <strong>Income Tax, NI, pension</strong>
-                    </div>
-                    <div>
-                        <span>Student loans</span>
-                        <strong>Plan 1, 2, 4, 5 and PG</strong>
-                    </div>
-                </div>
-            </section>
-
-            <aside class="ad-slot ad-slot--hero" aria-label="Advertisement">
-                <div class="ad-slot__label">Ad placement</div>
-                <div class="ad-slot__box ad-slot__box--leaderboard">728 x 90 leaderboard</div>
-            </aside>
-        </main>
-
         <main class="calculator-layout">
             <section class="panel panel--form">
                 <h2>Calculator</h2>
@@ -313,6 +286,33 @@ $calculatorBootstrap = [
                     </div>
                 <?php endif; ?>
             </section>
+        </main>
+
+        <main class="hero-layout">
+            <section class="hero-card">
+                <div class="eyebrow">UK PAYE estimate</div>
+                <h1>Calculate your UK take-home pay in seconds.</h1>
+                <p class="lede">Built for salary comparisons, offer decisions, and fast after-tax estimates with pension and student loan support.</p>
+                <div class="hero-metrics">
+                    <div>
+                        <span>Tax year</span>
+                        <strong>2026/27 ready</strong>
+                    </div>
+                    <div>
+                        <span>Includes</span>
+                        <strong>Income Tax, NI, pension</strong>
+                    </div>
+                    <div>
+                        <span>Student loans</span>
+                        <strong>Plan 1, 2, 4, 5 and PG</strong>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="ad-slot ad-slot--hero" aria-label="Advertisement">
+                <div class="ad-slot__label">Ad placement</div>
+                <div class="ad-slot__box ad-slot__box--leaderboard">728 x 90 leaderboard</div>
+            </aside>
         </main>
 
         <section class="content-band">

@@ -76,6 +76,10 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('window.takeHomePayCalculatorConfig =', $html);
         self::assertStringContainsString('"2026-2027"', $html);
         self::assertStringContainsString('data-result-field="net_annual"', $html);
+        self::assertLessThan(
+            strpos($html, 'Calculate your UK take-home pay in seconds.'),
+            strpos($html, '<section class="panel panel--form">')
+        );
     }
 
     public function testCalculatorSubmissionRendersResults(): void
