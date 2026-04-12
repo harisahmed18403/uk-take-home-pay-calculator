@@ -393,6 +393,27 @@ summary {
     margin-top: 18px;
 }
 
+.guide-formula {
+    margin: 14px 0 10px;
+}
+
+.guide-formula code {
+    display: block;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: rgba(31, 42, 46, 0.06);
+    border: 1px solid rgba(31, 42, 46, 0.08);
+    font-size: 0.95rem;
+    white-space: normal;
+}
+
+.guide-steps {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--muted);
+    line-height: 1.65;
+}
+
 @media (max-width: 980px) {
     .hero-layout,
     .calculator-layout,

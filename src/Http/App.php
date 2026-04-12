@@ -31,9 +31,39 @@ final class App
             'result' => null,
             'errors' => [],
             'guides' => [
-                ['title' => 'How PAYE works', 'body' => 'PAYE deducts Income Tax and National Insurance from employment income throughout the tax year.'],
-                ['title' => 'Student loan deductions', 'body' => 'Repayments are based on income over your plan threshold and can stack with postgraduate loans.'],
-                ['title' => 'Pension treatment', 'body' => 'Salary sacrifice can reduce both Income Tax and NI, while net pay usually reduces taxable pay only.'],
+                [
+                    'title' => '1. Annualise your pay first',
+                    'body' => 'The calculator converts your pay into an annual figure before any deductions are worked out.',
+                    'formula' => 'gross_annual = annual salary or (monthly salary × 12) or (weekly salary × 52) + bonus',
+                    'steps' => [
+                        'Start with the salary amount you entered.',
+                        'Convert monthly pay to annual by multiplying by 12, or weekly pay by multiplying by 52.',
+                        'Add any bonus or additional income to get gross annual pay.',
+                    ],
+                ],
+                [
+                    'title' => '2. Work out taxable pay and deductions',
+                    'body' => 'Income Tax, National Insurance, and pension are calculated from slightly different versions of your pay.',
+                    'formula' => 'net_annual = gross_annual - income_tax - national_insurance - student_loan - pension',
+                    'steps' => [
+                        'Pension is gross annual pay multiplied by your pension percentage.',
+                        'Taxable pay is reduced by pension for salary sacrifice and net pay arrangements.',
+                        'NI-able pay is reduced only for salary sacrifice pension.',
+                        'Income Tax is applied band by band after your personal allowance and tax code adjustments.',
+                        'National Insurance is charged at the main rate up to the upper earnings limit and the additional rate above it.',
+                    ],
+                ],
+                [
+                    'title' => '3. Add student loans and derive take-home pay',
+                    'body' => 'Student loan deductions are added after their threshold checks, and then the calculator converts the final net figure into monthly and weekly views.',
+                    'formula' => 'student_loan = max(0, gross_annual - threshold) × rate',
+                    'steps' => [
+                        'For each selected student loan plan, only the earnings above its threshold are charged.',
+                        'If a postgraduate loan is selected, it stacks on top of the undergraduate plan.',
+                        'Total deductions are added together and subtracted from gross annual pay.',
+                        'Monthly net pay is net annual pay divided by 12, and weekly net pay is net annual pay divided by 52.',
+                    ],
+                ],
             ],
         ];
 

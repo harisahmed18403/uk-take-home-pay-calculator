@@ -361,6 +361,12 @@ $calculatorBootstrap = [
                         <article class="guide-row">
                             <h2><?= htmlspecialchars($guide['title']) ?></h2>
                             <p><?= htmlspecialchars($guide['body']) ?></p>
+                            <p class="guide-formula"><code><?= htmlspecialchars((string) $guide['formula']) ?></code></p>
+                            <ol class="guide-steps">
+                                <?php foreach ($guide['steps'] as $step): ?>
+                                    <li><?= htmlspecialchars((string) $step) ?></li>
+                                <?php endforeach; ?>
+                            </ol>
                         </article>
                     <?php endforeach; ?>
                 </section>

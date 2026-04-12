@@ -129,6 +129,16 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('form.addEventListener("input", update);', $calculatorForm);
     }
 
+    public function testGuidesPageShowsFormulasAndStepByStepWalkthrough(): void
+    {
+        $html = $this->request('GET', '/index.php?page=guides');
+
+        self::assertStringContainsString('Annualise your pay first', $html);
+        self::assertStringContainsString('gross_annual = annual salary or (monthly salary × 12) or (weekly salary × 52) + bonus', $html);
+        self::assertStringContainsString('net_annual = gross_annual - income_tax - national_insurance - student_loan - pension', $html);
+        self::assertStringContainsString('For each selected student loan plan, only the earnings above its threshold are charged.', $html);
+    }
+
     #[DataProvider('secondaryPages')]
     public function testSecondaryPagesRender(string $page, string $expectedHeading): void
     {
