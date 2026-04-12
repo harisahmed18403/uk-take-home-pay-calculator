@@ -71,14 +71,7 @@
     }
 
     if (mobileResultsBar) {
-        mobileResultsBar.addEventListener("click", function () {
-            mobileResultsBar.hidden = true;
-
-            resultsSection.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-            });
-        });
+        mobileResultsBar.addEventListener("click", scrollToResults);
 
         window.addEventListener("scroll", syncMobileResultsBar, { passive: true });
         window.addEventListener("resize", syncMobileResultsBar);
@@ -216,6 +209,15 @@
         if (node) {
             node.textContent = value;
         }
+    }
+
+    function scrollToResults() {
+        mobileResultsBar.hidden = true;
+
+        resultsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
     }
 
     function syncMobileResultsBar() {

@@ -61,6 +61,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                         <span><strong data-mobile-result="net_monthly"><?= $result !== null ? htmlspecialchars($format::currency((float) $result['net_monthly'])) : '£0.00' ?></strong><small>Monthly</small></span>
                         <span><strong data-mobile-result="net_weekly"><?= $result !== null ? htmlspecialchars($format::currency((float) $result['net_weekly'])) : '£0.00' ?></strong><small>Weekly</small></span>
                     </span>
+                    <span class="mobile-results-bar__link">Full breakdown</span>
                 </button>
                 <p class="section-copy">Choose your salary, tax setup, pension treatment, and student loan settings.</p>
 

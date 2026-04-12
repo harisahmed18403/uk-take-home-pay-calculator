@@ -80,6 +80,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('data-result-field="net_annual"', $html);
         self::assertStringContainsString('data-mobile-results-bar', $html);
         self::assertStringContainsString('Current take-home pay', $html);
+        self::assertStringContainsString('Full breakdown', $html);
         self::assertStringContainsString('data-mobile-result="net_monthly"', $html);
         self::assertStringContainsString('data-results-heading', $html);
         self::assertStringContainsString('href="/?page=guides"', $html);
@@ -137,6 +138,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Results update instantly as you edit the form.', $this->request('GET', '/index.php'));
         self::assertStringContainsString('new Calculator(config)', $calculatorForm);
         self::assertStringContainsString('form.addEventListener("input", update);', $calculatorForm);
+        self::assertStringContainsString('mobileResultsBar.addEventListener("click", scrollToResults);', $calculatorForm);
+        self::assertStringContainsString('function scrollToResults()', $calculatorForm);
         self::assertStringContainsString('scrollIntoView', $calculatorForm);
         self::assertStringContainsString('syncMobileResultsBar', $calculatorForm);
         self::assertStringContainsString('mobileResultsBar.hidden = true;', $calculatorForm);
@@ -144,6 +147,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('resultsObserver.observe(resultsHeading);', $calculatorForm);
         self::assertStringContainsString('const resultsVisible = !resultShell.hidden && (resultsAreInView || isResultsHeadingVisible());', $calculatorForm);
         self::assertStringContainsString('.mobile-results-bar[hidden]', $styles);
+        self::assertStringContainsString('.mobile-results-bar__link', $styles);
         self::assertStringContainsString('position: sticky;', $styles);
         self::assertStringContainsString('top: 12px;', $styles);
     }
