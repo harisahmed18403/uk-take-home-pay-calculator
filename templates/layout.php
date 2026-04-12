@@ -97,6 +97,11 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <div class="eyebrow">UK PAYE estimate</div>
                 <h1>UK take-home pay calculator for salary, pension and student loan estimates.</h1>
                 <p class="lede">Calculate 2026/27 UK net salary using PAYE tax, National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
+                <nav class="seo-links" aria-label="On-page sections">
+                    <a href="#calculator">Use the calculator</a>
+                    <a href="#salary-guides">Read the tax guides</a>
+                    <a href="#salary-faq">Check the FAQ</a>
+                </nav>
                 <div class="hero-metrics">
                     <div>
                         <span>Tax year</span>
@@ -131,7 +136,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             </aside>
         </section>
 
-        <section class="calculator-layout">
+        <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
                 <h2>Calculator</h2>
                 <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
@@ -396,7 +401,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             </section>
         </section>
 
-        <section class="guides-grid">
+        <section id="salary-guides" class="guides-grid">
             <?php foreach ($guides as $guide): ?>
                 <article class="guide-card">
                     <h3><?= htmlspecialchars($guide['title']) ?></h3>
@@ -405,7 +410,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             <?php endforeach; ?>
         </section>
 
-        <section class="faq-band">
+        <section id="salary-faq" class="faq-band">
             <div class="faq-card">
                 <h2>Frequently asked questions about UK take-home pay</h2>
                 <?php foreach ($faqItems as $faqItem): ?>
@@ -419,6 +424,17 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         </main>
     <?php else: ?>
         <main class="page-content">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="<?= htmlspecialchars($routeUrl()) ?>">Calculator</a>
+                <span>/</span>
+                <span><?= htmlspecialchars(match ($page) {
+                    'guides' => 'Guides',
+                    'faq' => 'FAQ',
+                    'privacy' => 'Privacy Policy',
+                    'cookies' => 'Cookie Policy',
+                    default => 'Page',
+                }) ?></span>
+            </nav>
             <?php if ($page === 'guides'): ?>
                 <section class="legal-card">
                     <h1>UK tax guides</h1>
@@ -451,11 +467,13 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <section class="legal-card">
                     <h1>Privacy policy</h1>
                     <p>This calculator does not require an account and does not intentionally store the salary, tax code, pension, or student loan values that you enter. Any future analytics, advertising, or user-tracking changes should be documented here before they are released.</p>
+                    <p>For product and methodology context, return to the <a href="<?= htmlspecialchars($routeUrl()) ?>">calculator</a> or review the <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a>.</p>
                 </section>
             <?php elseif ($page === 'cookies'): ?>
                 <section class="legal-card">
                     <h1>Cookie policy</h1>
                     <p>This site can operate without functional cookies. If analytics, advertising, or personalisation tags are added later, they should only be deployed with a clear notice and any consent controls required by UK law.</p>
+                    <p>For product and methodology context, return to the <a href="<?= htmlspecialchars($routeUrl()) ?>">calculator</a> or review the <a href="<?= htmlspecialchars($routeUrl('guides')) ?>">guides</a>.</p>
                 </section>
             <?php elseif ($page === 'not-found'): ?>
                 <section class="legal-card">

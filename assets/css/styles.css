@@ -79,6 +79,30 @@ a {
     color: var(--muted);
 }
 
+.seo-links,
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.seo-links {
+    margin-top: 24px;
+}
+
+.seo-links a,
+.breadcrumb a {
+    text-decoration: none;
+    color: var(--accent-dark);
+}
+
+.breadcrumb {
+    margin-bottom: 12px;
+    padding: 0 8px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
 .hero-layout,
 .calculator-layout,
 .content-band {
