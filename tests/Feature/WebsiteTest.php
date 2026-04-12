@@ -142,6 +142,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('mobileResultsBar.hidden = true;', $calculatorForm);
         self::assertStringContainsString('IntersectionObserver', $calculatorForm);
         self::assertStringContainsString('resultsObserver.observe(resultsHeading);', $calculatorForm);
+        self::assertStringContainsString('const resultsVisible = !resultShell.hidden && (resultsAreInView || isResultsHeadingVisible());', $calculatorForm);
         self::assertStringContainsString('.mobile-results-bar[hidden]', $styles);
         self::assertStringContainsString('position: sticky;', $styles);
         self::assertStringContainsString('top: 12px;', $styles);

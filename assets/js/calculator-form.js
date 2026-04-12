@@ -224,14 +224,13 @@
         }
 
         const isMobile = window.matchMedia("(max-width: 640px)").matches;
-        const hasVisibleResults = !resultShell.hidden;
 
-        if (!isMobile || !hasVisibleResults) {
+        if (!isMobile) {
             mobileResultsBar.hidden = true;
             return;
         }
 
-        const resultsVisible = resultsAreInView || isResultsHeadingVisible();
+        const resultsVisible = !resultShell.hidden && (resultsAreInView || isResultsHeadingVisible());
 
         mobileResultsBar.hidden = resultsVisible;
     }
