@@ -97,66 +97,6 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
 
     <?php if ($page === 'home'): ?>
         <main>
-        <section class="hero-layout">
-            <section class="hero-card">
-                <div class="eyebrow">UK PAYE estimate</div>
-                <h1>UK take-home pay calculator for salary, pension and student loan estimates.</h1>
-                <p class="lede">Calculate 2026/27 UK net salary using PAYE tax, National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
-                <nav class="seo-links" aria-label="On-page sections">
-                    <a href="#calculator">Use the calculator</a>
-                    <a href="#salary-guides">Read the tax guides</a>
-                    <a href="#salary-faq">Check the FAQ</a>
-                </nav>
-                <p class="update-note">Last updated <?= htmlspecialchars($lastUpdatedHuman) ?> for 2026/27 thresholds and deduction rules.</p>
-                <div class="hero-metrics">
-                    <div>
-                        <span>Tax year</span>
-                        <strong>2026/27 ready</strong>
-                    </div>
-                    <div>
-                        <span>Includes</span>
-                        <strong>Income Tax, NI, pension</strong>
-                    </div>
-                    <div>
-                        <span>Student loans</span>
-                        <strong>Plan 1, 2, 4, 5 and PG</strong>
-                    </div>
-                </div>
-            </section>
-
-            <aside class="ad-slot ad-slot--hero" aria-label="Advertisement">
-                <div class="ad-slot__label">Sponsored</div>
-                <div class="ad-slot__box ad-slot__box--leaderboard">300 x 250 above-the-fold feature ad</div>
-            </aside>
-        </section>
-
-        <section class="content-band">
-            <article class="content-panel">
-                <h2>Estimate UK net pay quickly, then inspect the deduction breakdown.</h2>
-                <p>The calculator is designed for salary comparisons, budgeting, and sense-checking job offers. It annualises your earnings, applies the selected tax year, and shows how Income Tax, National Insurance, pension treatment, and student loan plans affect your monthly and weekly take-home pay.</p>
-                <p>Use the supporting <a href="<?= htmlspecialchars($routeUrl('guides')) ?>">guides</a> for the methodology and the <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a> for common edge cases such as Scottish tax bands, postgraduate loans, or pension salary sacrifice.</p>
-            </article>
-            <aside class="ad-slot" aria-label="Advertisement">
-                <div class="ad-slot__label">Sponsored</div>
-                <div class="ad-slot__box ad-slot__box--rectangle">300 x 250 in-content slot</div>
-            </aside>
-        </section>
-
-        <section class="intent-grid" aria-label="Popular UK salary calculator scenarios">
-            <article class="intent-card">
-                <h2>Monthly salary to monthly take-home pay</h2>
-                <p>Switch the salary period to monthly when you want a fast estimate from a payslip amount or recruiter message instead of an annual salary figure.</p>
-            </article>
-            <article class="intent-card">
-                <h2>Salary sacrifice pension comparison</h2>
-                <p>Check how salary sacrifice changes net pay compared with net pay arrangement or post-tax pension contributions using the same gross salary.</p>
-            </article>
-            <article class="intent-card">
-                <h2>Bonus and student loan impact</h2>
-                <p>Add bonus income and loan plans together to see how extra earnings affect deductions and the effective take-home rate.</p>
-            </article>
-        </section>
-
         <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
                 <h2>Calculator</h2>
@@ -420,6 +360,66 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     </div>
                 <?php endif; ?>
             </section>
+        </section>
+
+        <section class="hero-layout">
+            <section class="hero-card">
+                <div class="eyebrow">UK PAYE estimate</div>
+                <h1>UK take-home pay calculator for salary, pension and student loan estimates.</h1>
+                <p class="lede">Calculate 2026/27 UK net salary using PAYE tax, National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
+                <nav class="seo-links" aria-label="On-page sections">
+                    <a href="#calculator">Use the calculator</a>
+                    <a href="#salary-guides">Read the tax guides</a>
+                    <a href="#salary-faq">Check the FAQ</a>
+                </nav>
+                <p class="update-note">Last updated <?= htmlspecialchars($lastUpdatedHuman) ?> for 2026/27 thresholds and deduction rules.</p>
+                <div class="hero-metrics">
+                    <div>
+                        <span>Tax year</span>
+                        <strong>2026/27 ready</strong>
+                    </div>
+                    <div>
+                        <span>Includes</span>
+                        <strong>Income Tax, NI, pension</strong>
+                    </div>
+                    <div>
+                        <span>Student loans</span>
+                        <strong>Plan 1, 2, 4, 5 and PG</strong>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="ad-slot ad-slot--hero" aria-label="Advertisement">
+                <div class="ad-slot__label">Sponsored</div>
+                <div class="ad-slot__box ad-slot__box--leaderboard">300 x 250 above-the-fold feature ad</div>
+            </aside>
+        </section>
+
+        <section class="content-band">
+            <article class="content-panel">
+                <h2>Estimate UK net pay quickly, then inspect the deduction breakdown.</h2>
+                <p>The calculator is designed for salary comparisons, budgeting, and sense-checking job offers. It annualises your earnings, applies the selected tax year, and shows how Income Tax, National Insurance, pension treatment, and student loan plans affect your monthly and weekly take-home pay.</p>
+                <p>Use the supporting <a href="<?= htmlspecialchars($routeUrl('guides')) ?>">guides</a> for the methodology and the <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a> for common edge cases such as Scottish tax bands, postgraduate loans, or pension salary sacrifice.</p>
+            </article>
+            <aside class="ad-slot" aria-label="Advertisement">
+                <div class="ad-slot__label">Sponsored</div>
+                <div class="ad-slot__box ad-slot__box--rectangle">300 x 250 in-content slot</div>
+            </aside>
+        </section>
+
+        <section class="intent-grid" aria-label="Popular UK salary calculator scenarios">
+            <article class="intent-card">
+                <h2>Monthly salary to monthly take-home pay</h2>
+                <p>Switch the salary period to monthly when you want a fast estimate from a payslip amount or recruiter message instead of an annual salary figure.</p>
+            </article>
+            <article class="intent-card">
+                <h2>Salary sacrifice pension comparison</h2>
+                <p>Check how salary sacrifice changes net pay compared with net pay arrangement or post-tax pension contributions using the same gross salary.</p>
+            </article>
+            <article class="intent-card">
+                <h2>Bonus and student loan impact</h2>
+                <p>Add bonus income and loan plans together to see how extra earnings affect deductions and the effective take-home rate.</p>
+            </article>
         </section>
 
         <section id="salary-guides" class="guides-grid">
