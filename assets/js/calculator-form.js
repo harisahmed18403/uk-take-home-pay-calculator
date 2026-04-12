@@ -15,6 +15,7 @@
     const liveNote = document.querySelector("[data-live-note]");
     const submitButton = document.querySelector("[data-calculator-submit]");
     const postgraduateToggle = document.querySelector("[data-postgraduate-toggle]");
+    const mobileResultsBar = document.querySelector("[data-mobile-results-bar]");
 
     if (!form || !errorsBox || !emptyState || !resultShell || !breakdownTable || !assumptionsList) {
         return;
@@ -38,6 +39,9 @@
     const resultMeta = new Map(
         Array.from(document.querySelectorAll("[data-result-meta]")).map((node) => [node.getAttribute("data-result-meta"), node])
     );
+    const mobileResultFields = new Map(
+        Array.from(document.querySelectorAll("[data-mobile-result]")).map((node) => [node.getAttribute("data-mobile-result"), node])
+    );
     const baseBreakdownCount = 4;
 
     form.dataset.live = "true";
@@ -60,6 +64,18 @@
 
     if (postgraduateToggle) {
         postgraduateToggle.addEventListener("change", update);
+    }
+
+    if (mobileResultsBar) {
+        mobileResultsBar.addEventListener("click", function () {
+            document.querySelector("[data-calculator-results]").scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        });
+
+        window.addEventListener("scroll", syncMobileResultsBar, { passive: true });
+        window.addEventListener("resize", syncMobileResultsBar);
     }
 
     update();
@@ -122,11 +138,13 @@
         errorsBox.hidden = true;
         emptyState.hidden = false;
         resultShell.hidden = true;
+        syncMobileResultsBar();
     }
 
     function hideResults() {
         emptyState.hidden = true;
         resultShell.hidden = true;
+        syncMobileResultsBar();
     }
 
     function renderResult(result) {
@@ -150,6 +168,10 @@
 
         renderBreakdown(result.student_loan_breakdown);
         renderAssumptions(result.assumptions);
+        setText(mobileResultFields, "net_annual", currencyFormatter.format(result.net_annual));
+        setText(mobileResultFields, "net_monthly", currencyFormatter.format(result.net_monthly));
+        setText(mobileResultFields, "net_weekly", currencyFormatter.format(result.net_weekly));
+        syncMobileResultsBar();
     }
 
     function renderBreakdown(studentLoanBreakdown) {
@@ -187,6 +209,25 @@
         if (node) {
             node.textContent = value;
         }
+    }
+
+    function syncMobileResultsBar() {
+        if (!mobileResultsBar) {
+            return;
+        }
+
+        const isMobile = window.matchMedia("(max-width: 640px)").matches;
+        const hasVisibleResults = !resultShell.hidden;
+
+        if (!isMobile || !hasVisibleResults) {
+            mobileResultsBar.hidden = true;
+            return;
+        }
+
+        const resultsRect = document.querySelector("[data-calculator-results]").getBoundingClientRect();
+        const resultsVisible = resultsRect.top < window.innerHeight && resultsRect.bottom > 0;
+
+        mobileResultsBar.hidden = resultsVisible;
     }
 
     function formatRegion(region) {

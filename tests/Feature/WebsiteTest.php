@@ -76,6 +76,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('window.takeHomePayCalculatorConfig =', $html);
         self::assertStringContainsString('"2026-2027"', $html);
         self::assertStringContainsString('data-result-field="net_annual"', $html);
+        self::assertStringContainsString('data-mobile-results-bar', $html);
+        self::assertStringContainsString('data-mobile-result="net_monthly"', $html);
         self::assertLessThan(
             strpos($html, 'Calculate your UK take-home pay in seconds.'),
             strpos($html, '<section class="panel panel--form">')
@@ -127,6 +129,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Results update instantly as you edit the form.', $this->request('GET', '/index.php'));
         self::assertStringContainsString('new Calculator(config)', $calculatorForm);
         self::assertStringContainsString('form.addEventListener("input", update);', $calculatorForm);
+        self::assertStringContainsString('scrollIntoView', $calculatorForm);
+        self::assertStringContainsString('syncMobileResultsBar', $calculatorForm);
     }
 
     public function testGuidesPageShowsFormulasAndStepByStepWalkthrough(): void

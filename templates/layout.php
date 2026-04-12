@@ -288,6 +288,15 @@ $calculatorBootstrap = [
             </section>
         </main>
 
+        <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
+            <span class="mobile-results-bar__prompt">View your results</span>
+            <span class="mobile-results-bar__grid">
+                <span><strong data-mobile-result="net_annual"><?= $result !== null ? htmlspecialchars($format::currency((float) $result['net_annual'])) : '£0.00' ?></strong><small>Annual</small></span>
+                <span><strong data-mobile-result="net_monthly"><?= $result !== null ? htmlspecialchars($format::currency((float) $result['net_monthly'])) : '£0.00' ?></strong><small>Monthly</small></span>
+                <span><strong data-mobile-result="net_weekly"><?= $result !== null ? htmlspecialchars($format::currency((float) $result['net_weekly'])) : '£0.00' ?></strong><small>Weekly</small></span>
+            </span>
+        </button>
+
         <main class="hero-layout">
             <section class="hero-card">
                 <div class="eyebrow">UK PAYE estimate</div>
