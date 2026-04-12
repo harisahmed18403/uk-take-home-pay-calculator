@@ -1,0 +1,22 @@
+{
+  "name": "haris/uk-take-home-pay-calculator",
+  "description": "UK take home pay calculator built with PHP, HTML, and CSS.",
+  "type": "project",
+  "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "^11.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "TakeHomePay\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "TakeHomePay\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  }
+}
