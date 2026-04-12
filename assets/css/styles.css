@@ -80,7 +80,8 @@ a {
 }
 
 .seo-links,
-.breadcrumb {
+.breadcrumb,
+.toc {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
@@ -91,7 +92,8 @@ a {
 }
 
 .seo-links a,
-.breadcrumb a {
+.breadcrumb a,
+.toc a {
     text-decoration: none;
     color: var(--accent-dark);
 }
@@ -101,6 +103,10 @@ a {
     padding: 0 8px;
     color: var(--muted);
     font-size: 0.95rem;
+}
+
+.toc {
+    margin: 18px 0 24px;
 }
 
 .hero-layout,

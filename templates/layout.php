@@ -439,8 +439,13 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <section class="legal-card">
                     <h1>UK tax guides</h1>
                     <p>These guides explain how the calculator translates gross salary into annual, monthly, and weekly take-home pay. They are written to make the assumptions behind PAYE deductions explicit rather than hiding the calculation steps.</p>
-                    <?php foreach ($guides as $guide): ?>
-                        <article class="guide-row">
+                    <nav class="toc" aria-label="Guide sections">
+                        <?php foreach ($guides as $index => $guide): ?>
+                            <a href="#guide-<?= $index + 1 ?>"><?= htmlspecialchars($guide['title']) ?></a>
+                        <?php endforeach; ?>
+                    </nav>
+                    <?php foreach ($guides as $index => $guide): ?>
+                        <article class="guide-row" id="guide-<?= $index + 1 ?>">
                             <h2><?= htmlspecialchars($guide['title']) ?></h2>
                             <p><?= htmlspecialchars($guide['body']) ?></p>
                             <p class="guide-formula"><code><?= htmlspecialchars((string) $guide['formula']) ?></code></p>
@@ -456,8 +461,13 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <section class="legal-card">
                     <h1>Frequently asked questions</h1>
                     <p>The calculator uses the published thresholds included in the selected tax year and displays the assumptions used for each result.</p>
-                    <?php foreach ($faqItems as $faqItem): ?>
-                        <article class="guide-row">
+                    <nav class="toc" aria-label="FAQ sections">
+                        <?php foreach ($faqItems as $index => $faqItem): ?>
+                            <a href="#faq-<?= $index + 1 ?>"><?= htmlspecialchars($faqItem['question']) ?></a>
+                        <?php endforeach; ?>
+                    </nav>
+                    <?php foreach ($faqItems as $index => $faqItem): ?>
+                        <article class="guide-row" id="faq-<?= $index + 1 ?>">
                             <h2><?= htmlspecialchars($faqItem['question']) ?></h2>
                             <p><?= htmlspecialchars($faqItem['answer']) ?></p>
                         </article>

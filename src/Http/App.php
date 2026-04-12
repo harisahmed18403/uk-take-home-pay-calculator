@@ -259,11 +259,42 @@ final class App
         $graph = [
             [
                 '@context' => 'https://schema.org',
+                '@type' => 'Organization',
+                'name' => $siteName,
+                'url' => Site::originUrl(),
+                'logo' => Site::absoluteUrl(BasePath::asset('assets/favicons/favicon.svg', $basePath)),
+            ],
+            [
+                '@context' => 'https://schema.org',
                 '@type' => 'WebSite',
                 'name' => $siteName,
                 'url' => $siteUrl . '/',
                 'inLanguage' => 'en-GB',
             ],
+        ];
+
+        $graph[] = [
+            '@context' => 'https://schema.org',
+            '@type' => match ($page) {
+                'guides' => 'CollectionPage',
+                'faq' => 'FAQPage',
+                default => 'WebPage',
+            },
+            'name' => match ($page) {
+                'guides' => 'UK tax guides',
+                'faq' => 'Frequently asked questions',
+                'privacy' => 'Privacy policy',
+                'cookies' => 'Cookie policy',
+                default => 'UK take-home pay calculator',
+            },
+            'url' => $canonicalUrl,
+            'isPartOf' => [
+                '@type' => 'WebSite',
+                'name' => $siteName,
+                'url' => $siteUrl . '/',
+            ],
+            'primaryImageOfPage' => Site::absoluteUrl(BasePath::asset('assets/seo/og-image.png', $basePath)),
+            'inLanguage' => 'en-GB',
         ];
 
         if ($page === 'home') {
@@ -281,6 +312,31 @@ final class App
                     'price' => '0',
                     'priceCurrency' => 'GBP',
                 ],
+            ];
+        }
+
+        if ($page === 'guides') {
+            $guideSteps = [];
+            $position = 1;
+            foreach ($this->guides() as $guide) {
+                foreach ($guide['steps'] as $step) {
+                    $guideSteps[] = [
+                        '@type' => 'HowToStep',
+                        'position' => $position,
+                        'name' => $step,
+                        'text' => $step,
+                    ];
+                    $position++;
+                }
+            }
+
+            $graph[] = [
+                '@context' => 'https://schema.org',
+                '@type' => 'HowTo',
+                'name' => 'How UK take-home pay is calculated',
+                'description' => 'A step-by-step outline of how the UK take-home pay calculator annualises income, applies deductions, and derives net pay.',
+                'step' => $guideSteps,
+                'totalTime' => 'PT5M',
             ];
         }
 
