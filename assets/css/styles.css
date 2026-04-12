@@ -443,11 +443,9 @@ summary {
 }
 
 .mobile-results-bar {
-    position: fixed;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    z-index: 30;
+    position: sticky;
+    top: 12px;
+    z-index: 20;
     display: none;
     gap: 12px;
     padding: 14px 16px;
@@ -460,6 +458,7 @@ summary {
     text-align: left;
     box-shadow: 0 20px 40px rgba(31, 42, 46, 0.18);
     cursor: pointer;
+    width: 100%;
 }
 
 .mobile-results-bar[hidden] {
@@ -524,7 +523,6 @@ summary {
 @media (max-width: 640px) {
     .page-shell {
         width: min(100% - 20px, 1200px);
-        padding-bottom: 120px;
     }
 
     .hero-card,
@@ -541,6 +539,7 @@ summary {
 
     .mobile-results-bar {
         display: grid;
+        margin-top: -2px;
     }
 
     .ad-slot--form-compact,

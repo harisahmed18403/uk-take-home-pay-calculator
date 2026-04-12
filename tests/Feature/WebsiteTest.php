@@ -79,6 +79,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('"2026-2027"', $html);
         self::assertStringContainsString('data-result-field="net_annual"', $html);
         self::assertStringContainsString('data-mobile-results-bar', $html);
+        self::assertStringContainsString('Current take-home pay', $html);
         self::assertStringContainsString('data-mobile-result="net_monthly"', $html);
         self::assertStringContainsString('data-results-heading', $html);
         self::assertStringContainsString('href="/?page=guides"', $html);
@@ -142,6 +143,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('IntersectionObserver', $calculatorForm);
         self::assertStringContainsString('resultsObserver.observe(resultsHeading);', $calculatorForm);
         self::assertStringContainsString('.mobile-results-bar[hidden]', $styles);
+        self::assertStringContainsString('position: sticky;', $styles);
+        self::assertStringContainsString('top: 12px;', $styles);
     }
 
     public function testHomePageSupportsConfiguredBasePath(): void
