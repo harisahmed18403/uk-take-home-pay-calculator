@@ -16,8 +16,9 @@
     const submitButton = document.querySelector("[data-calculator-submit]");
     const postgraduateToggle = document.querySelector("[data-postgraduate-toggle]");
     const mobileResultsBar = document.querySelector("[data-mobile-results-bar]");
+    const resultsSection = document.querySelector("[data-calculator-results]");
 
-    if (!form || !errorsBox || !emptyState || !resultShell || !breakdownTable || !assumptionsList) {
+    if (!form || !errorsBox || !emptyState || !resultShell || !breakdownTable || !assumptionsList || !resultsSection) {
         return;
     }
 
@@ -68,7 +69,9 @@
 
     if (mobileResultsBar) {
         mobileResultsBar.addEventListener("click", function () {
-            document.querySelector("[data-calculator-results]").scrollIntoView({
+            mobileResultsBar.hidden = true;
+
+            resultsSection.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
             });
@@ -224,8 +227,12 @@
             return;
         }
 
-        const resultsRect = document.querySelector("[data-calculator-results]").getBoundingClientRect();
-        const resultsVisible = resultsRect.top < window.innerHeight && resultsRect.bottom > 0;
+        const resultsRect = resultShell.getBoundingClientRect();
+        const visibleTop = Math.max(resultsRect.top, 0);
+        const visibleBottom = Math.min(resultsRect.bottom, window.innerHeight);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const visibilityRatio = resultsRect.height > 0 ? visibleHeight / resultsRect.height : 0;
+        const resultsVisible = visibilityRatio > 0.12;
 
         mobileResultsBar.hidden = resultsVisible;
     }
