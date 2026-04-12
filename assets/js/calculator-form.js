@@ -230,7 +230,7 @@
             return;
         }
 
-        const resultsVisible = resultsAreInView || isResultShellVisible();
+        const resultsVisible = resultsAreInView || isResultsSectionVisible();
 
         mobileResultsBar.hidden = resultsVisible;
     }
@@ -242,23 +242,19 @@
 
         resultsObserver = new IntersectionObserver(function (entries) {
             const entry = entries[0];
-            resultsAreInView = entry ? entry.isIntersecting && entry.intersectionRatio >= 0.15 : false;
+            resultsAreInView = entry ? entry.isIntersecting : false;
             syncMobileResultsBar();
         }, {
-            threshold: [0, 0.15, 0.5],
+            threshold: [0, 0.01],
         });
 
-        resultsObserver.observe(resultShell);
+        resultsObserver.observe(resultsSection);
     }
 
-    function isResultShellVisible() {
-        const resultsRect = resultShell.getBoundingClientRect();
-        const visibleTop = Math.max(resultsRect.top, 0);
-        const visibleBottom = Math.min(resultsRect.bottom, window.innerHeight);
-        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-        const visibilityRatio = resultsRect.height > 0 ? visibleHeight / resultsRect.height : 0;
+    function isResultsSectionVisible() {
+        const resultsRect = resultsSection.getBoundingClientRect();
 
-        return visibilityRatio >= 0.15;
+        return resultsRect.top < window.innerHeight && resultsRect.bottom > 0;
     }
 
     function formatRegion(region) {
