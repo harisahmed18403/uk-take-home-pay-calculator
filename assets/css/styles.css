@@ -111,7 +111,8 @@ a {
 
 .hero-layout,
 .calculator-layout,
-.content-band {
+.content-band,
+.intent-grid {
     display: grid;
     gap: 24px;
 }
@@ -129,13 +130,19 @@ a {
     grid-template-columns: 1.4fr 0.8fr;
 }
 
+.intent-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: 24px;
+}
+
 .hero-card,
 .panel,
 .content-panel,
 .guide-card,
 .faq-card,
 .legal-card,
-.ad-slot {
+.ad-slot,
+.intent-card {
     background: var(--panel);
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -425,6 +432,20 @@ button {
     padding: 24px;
 }
 
+.intent-card {
+    padding: 24px;
+}
+
+.intent-card h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+.intent-card p {
+    color: var(--muted);
+    line-height: 1.65;
+}
+
 .faq-band {
     margin-bottom: 24px;
 }
@@ -536,6 +557,7 @@ summary {
     .calculator-layout,
     .content-band,
     .guides-grid,
+    .intent-grid,
     .hero-metrics,
     .result-grid {
         grid-template-columns: 1fr;

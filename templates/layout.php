@@ -136,6 +136,21 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             </aside>
         </section>
 
+        <section class="intent-grid" aria-label="Popular UK salary calculator scenarios">
+            <article class="intent-card">
+                <h2>Monthly salary to monthly take-home pay</h2>
+                <p>Switch the salary period to monthly when you want a fast estimate from a payslip amount or recruiter message instead of an annual salary figure.</p>
+            </article>
+            <article class="intent-card">
+                <h2>Salary sacrifice pension comparison</h2>
+                <p>Check how salary sacrifice changes net pay compared with net pay arrangement or post-tax pension contributions using the same gross salary.</p>
+            </article>
+            <article class="intent-card">
+                <h2>Bonus and student loan impact</h2>
+                <p>Add bonus income and loan plans together to see how extra earnings affect deductions and the effective take-home rate.</p>
+            </article>
+        </section>
+
         <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
                 <h2>Calculator</h2>

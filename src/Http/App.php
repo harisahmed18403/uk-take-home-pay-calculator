@@ -203,6 +203,26 @@ final class App
                 'question' => 'How accurate is this take-home pay estimate?',
                 'answer' => 'It is designed as an annualised estimate using published thresholds for the selected tax year. Actual payroll output can vary because of payroll timing, benefits, or employer-specific settings.',
             ],
+            [
+                'question' => 'Can I use monthly salary or weekly pay instead of annual salary?',
+                'answer' => 'Yes. The calculator annualises monthly pay by multiplying by 12 and weekly pay by multiplying by 52 before applying deductions.',
+            ],
+            [
+                'question' => 'Does salary sacrifice pension reduce National Insurance as well as Income Tax?',
+                'answer' => 'Yes. Salary sacrifice reduces both taxable pay and NI-able pay, while net pay reduces taxable pay only and post-tax pension does not reduce either calculation before deductions.',
+            ],
+            [
+                'question' => 'Can I include a bonus or additional income?',
+                'answer' => 'Yes. Bonus income is added to gross annual pay before tax, National Insurance, pension, and student loan deductions are calculated.',
+            ],
+            [
+                'question' => 'Will this help compare job offers at different salaries?',
+                'answer' => 'Yes. The calculator is useful for comparing gross salary offers by converting them into annual, monthly, and weekly take-home pay using the same tax assumptions.',
+            ],
+            [
+                'question' => 'Can I estimate the effect of a different tax code?',
+                'answer' => 'Yes. You can enter common tax codes such as 1257L, S1257L, BR, D0, D1, NT, or K codes to see how they change the estimate.',
+            ],
         ];
     }
 
