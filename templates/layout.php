@@ -431,6 +431,16 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             <?php endforeach; ?>
         </section>
 
+        <section class="panel panel--seo-links" aria-labelledby="salary-pages-heading">
+            <h2 id="salary-pages-heading">Related take-home pay guides</h2>
+            <p class="section-copy">Use these pages to compare salary, region, and deductions more easily.</p>
+            <ul class="guide-links">
+                <li><a href="<?= htmlspecialchars($routeUrl()) ?>">UK take-home pay calculator</a></li>
+                <li><a href="<?= htmlspecialchars($routeUrl('guides')) ?>">How the calculator works</a></li>
+                <li><a href="<?= htmlspecialchars($routeUrl('faq')) ?>">Common questions about tax codes, pensions, and student loans</a></li>
+            </ul>
+        </section>
+
         <section id="salary-faq" class="faq-band">
             <div class="faq-card">
                 <h2>Frequently asked questions about UK take-home pay</h2>

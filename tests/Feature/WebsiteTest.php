@@ -68,6 +68,10 @@ final class WebsiteTest extends TestCase
 
         self::assertSame(200, $response['status']);
         self::assertStringContainsString('UK take-home pay calculator for salary, pension and student loan estimates.', $html);
+        self::assertStringContainsString('Calculate your annual, monthly, and weekly take-home pay for the 2026/27 tax year.', $html);
+        self::assertStringContainsString('Read the calculation guide', $html);
+        self::assertStringContainsString('How the estimate works', $html);
+        self::assertStringContainsString('Related take-home pay guides', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);
