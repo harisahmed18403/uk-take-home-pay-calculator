@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://no-cap-tools.com/sitemap.xml
+Sitemap: https://www.no-cap-tools.com/sitemap.xml
