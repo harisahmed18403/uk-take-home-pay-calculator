@@ -67,7 +67,7 @@ final class WebsiteTest extends TestCase
         $html = $response['body'];
 
         self::assertSame(200, $response['status']);
-        self::assertStringContainsString('UK take-home pay calculator for salary, pension and student loan estimates.', $html);
+        self::assertStringContainsString('UK salary after tax calculator for pension and student loan estimates.', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);
@@ -226,6 +226,17 @@ final class WebsiteTest extends TestCase
         self::assertContains('Content-Type: application/xml; charset=UTF-8', $response['headers']);
         self::assertStringContainsString('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', $response['body']);
         self::assertStringContainsString('<loc>http://127.0.0.1:8099/guides/</loc>', $response['body']);
+        self::assertStringContainsString('<lastmod>', $response['body']);
+    }
+
+    public function testRobotsTxtIsServed(): void
+    {
+        $response = $this->request('GET', '/robots.txt');
+
+        self::assertSame(200, $response['status']);
+        self::assertContains('Content-Type: text/plain; charset=UTF-8', $response['headers']);
+        self::assertStringContainsString('User-agent: *', $response['body']);
+        self::assertStringContainsString('Sitemap: http://127.0.0.1:8099/sitemap.xml', $response['body']);
     }
 
     /**

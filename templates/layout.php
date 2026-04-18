@@ -365,8 +365,8 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <section class="hero-layout">
             <section class="hero-card">
                 <div class="eyebrow">UK PAYE estimate</div>
-                <h1>UK take-home pay calculator for salary, pension and student loan estimates.</h1>
-                <p class="lede">Calculate 2026/27 UK net salary using PAYE tax, National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
+                <h1>UK salary after tax calculator for pension and student loan estimates.</h1>
+                <p class="lede">Calculate 2026/27 UK salary after tax using PAYE income tax, National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
                 <nav class="seo-links" aria-label="On-page sections">
                     <a href="#calculator">Use the calculator</a>
                     <a href="#salary-guides">Read the tax guides</a>

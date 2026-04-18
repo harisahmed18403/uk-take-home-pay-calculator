@@ -23,6 +23,14 @@ final class App
         $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
         $relativePath = BasePath::stripFromRequestPath((string) ($requestPath ?: '/'), $basePath);
 
+        if ($relativePath === '/robots.txt') {
+            return [
+                'status' => 200,
+                'content' => $this->renderRobots($basePath),
+                'headers' => ['Content-Type: text/plain; charset=UTF-8'],
+            ];
+        }
+
         if ($relativePath === '/sitemap.xml') {
             return [
                 'status' => 200,
@@ -58,7 +66,7 @@ final class App
             'basePath' => $basePath,
             'originUrl' => Site::originUrl(),
             'siteUrl' => Site::siteUrl($basePath),
-            'sitemapUrl' => Site::absoluteUrl('/sitemap.xml'),
+            'sitemapUrl' => Site::absoluteUrl(BasePath::sitemap($basePath)),
             'ogImageUrl' => Site::absoluteUrl(BasePath::asset('assets/seo/og-image.png', $basePath)),
             'lastUpdatedIso' => gmdate('c', $lastUpdated),
             'lastUpdatedHuman' => gmdate('j F Y', $lastUpdated),
@@ -144,15 +152,15 @@ final class App
 
         return match ($page) {
             'guides' => [
-                'title' => 'UK Take-Home Pay Guides for Salary, Pension, and Tax | No Cap Tools',
-                'description' => 'Understand how UK take-home pay is calculated in Lancaster, Lancashire, UK and across the rest of the country, including PAYE income tax, National Insurance, pension deductions, and student loan repayments.',
+                'title' => 'How the UK Take-Home Pay Calculator Works | PAYE, NI, Pension & Student Loans | No Cap Tools',
+                'description' => 'Learn how the calculator annualises salary, applies UK PAYE income tax and National Insurance, and handles pension and student loan deductions across the UK.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'article',
             ],
             'faq' => [
-                'title' => 'UK Take-Home Pay Calculator FAQ for Tax, Pension, and Student Loans | No Cap Tools',
-                'description' => 'Answers to common UK take-home pay calculator questions covering Scotland, tax codes, student loans, pension treatments, and estimate accuracy for UK users.',
+                'title' => 'UK Take-Home Pay Calculator FAQ | Salary After Tax, Pension & Student Loans | No Cap Tools',
+                'description' => 'Answers to common questions about UK salary after tax, Scotland, tax codes, student loans, pension treatments, and estimate accuracy.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'article',
@@ -179,8 +187,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Take-Home Pay Calculator for 2026/27, Salary, Pension, and Student Loan Deductions | No Cap Tools',
-                'description' => 'Calculate UK take-home pay for 2026/27 with PAYE tax, National Insurance, pension, bonus income, and student loan deductions in the UK.',
+                'title' => 'UK Take-Home Pay Calculator 2026/27 | Salary After Tax, Pension & Student Loans | No Cap Tools',
+                'description' => 'Estimate UK salary after tax for 2026/27 with PAYE income tax, National Insurance, pension deductions, bonus income, and student loan repayments.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -428,6 +436,7 @@ final class App
 
     private function renderSitemap(string $basePath): string
     {
+        $lastModified = gmdate('Y-m-d', $this->lastUpdated());
         $urls = [
             Site::absoluteUrl(BasePath::route('home', $basePath)),
             Site::absoluteUrl(BasePath::route('guides', $basePath)),
@@ -437,7 +446,7 @@ final class App
         ];
 
         $items = array_map(
-            static fn (string $url): string => "  <url>\n    <loc>{$url}</loc>\n  </url>",
+            static fn (string $url): string => "  <url>\n    <loc>{$url}</loc>\n    <lastmod>{$lastModified}</lastmod>\n  </url>",
             $urls
         );
 
@@ -449,6 +458,18 @@ final class App
 XML;
 
         return sprintf($template, implode("\n", $items));
+    }
+
+    private function renderRobots(string $basePath): string
+    {
+        $sitemapUrl = Site::absoluteUrl(BasePath::sitemap($basePath));
+
+        return <<<TXT
+User-agent: *
+Allow: /
+
+Sitemap: {$sitemapUrl}
+TXT;
     }
 
     private function lastUpdated(): int

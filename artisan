@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+$command = $argv[1] ?? '';
+
+if ($command === 'test') {
+    $phpunit = __DIR__ . '/vendor/bin/phpunit';
+    $fallback = 'phpunit';
+
+    $runner = is_file($phpunit)
+        ? escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg($phpunit)
+        : $fallback;
+
+    passthru($runner, $exitCode);
+    exit($exitCode);
+}
+
+fwrite(STDERR, "Unsupported artisan command: {$command}\n");
+exit(1);
