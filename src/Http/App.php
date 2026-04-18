@@ -144,43 +144,43 @@ final class App
 
         return match ($page) {
             'guides' => [
-                'title' => 'UK Tax Guides for Take-Home Pay Calculations | No Cap Tools',
-                'description' => 'Understand how UK take-home pay is calculated, including PAYE income tax, National Insurance, pension deductions, and student loan repayments.',
+                'title' => 'UK Take-Home Pay Guides for Salary, Pension, and Tax | No Cap Tools',
+                'description' => 'Understand how UK take-home pay is calculated in Lancaster, Lancashire, UK and across the rest of the country, including PAYE income tax, National Insurance, pension deductions, and student loan repayments.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'article',
             ],
             'faq' => [
-                'title' => 'UK Take-Home Pay Calculator FAQ | No Cap Tools',
-                'description' => 'Answers to common UK take-home pay calculator questions covering Scotland, tax codes, student loans, pension treatments, and estimate accuracy.',
+                'title' => 'UK Take-Home Pay Calculator FAQ for Tax, Pension, and Student Loans | No Cap Tools',
+                'description' => 'Answers to common UK take-home pay calculator questions covering Scotland, tax codes, student loans, pension treatments, and estimate accuracy for UK users.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'article',
             ],
             'privacy' => [
                 'title' => 'Privacy Policy | No Cap Tools',
-                'description' => 'Read the privacy policy for the UK Take-Home Pay Calculator and understand what data is and is not stored when you use the site.',
+                'description' => 'Read the privacy policy for the UK Take-Home Pay Calculator and understand what data is and is not stored when you use the site in the UK.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'article',
             ],
             'cookies' => [
                 'title' => 'Cookie Policy | No Cap Tools',
-                'description' => 'Read the cookie policy for the UK Take-Home Pay Calculator, including how functional, analytics, and advertising cookies would be handled.',
+                'description' => 'Read the cookie policy for the UK Take-Home Pay Calculator, including how functional, analytics, and advertising cookies would be handled for UK visitors.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'article',
             ],
             'not-found' => [
                 'title' => 'Page Not Found | No Cap Tools',
-                'description' => 'The page you requested could not be found.',
+                'description' => 'The page you requested could not be found on the UK Take-Home Pay Calculator site.',
                 'canonical' => $canonical,
                 'robots' => 'noindex,follow',
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Take-Home Pay Calculator for 2026/27 | No Cap Tools',
-                'description' => 'Calculate UK take-home pay for 2026/27 with PAYE tax, National Insurance, pension, bonus income, and student loan deductions.',
+                'title' => 'UK Take-Home Pay Calculator for 2026/27, Salary, Pension, and Student Loan Deductions | No Cap Tools',
+                'description' => 'Calculate UK take-home pay for 2026/27 with PAYE tax, National Insurance, pension, bonus income, and student loan deductions in the UK.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -195,36 +195,36 @@ final class App
     {
         return [
             [
-                'question' => 'Does this calculator cover Scotland?',
-                'answer' => 'Yes. Scottish tax bands are applied when you choose Scotland or enter a tax code that starts with S.',
+                'question' => 'Does this calculator cover Scotland and the rest of the UK?',
+                'answer' => 'Yes. Scottish tax bands are applied when you choose Scotland or enter a tax code that starts with S, and the calculator is built for UK take-home pay estimates.',
             ],
             [
-                'question' => 'Can I include student loans and pension deductions?',
-                'answer' => 'Yes. The calculator supports undergraduate student loan plans, postgraduate loans, and three pension treatments.',
+                'question' => 'Can I include student loans, pension deductions, and salary sacrifice?',
+                'answer' => 'Yes. The calculator supports undergraduate student loan plans, postgraduate loans, salary sacrifice, and three pension treatments.',
             ],
             [
-                'question' => 'How accurate is this take-home pay estimate?',
-                'answer' => 'It is designed as an annualised estimate using published thresholds for the selected tax year. Actual payroll output can vary because of payroll timing, benefits, or employer-specific settings.',
+                'question' => 'How accurate is this UK take-home pay estimate?',
+                'answer' => 'It is designed as an annualised estimate using published UK thresholds for the selected tax year. Actual payroll output can vary because of payroll timing, benefits, or employer-specific settings.',
             ],
             [
-                'question' => 'Can I use monthly salary or weekly pay instead of annual salary?',
+                'question' => 'Can I use monthly salary or weekly pay instead of annual salary for UK calculations?',
                 'answer' => 'Yes. The calculator annualises monthly pay by multiplying by 12 and weekly pay by multiplying by 52 before applying deductions.',
             ],
             [
-                'question' => 'Does salary sacrifice pension reduce National Insurance as well as Income Tax?',
+                'question' => 'Does salary sacrifice pension reduce National Insurance as well as Income Tax in the UK?',
                 'answer' => 'Yes. Salary sacrifice reduces both taxable pay and NI-able pay, while net pay reduces taxable pay only and post-tax pension does not reduce either calculation before deductions.',
             ],
             [
-                'question' => 'Can I include a bonus or additional income?',
-                'answer' => 'Yes. Bonus income is added to gross annual pay before tax, National Insurance, pension, and student loan deductions are calculated.',
+                'question' => 'Can I include a bonus or additional income in my take-home pay estimate?',
+                'answer' => 'Yes. Bonus income is added to gross annual pay before tax, National Insurance, pension, and student loan deductions are calculated for your UK estimate.',
             ],
             [
-                'question' => 'Will this help compare job offers at different salaries?',
-                'answer' => 'Yes. The calculator is useful for comparing gross salary offers by converting them into annual, monthly, and weekly take-home pay using the same tax assumptions.',
+                'question' => 'Will this help compare UK job offers at different salaries?',
+                'answer' => 'Yes. The calculator is useful for comparing gross UK salary offers by converting them into annual, monthly, and weekly take-home pay using the same tax assumptions.',
             ],
             [
-                'question' => 'Can I estimate the effect of a different tax code?',
-                'answer' => 'Yes. You can enter common tax codes such as 1257L, S1257L, BR, D0, D1, NT, or K codes to see how they change the estimate.',
+                'question' => 'Can I estimate the effect of a different UK tax code?',
+                'answer' => 'Yes. You can enter common UK tax codes such as 1257L, S1257L, BR, D0, D1, NT, or K codes to see how they change the estimate.',
             ],
         ];
     }
