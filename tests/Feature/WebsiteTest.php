@@ -67,7 +67,7 @@ final class WebsiteTest extends TestCase
         $html = $response['body'];
 
         self::assertSame(200, $response['status']);
-        self::assertStringContainsString('UK salary after tax calculator for pension and student loan estimates.', $html);
+        self::assertStringContainsString('UK take-home pay calculator for salary after tax, pension, and student loan estimates.', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);

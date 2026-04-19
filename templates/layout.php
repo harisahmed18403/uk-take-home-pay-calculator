@@ -80,6 +80,14 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
     <link rel="manifest" href="<?= htmlspecialchars($assetUrl('assets/favicons/site.webmanifest')) ?>">
     <meta name="theme-color" content="#d95d39">
     <link rel="stylesheet" href="<?= htmlspecialchars($assetUrl('assets/css/styles.css')) ?>">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R6M537JBV1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-R6M537JBV1');
+    </script>
     <?php foreach ($jsonLd as $schema): ?>
         <script type="application/ld+json"><?= json_encode($schema, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
     <?php endforeach; ?>
@@ -365,8 +373,8 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <section class="hero-layout">
             <section class="hero-card">
                 <div class="eyebrow">UK PAYE estimate</div>
-                <h1>UK salary after tax calculator for pension and student loan estimates.</h1>
-                <p class="lede">Calculate 2026/27 UK salary after tax using PAYE income tax, National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
+                <h1>UK take-home pay calculator for salary after tax, pension, and student loan estimates.</h1>
+                <p class="lede">Use this UK take-home pay calculator to estimate 2026/27 salary after tax using PAYE income tax, National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
                 <nav class="seo-links" aria-label="On-page sections">
                     <a href="#calculator">Use the calculator</a>
                     <a href="#salary-guides">Read the tax guides</a>
