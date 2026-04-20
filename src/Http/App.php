@@ -152,14 +152,14 @@ final class App
 
         return match ($page) {
             'guides' => [
-                'title' => 'How the UK Take-Home Pay Calculator Works | UK Tax Calculator Methodology | No Cap Tools',
-                'description' => 'Learn how the UK tax calculator annualises salary, applies UK PAYE income tax and National Insurance, and handles pension and student loan deductions across the UK.',
+                'title' => 'How the UK Take Home Pay Calculator Works | UK Tax Calculator Methodology | No Cap Tools',
+                'description' => 'Learn how the UK take home pay calculator annualises salary, applies UK PAYE income tax and National Insurance, and handles pension and student loan deductions across the UK.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'article',
             ],
             'faq' => [
-                'title' => 'UK Take-Home Pay Calculator FAQ | UK Tax Calculator Answers | No Cap Tools',
+                'title' => 'UK Take Home Pay Calculator FAQ | UK Tax Calculator Answers | No Cap Tools',
                 'description' => 'Answers to common questions about UK salary after tax, Scotland, tax codes, student loans, pension treatments, and estimate accuracy.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
@@ -187,7 +187,7 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Take-Home Pay Calculator 2026/27 | UK Tax Calculator for Salary After Tax | No Cap Tools',
+                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax, Pension & Student Loan | No Cap Tools',
                 'description' => 'Estimate UK salary after tax for 2026/27 with PAYE income tax, National Insurance, pension deductions, bonus income, and student loan repayments across the UK.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
@@ -319,12 +319,12 @@ final class App
                 'cookies' => 'Cookie policy',
                 default => 'UK take-home pay calculator',
             },
-            'description' => match ($page) {
-                'guides' => 'Learn how the calculator annualises salary, applies UK PAYE income tax and National Insurance, and handles pension and student loan deductions across the UK.',
+                'description' => match ($page) {
+                'guides' => 'Learn how the UK take home pay calculator annualises salary, applies UK PAYE income tax and National Insurance, and handles pension and student loan deductions across the UK.',
                 'faq' => 'Answers to common questions about UK salary after tax, Scotland, tax codes, student loans, pension treatments, and estimate accuracy.',
                 'privacy' => 'Read the privacy policy for the UK Take-Home Pay Calculator and understand what data is and is not stored when you use the site in the UK.',
                 'cookies' => 'Read the cookie policy for the UK Take-Home Pay Calculator, including how functional, analytics, and advertising cookies would be handled for UK visitors.',
-                default => 'Estimate UK salary after tax for 2026/27 with PAYE income tax, National Insurance, pension deductions, bonus income, and student loan repayments.',
+                default => 'Estimate UK salary after tax for 2026/27 with PAYE income tax, National Insurance, pension deductions, bonus income, and student loan repayments across the UK.',
             },
             'url' => $canonicalUrl,
             'isPartOf' => [
