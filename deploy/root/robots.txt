@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.no-cap-tools.com/sitemap.xml
+Sitemap: https://www.no-cap-tools.com/uk-take-home-pay-calculator/sitemap.xml

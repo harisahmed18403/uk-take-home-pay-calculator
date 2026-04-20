@@ -67,7 +67,7 @@ final class WebsiteTest extends TestCase
         $html = $response['body'];
 
         self::assertSame(200, $response['status']);
-        self::assertStringContainsString('UK take-home pay calculator for salary after tax, pension, and student loan estimates.', $html);
+        self::assertStringContainsString('UK tax calculator for take-home pay, pension, and student loan estimates.', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);
@@ -237,6 +237,17 @@ final class WebsiteTest extends TestCase
         self::assertContains('Content-Type: text/plain; charset=UTF-8', $response['headers']);
         self::assertStringContainsString('User-agent: *', $response['body']);
         self::assertStringContainsString('Sitemap: http://127.0.0.1:8099/sitemap.xml', $response['body']);
+    }
+
+    public function testDeployedRootSeoFilesReferenceTheCalculator(): void
+    {
+        $root = dirname(__DIR__, 2);
+        $robots = (string) file_get_contents($root . '/deploy/root/robots.txt');
+        $index = (string) file_get_contents($root . '/deploy/root/index.html');
+
+        self::assertStringContainsString('Sitemap: https://www.no-cap-tools.com/uk-take-home-pay-calculator/sitemap.xml', $robots);
+        self::assertStringContainsString('No Cap Tools | UK Tax Calculator and Salary Tools', $index);
+        self::assertStringContainsString('Open the UK tax calculator', $index);
     }
 
     /**
