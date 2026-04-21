@@ -160,7 +160,7 @@ final class App
             ],
             'faq' => [
                 'title' => 'UK Take Home Pay Calculator FAQ 2026/27 | No Cap Tools',
-                'description' => 'Answers to common questions about the UK salary after tax calculator, Scotland, tax codes, student loans, pension treatments, and estimate accuracy for 2026/27.',
+                'description' => 'Answers to common questions about the UK salary after tax calculator, salary after tax, net pay, Scotland, tax codes, student loans, pension treatments, and estimate accuracy for 2026/27.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'article',
@@ -188,7 +188,7 @@ final class App
             ],
             default => [
                 'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax | No Cap Tools',
-                'description' => 'Estimate UK take-home pay and salary after tax for 2026/27 with PAYE income tax, National Insurance, pension deductions, bonus income, and student loan repayments across England, Wales, Scotland, and Northern Ireland.',
+                'description' => 'Estimate UK take-home pay, salary after tax, net pay, and weekly or monthly earnings for 2026/27 with PAYE income tax, National Insurance, pension deductions, bonus income, and student loan repayments across England, Wales, Scotland, and Northern Ireland.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
