@@ -152,14 +152,14 @@ final class App
 
         return match ($page) {
             'guides' => [
-                'title' => 'UK Salary After Tax Guides | No Cap Tools',
+                'title' => 'UK Salary After Tax Guides 2026/27 | No Cap Tools',
                 'description' => 'See how the UK salary after tax calculator annualises pay, applies PAYE income tax and National Insurance, and handles pension and student loan deductions for 2026/27.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'article',
             ],
             'faq' => [
-                'title' => 'UK Salary After Tax FAQ | No Cap Tools',
+                'title' => 'UK Salary After Tax FAQ 2026/27 | No Cap Tools',
                 'description' => 'Answers to common questions about the UK salary after tax calculator, Scotland, tax codes, student loans, pension treatments, and estimate accuracy for 2026/27.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
@@ -187,8 +187,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Salary After Tax Calculator 2026/27 | No Cap Tools',
-                'description' => 'Estimate your UK salary after tax and take-home pay for 2026/27 with PAYE income tax, National Insurance, pension deductions, bonus income, and student loan repayments across England, Wales, Scotland, and Northern Ireland.',
+                'title' => 'UK Salary After Tax Calculator 2026/27 | Take-Home Pay | No Cap Tools',
+                'description' => 'Estimate UK salary after tax and take-home pay for 2026/27 with PAYE income tax, National Insurance, pension deductions, bonus income, and student loan repayments across England, Wales, Scotland, and Northern Ireland.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',

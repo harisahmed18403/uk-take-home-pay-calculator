@@ -103,11 +103,11 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         </nav>
     </header>
 
-    <?php if ($page === 'home'): ?>
+            <?php if ($page === 'home'): ?>
         <main>
         <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
-                <h2>Calculator</h2>
+                <h2>UK salary after tax calculator</h2>
                 <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
                     <span class="mobile-results-bar__prompt">Current take-home pay</span>
                     <span class="mobile-results-bar__grid">
@@ -217,7 +217,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
 
             <section class="panel panel--results" data-calculator-results>
                 <div class="results-header">
-                    <h2 data-results-heading>Your results</h2>
+                    <h2 data-results-heading>Take-home pay results</h2>
                     <p class="section-copy">Annualised estimate based on the selected tax year and deductions.</p>
                 </div>
 
@@ -373,8 +373,8 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <section class="hero-layout">
             <section class="hero-card">
                 <div class="eyebrow">UK PAYE estimate</div>
-                <h1>UK salary after tax calculator for 2026/27 take-home pay, National Insurance, pension, and student loan estimates.</h1>
-                <p class="lede">Use this UK salary after tax calculator to estimate 2026/27 take-home pay using PAYE income tax, National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
+                <h1>UK salary after tax calculator for 2026/27 take-home pay.</h1>
+                <p class="lede">Use this UK salary after tax calculator to estimate annual, monthly, or weekly take-home pay using PAYE income tax, National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
                 <nav class="seo-links" aria-label="On-page sections">
                     <a href="#calculator">Use the calculator</a>
                     <a href="#salary-guides">Read the salary after tax guides</a>
