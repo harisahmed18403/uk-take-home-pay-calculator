@@ -67,7 +67,7 @@ final class WebsiteTest extends TestCase
         $html = $response['body'];
 
         self::assertSame(200, $response['status']);
-        self::assertStringContainsString('UK take-home pay calculator for 2026/27 salary after tax, National Insurance, pension, and student loan estimates.', $html);
+        self::assertStringContainsString('UK salary after tax calculator for 2026/27 take-home pay, National Insurance, pension, and student loan estimates.', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);
@@ -88,8 +88,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | No Cap Tools</title>', $html);
-        self::assertStringContainsString('UK take-home pay calculator for 2026/27 salary after tax, National Insurance, pension, and student loan estimates.', $html);
+        self::assertStringContainsString('<title>UK Salary After Tax Calculator 2026/27 | No Cap Tools</title>', $html);
+        self::assertStringContainsString('UK salary after tax calculator for 2026/27 take-home pay, National Insurance, pension, and student loan estimates.', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
         self::assertStringContainsString('"@type":"SoftwareApplication"', $html);
         self::assertStringContainsString('property="og:image"', $html);
@@ -179,7 +179,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('gross_annual = annual salary or (monthly salary × 12) or (weekly salary × 52) + bonus', $html);
         self::assertStringContainsString('net_annual = gross_annual - income_tax - national_insurance - student_loan - pension', $html);
         self::assertStringContainsString('For each selected student loan plan, only the earnings above its threshold are charged.', $html);
-        self::assertStringContainsString('<title>UK Take Home Pay Guides | No Cap Tools</title>', $html);
+        self::assertStringContainsString('<title>UK Salary After Tax Guides | No Cap Tools</title>', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/guides/">', $html);
     }
 
