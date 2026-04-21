@@ -373,12 +373,12 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <section class="hero-layout">
             <section class="hero-card">
                 <div class="eyebrow">UK PAYE estimate</div>
-                <h1>UK take home pay calculator for salary after tax, National Insurance, pension, and student loan estimates.</h1>
+                <h1>UK take-home pay calculator for 2026/27 salary after tax, National Insurance, pension, and student loan estimates.</h1>
                 <p class="lede">Use this UK take-home pay calculator to estimate 2026/27 salary after tax using PAYE income tax, National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
                 <nav class="seo-links" aria-label="On-page sections">
                     <a href="#calculator">Use the calculator</a>
-                    <a href="#salary-guides">Read the take-home pay guides</a>
-                    <a href="#salary-faq">Check the FAQ</a>
+                    <a href="#salary-guides">Read the salary after tax guides</a>
+                    <a href="#salary-faq">Check the take-home pay FAQ</a>
                 </nav>
                 <p class="update-note">Last updated <?= htmlspecialchars($lastUpdatedHuman) ?> for 2026/27 thresholds and deduction rules.</p>
                 <div class="hero-metrics">
@@ -405,7 +405,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
 
         <section class="content-band">
             <article class="content-panel">
-                <h2>Estimate UK salary after tax quickly, then inspect the deduction breakdown.</h2>
+                <h2>See your salary after tax breakdown, then inspect each deduction.</h2>
                 <p>The calculator is designed for salary comparisons, budgeting, and sense-checking job offers. It annualises your earnings, applies the selected tax year, and shows how Income Tax, National Insurance, pension treatment, and student loan plans affect your monthly and weekly take-home pay.</p>
                 <p>Use the supporting <a href="<?= htmlspecialchars($routeUrl('guides')) ?>">guides</a> for the methodology and the <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a> for common edge cases such as Scottish tax bands, postgraduate loans, or pension salary sacrifice.</p>
             </article>
@@ -440,12 +440,12 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         </section>
 
         <section class="panel panel--seo-links" aria-labelledby="salary-pages-heading">
-            <h2 id="salary-pages-heading">Related take-home pay guides</h2>
+            <h2 id="salary-pages-heading">Related salary after tax pages</h2>
             <p class="section-copy">Use these pages to compare salary, region, and deductions more easily.</p>
             <ul class="guide-links">
                 <li><a href="<?= htmlspecialchars($routeUrl()) ?>">UK take home pay calculator for salary after tax</a></li>
-                <li><a href="<?= htmlspecialchars($routeUrl('guides')) ?>">How the calculator works</a></li>
-                <li><a href="<?= htmlspecialchars($routeUrl('faq')) ?>">Common questions about tax codes, pensions, and student loans</a></li>
+                <li><a href="<?= htmlspecialchars($routeUrl('guides')) ?>">UK take home pay calculator guides</a></li>
+                <li><a href="<?= htmlspecialchars($routeUrl('faq')) ?>">UK take home pay calculator FAQ</a></li>
             </ul>
         </section>
 
@@ -476,7 +476,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             </nav>
             <?php if ($page === 'guides'): ?>
                 <section class="legal-card">
-                    <h1>UK tax guides</h1>
+                    <h1>UK take home pay calculator guides</h1>
                     <p>These guides explain how the calculator translates gross salary into annual, monthly, and weekly take-home pay. They are written to make the assumptions behind PAYE deductions explicit rather than hiding the calculation steps.</p>
                     <nav class="toc" aria-label="Guide sections">
                         <?php foreach ($guides as $index => $guide): ?>
@@ -498,7 +498,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 </section>
             <?php elseif ($page === 'faq'): ?>
                 <section class="legal-card">
-                    <h1>Frequently asked questions</h1>
+                    <h1>UK take home pay calculator FAQ</h1>
                     <p>The calculator uses the published thresholds included in the selected tax year and displays the assumptions used for each result.</p>
                     <nav class="toc" aria-label="FAQ sections">
                         <?php foreach ($faqItems as $index => $faqItem): ?>
