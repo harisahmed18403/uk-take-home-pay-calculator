@@ -88,7 +88,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax, National Insurance, Pension &amp; Student Loan | No Cap Tools</title>', $html);
+        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | No Cap Tools</title>', $html);
         self::assertStringContainsString('UK take-home pay calculator for 2026/27 salary after tax, National Insurance, pension, and student loan estimates.', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
         self::assertStringContainsString('"@type":"SoftwareApplication"', $html);
@@ -179,7 +179,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('gross_annual = annual salary or (monthly salary × 12) or (weekly salary × 52) + bonus', $html);
         self::assertStringContainsString('net_annual = gross_annual - income_tax - national_insurance - student_loan - pension', $html);
         self::assertStringContainsString('For each selected student loan plan, only the earnings above its threshold are charged.', $html);
-        self::assertStringContainsString('<title>UK Take Home Pay Calculator Guides | Salary After Tax Methodology | No Cap Tools</title>', $html);
+        self::assertStringContainsString('<title>UK Take Home Pay Guides | No Cap Tools</title>', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/guides/">', $html);
     }
 
@@ -250,7 +250,7 @@ final class WebsiteTest extends TestCase
         $index = (string) file_get_contents($root . '/deploy/root/index.html');
 
         self::assertStringContainsString('Sitemap: https://www.no-cap-tools.com/uk-take-home-pay-calculator/sitemap.xml', $robots);
-        self::assertStringContainsString('No Cap Tools | UK Take Home Pay Calculator and Salary Tools', $index);
+        self::assertStringContainsString('No Cap Tools | UK Salary Calculators', $index);
         self::assertStringContainsString('Open the UK take-home pay calculator', $index);
     }
 

@@ -152,14 +152,14 @@ final class App
 
         return match ($page) {
             'guides' => [
-                'title' => 'UK Take Home Pay Calculator Guides | Salary After Tax Methodology | No Cap Tools',
+                'title' => 'UK Take Home Pay Guides | No Cap Tools',
                 'description' => 'See how the UK take home pay calculator annualises salary, applies PAYE income tax and National Insurance, and handles pension and student loan deductions for 2026/27.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'article',
             ],
             'faq' => [
-                'title' => 'UK Take Home Pay Calculator FAQ | Salary After Tax Answers | No Cap Tools',
+                'title' => 'UK Take Home Pay FAQ | No Cap Tools',
                 'description' => 'Answers to common questions about UK salary after tax, Scotland, tax codes, student loans, pension treatments, and estimate accuracy for 2026/27.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
@@ -187,8 +187,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax, National Insurance, Pension & Student Loan | No Cap Tools',
-                'description' => 'Estimate your UK take-home pay for 2026/27 with PAYE income tax, National Insurance, pension deductions, bonus income, and student loan repayments across England, Wales, Scotland, and Northern Ireland.',
+                'title' => 'UK Take Home Pay Calculator 2026/27 | No Cap Tools',
+                'description' => 'Estimate UK take-home pay for 2026/27 with PAYE income tax, National Insurance, pension, bonuses, and student loan deductions across England, Wales, Scotland, and Northern Ireland.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
