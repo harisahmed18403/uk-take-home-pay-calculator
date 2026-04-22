@@ -67,7 +67,7 @@ final class WebsiteTest extends TestCase
         $html = $response['body'];
 
         self::assertSame(200, $response['status']);
-        self::assertStringContainsString('UK take home pay calculator for 2026/27 salary after tax.', $html);
+        self::assertStringContainsString('UK take home pay calculator for 2026/27 salary after tax', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);
@@ -88,8 +88,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax | No Cap Tools</title>', $html);
-        self::assertStringContainsString('UK take home pay calculator for 2026/27 salary after tax.', $html);
+        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax &amp; Net Pay | No Cap Tools</title>', $html);
+        self::assertStringContainsString('UK take home pay calculator for 2026/27 salary after tax', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
         self::assertStringContainsString('"@type":"SoftwareApplication"', $html);
         self::assertStringContainsString('property="og:image"', $html);
