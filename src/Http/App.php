@@ -152,14 +152,14 @@ final class App
 
         return match ($page) {
             'guides' => [
-                'title' => 'UK Take Home Pay Calculator Guides 2026/27 | No Cap Tools',
+                'title' => 'UK Take Home Pay Calculator Guides | Salary After Tax 2026/27 | No Cap Tools',
                 'description' => 'See how the UK salary after tax calculator annualises pay, applies PAYE income tax and National Insurance, and handles pension and student loan deductions for 2026/27.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'article',
             ],
             'faq' => [
-                'title' => 'UK Take Home Pay Calculator FAQ 2026/27 | No Cap Tools',
+                'title' => 'UK Take Home Pay Calculator FAQ | Salary After Tax Questions | No Cap Tools',
                 'description' => 'Answers to common questions about the UK salary after tax calculator, salary after tax, net pay, Scotland, tax codes, student loans, pension treatments, and estimate accuracy for 2026/27.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
@@ -187,7 +187,7 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax & Net Pay | No Cap Tools',
+                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax, Net Pay & PAYE | No Cap Tools',
                 'description' => 'Estimate UK take-home pay, salary after tax, and net pay for 2026/27. Compare annual, monthly, and weekly earnings with PAYE income tax, National Insurance, pension deductions, bonus income, and student loans across England, Wales, Scotland, and Northern Ireland.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
