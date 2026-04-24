@@ -88,7 +88,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax, Net Pay &amp; PAYE | No Cap Tools</title>', $html);
+        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Monthly Salary After Tax &amp; Net Pay | No Cap Tools</title>', $html);
         self::assertStringContainsString('UK take home pay calculator for salary after tax in 2026/27', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
         self::assertStringContainsString('"@type":"SoftwareApplication"', $html);

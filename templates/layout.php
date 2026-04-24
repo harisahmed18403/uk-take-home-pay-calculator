@@ -374,7 +374,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             <section class="hero-card">
                 <div class="eyebrow">UK PAYE estimate</div>
                 <h1>UK take home pay calculator for salary after tax in 2026/27</h1>
-                <p class="lede">Estimate annual, monthly, or weekly take-home pay with this UK salary after tax calculator. It includes PAYE income tax, National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
+                <p class="lede">Estimate annual, monthly, or weekly take-home pay with this UK salary after tax calculator. Use it for monthly salary to monthly take-home pay checks or annual PAYE comparisons, including National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
                 <nav class="seo-links" aria-label="On-page sections">
                     <a href="#calculator">Use the calculator</a>
                     <a href="#salary-guides">Read the salary after tax guides</a>
@@ -406,7 +406,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <section class="content-band">
             <article class="content-panel">
                 <h2>See your UK take-home pay breakdown, then inspect each deduction.</h2>
-                <p>The calculator is designed for salary comparisons, budgeting, and sense-checking job offers. It annualises your earnings, applies the selected tax year, and shows how Income Tax, National Insurance, pension treatment, and student loan plans affect your monthly and weekly take-home pay.</p>
+                <p>The calculator is designed for salary comparisons, budgeting, and sense-checking job offers. It annualises your earnings, applies the selected tax year, and shows how Income Tax, National Insurance, pension treatment, and student loan plans affect your monthly and weekly take-home pay, including monthly salary to monthly take-home pay checks.</p>
                 <p>Use the supporting <a href="<?= htmlspecialchars($routeUrl('guides')) ?>">salary after tax guides</a> for the methodology and the <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a> for common edge cases such as Scottish tax bands, postgraduate loans, pension salary sacrifice, or salary after tax questions.</p>
             </article>
             <aside class="ad-slot" aria-label="Advertisement">
