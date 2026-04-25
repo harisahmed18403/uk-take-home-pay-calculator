@@ -153,7 +153,7 @@ a {
     padding: 42px;
 }
 
-.hero-card h1,
+.hero-card h2,
 .legal-card h1 {
     margin: 0 0 12px;
     font-size: clamp(2.4rem, 6vw, 4.7rem);
@@ -329,6 +329,7 @@ button {
 .assumptions h3,
 .faq-card h2,
 .content-panel h2,
+.panel h1,
 .panel h2,
 .results-header h2 {
     margin-top: 0;
@@ -597,7 +598,7 @@ summary {
         padding: 20px;
     }
 
-    .hero-card h1,
+    .hero-card h2,
     .legal-card h1 {
         font-size: 2.3rem;
     }

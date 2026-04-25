@@ -107,7 +107,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <main>
         <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
-                <h2>UK salary after tax calculator for annual, monthly, and weekly pay</h2>
+                <h1>UK take home pay calculator for salary after tax in 2026/27</h1>
                 <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
                     <span class="mobile-results-bar__prompt">Current take-home pay</span>
                     <span class="mobile-results-bar__grid">
@@ -373,7 +373,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <section class="hero-layout">
             <section class="hero-card">
                 <div class="eyebrow">UK PAYE estimate</div>
-                <h1>UK take home pay calculator for salary after tax in 2026/27</h1>
+                <h2>Estimate UK salary after tax, monthly net pay, and PAYE deductions</h2>
                 <p class="lede">Estimate annual, monthly, or weekly take-home pay with this UK salary after tax calculator. Use it for monthly salary to monthly take-home pay checks or annual PAYE comparisons, including National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
                 <nav class="seo-links" aria-label="On-page sections">
                     <a href="#calculator">Use the calculator</a>
@@ -419,14 +419,17 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             <article class="intent-card">
                 <h2>Monthly salary to monthly take-home pay</h2>
                 <p>Switch the salary period to monthly when you want a fast estimate from a payslip amount or recruiter message instead of an annual salary figure.</p>
+                <p><a href="#calculator">Calculate monthly salary after tax</a></p>
             </article>
             <article class="intent-card">
                 <h2>Salary sacrifice pension comparison</h2>
                 <p>Check how salary sacrifice changes net pay compared with net pay arrangement or post-tax pension contributions using the same gross salary.</p>
+                <p><a href="#calculator">Compare pension deductions</a></p>
             </article>
             <article class="intent-card">
                 <h2>Bonus and student loan impact</h2>
                 <p>Add bonus income and loan plans together to see how extra earnings affect deductions and the effective take-home rate.</p>
+                <p><a href="#calculator">Estimate bonus take-home pay</a></p>
             </article>
         </section>
 

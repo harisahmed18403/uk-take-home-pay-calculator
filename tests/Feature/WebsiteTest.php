@@ -88,7 +88,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Monthly Salary After Tax &amp; Net Pay | No Cap Tools</title>', $html);
+        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax &amp; Net Pay</title>', $html);
         self::assertStringContainsString('UK take home pay calculator for salary after tax in 2026/27', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
         self::assertStringContainsString('"@type":"SoftwareApplication"', $html);
@@ -250,7 +250,7 @@ final class WebsiteTest extends TestCase
         $index = (string) file_get_contents($root . '/deploy/root/index.html');
 
         self::assertStringContainsString('Sitemap: https://www.no-cap-tools.com/uk-take-home-pay-calculator/sitemap.xml', $robots);
-        self::assertStringContainsString('UK Take Home Pay Calculator | Salary After Tax Tools | No Cap Tools', $index);
+        self::assertStringContainsString('No Cap Tools | UK Take Home Pay Calculator &amp; Salary After Tax Tools', $index);
         self::assertStringContainsString('Open the UK take-home pay calculator', $index);
     }
 
