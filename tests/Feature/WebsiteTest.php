@@ -250,7 +250,7 @@ final class WebsiteTest extends TestCase
         $index = (string) file_get_contents($root . '/deploy/root/index.html');
 
         self::assertStringContainsString('Sitemap: https://www.no-cap-tools.com/uk-take-home-pay-calculator/sitemap.xml', $robots);
-        self::assertStringContainsString('No Cap Tools | UK Take Home Pay Calculator &amp; Salary After Tax Tools', $index);
+        self::assertStringContainsString('UK Take Home Pay Calculator | Salary After Tax Tools | No Cap Tools', $index);
         self::assertStringContainsString('Open the UK take-home pay calculator', $index);
     }
 
