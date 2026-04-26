@@ -187,8 +187,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax & Net Pay',
-                'description' => 'Calculate UK take-home pay for 2026/27. Compare annual, monthly, and weekly salary after tax with PAYE, National Insurance, pension, bonus, and student loans.',
+                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax, PAYE & Net Pay',
+                'description' => 'Calculate UK salary after tax for 2026/27. Estimate monthly take-home pay, PAYE Income Tax, National Insurance, pension, bonus, and student loan deductions.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -324,7 +324,7 @@ final class App
                 'faq' => 'Answers to common questions about the UK salary after tax calculator, Scotland, tax codes, student loans, pension treatments, and estimate accuracy for 2026/27.',
                 'privacy' => 'Read the privacy policy for the UK Take-Home Pay Calculator and understand what data is and is not stored when you use the site in the UK.',
                 'cookies' => 'Read the cookie policy for the UK Take-Home Pay Calculator, including how functional, analytics, and advertising cookies would be handled for UK visitors.',
-                default => 'Estimate UK take-home pay, salary after tax, and net pay for 2026/27. Compare annual, monthly, and weekly earnings with PAYE income tax, National Insurance, pension deductions, bonus income, and student loans across England, Wales, Scotland, and Northern Ireland.',
+                default => 'Calculate UK salary after tax and take-home pay for 2026/27. Compare annual, monthly, and weekly earnings with PAYE Income Tax, National Insurance, pension deductions, bonus income, and student loans across England, Wales, Scotland, and Northern Ireland.',
             },
             'url' => $canonicalUrl,
             'isPartOf' => [
@@ -338,6 +338,13 @@ final class App
         ];
 
         if ($page === 'home') {
+            $graph[count($graph) - 1]['mainEntity'] = [
+                '@type' => 'SoftwareApplication',
+                'name' => 'UK Take Home Pay Calculator 2026/27',
+                'applicationCategory' => 'FinanceApplication',
+                'operatingSystem' => 'Any',
+                'url' => $canonicalUrl,
+            ];
             $graph[count($graph) - 1]['about'] = [
                 [
                     '@type' => 'Thing',
@@ -372,7 +379,7 @@ final class App
                 'operatingSystem' => 'Any',
                 'isAccessibleForFree' => true,
                 'url' => $canonicalUrl,
-                'description' => 'Calculate UK take-home pay, salary after tax, and net pay with PAYE income tax, National Insurance, pension, bonus, and student loan deductions.',
+                'description' => 'Calculate UK salary after tax, monthly take-home pay, and net pay with PAYE Income Tax, National Insurance, pension, bonus, and student loan deductions.',
                 'featureList' => [
                     'Annual, monthly, and weekly salary inputs',
                     'PAYE Income Tax and National Insurance estimates',
@@ -380,7 +387,7 @@ final class App
                     'Student loan and postgraduate loan deductions',
                     'Salary sacrifice, net pay, and post-tax pension methods',
                 ],
-                'keywords' => 'UK take home pay calculator, salary after tax, net pay calculator, monthly salary after tax, PAYE calculator',
+                'keywords' => 'UK take home pay calculator, UK salary after tax calculator, net pay calculator, monthly take-home pay calculator, PAYE calculator',
                 'audience' => [
                     '@type' => 'Audience',
                     'audienceType' => 'UK employees comparing salary after tax and net pay',

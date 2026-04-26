@@ -67,7 +67,7 @@ final class WebsiteTest extends TestCase
         $html = $response['body'];
 
         self::assertSame(200, $response['status']);
-        self::assertStringContainsString('UK take home pay calculator for salary after tax in 2026/27', $html);
+        self::assertStringContainsString('UK take home pay calculator for salary after tax, PAYE, and net pay in 2026/27', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);
@@ -88,10 +88,15 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax &amp; Net Pay</title>', $html);
-        self::assertStringContainsString('UK take home pay calculator for salary after tax in 2026/27', $html);
+        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax, PAYE &amp; Net Pay</title>', $html);
+        self::assertStringContainsString('Calculate UK salary after tax for 2026/27. Estimate monthly take-home pay, PAYE Income Tax, National Insurance, pension, bonus, and student loan deductions.', $html);
+        self::assertStringContainsString('UK take home pay calculator for salary after tax, PAYE, and net pay in 2026/27', $html);
+        self::assertStringContainsString('Popular UK salary after tax checks', $html);
+        self::assertStringContainsString('Calculate £30,000 salary after tax', $html);
+        self::assertStringContainsString('Check PAYE and tax code questions', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
         self::assertStringContainsString('"@type":"SoftwareApplication"', $html);
+        self::assertStringContainsString('"mainEntity":{"@type":"SoftwareApplication"', $html);
         self::assertStringContainsString('property="og:image"', $html);
     }
 
@@ -250,8 +255,8 @@ final class WebsiteTest extends TestCase
         $index = (string) file_get_contents($root . '/deploy/root/index.html');
 
         self::assertStringContainsString('Sitemap: https://www.no-cap-tools.com/uk-take-home-pay-calculator/sitemap.xml', $robots);
-        self::assertStringContainsString('UK Take Home Pay Calculator | Salary After Tax Tools | No Cap Tools', $index);
-        self::assertStringContainsString('Open the UK take-home pay calculator', $index);
+        self::assertStringContainsString('UK Take Home Pay Calculator 2026/27 | Salary After Tax Tools | No Cap Tools', $index);
+        self::assertStringContainsString('Open the UK salary after tax calculator', $index);
     }
 
     /**

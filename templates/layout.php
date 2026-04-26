@@ -107,7 +107,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <main>
         <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
-                <h1>UK take home pay calculator for salary after tax in 2026/27</h1>
+                <h1>UK take home pay calculator for salary after tax, PAYE, and net pay in 2026/27</h1>
                 <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
                     <span class="mobile-results-bar__prompt">Current take-home pay</span>
                     <span class="mobile-results-bar__grid">
@@ -117,7 +117,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     </span>
                     <span class="mobile-results-bar__link">Full breakdown</span>
                 </button>
-                <p class="section-copy">Choose your salary, tax setup, pension treatment, and student loan settings to estimate UK take-home pay, salary after tax, and net pay.</p>
+                <p class="section-copy">Choose your salary, tax setup, pension treatment, and student loan settings to estimate UK salary after tax, PAYE deductions, monthly take-home pay, and net pay.</p>
 
                 <?php if ($errors !== []): ?>
                     <div class="alert" role="alert" data-calculator-errors>
@@ -431,6 +431,19 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <p>Add bonus income and loan plans together to see how extra earnings affect deductions and the effective take-home rate.</p>
                 <p><a href="#calculator">Estimate bonus take-home pay</a></p>
             </article>
+        </section>
+
+        <section class="panel panel--seo-links" aria-labelledby="popular-salary-checks-heading">
+            <h2 id="popular-salary-checks-heading">Popular UK salary after tax checks</h2>
+            <p class="section-copy">Common salary searches use the same calculator settings. Enter the gross pay, leave the period as annual, and compare the annual, monthly, and weekly net pay results.</p>
+            <ul class="guide-links">
+                <li><a href="#calculator">Calculate £25,000 salary after tax</a></li>
+                <li><a href="#calculator">Calculate £30,000 salary after tax</a></li>
+                <li><a href="#calculator">Calculate £40,000 salary after tax</a></li>
+                <li><a href="#calculator">Calculate £50,000 salary after tax</a></li>
+                <li><a href="<?= htmlspecialchars($routeUrl('guides')) ?>">Read how salary after tax is calculated</a></li>
+                <li><a href="<?= htmlspecialchars($routeUrl('faq')) ?>">Check PAYE and tax code questions</a></li>
+            </ul>
         </section>
 
         <section id="salary-guides" class="guides-grid">
