@@ -187,8 +187,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax, PAYE & Net Pay',
-                'description' => 'Calculate UK salary after tax for 2026/27. Estimate monthly take-home pay, PAYE Income Tax, National Insurance, pension, bonus, and student loan deductions.',
+                'title' => 'UK Salary Calculator 2026/27 | Take Home Pay After Tax',
+                'description' => 'Use this UK salary calculator to estimate 2026/27 take-home pay after tax. Check monthly net pay, PAYE Income Tax, National Insurance, pension, bonus, and student loan deductions.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -228,11 +228,15 @@ final class App
             ],
             [
                 'question' => 'Will this help compare UK job offers at different salaries?',
-                'answer' => 'Yes. The calculator is useful for comparing gross UK salary offers by converting them into annual, monthly, and weekly take-home pay using the same tax assumptions.',
+                'answer' => 'Yes. The calculator is useful for comparing gross UK salary offers by converting each offer into annual, monthly, and weekly take-home pay using the same tax assumptions.',
             ],
             [
                 'question' => 'Can I estimate the effect of a different UK tax code?',
                 'answer' => 'Yes. You can enter common UK tax codes such as 1257L, S1257L, BR, D0, D1, NT, or K codes to see how they change the estimate.',
+            ],
+            [
+                'question' => 'Can I check common UK salaries such as £25,000, £30,000, £40,000, or £50,000 after tax?',
+                'answer' => 'Yes. Enter the gross salary, keep the salary period as annual, and the calculator will show estimated yearly, monthly, and weekly take-home pay after PAYE deductions.',
             ],
         ];
     }
@@ -274,6 +278,16 @@ final class App
                     'If a postgraduate loan is selected, it stacks on top of the undergraduate plan.',
                     'Total deductions are added together and subtracted from gross annual pay.',
                     'Monthly net pay is net annual pay divided by 12, and weekly net pay is net annual pay divided by 52.',
+                ],
+            ],
+            [
+                'title' => '4. Compare common gross salary examples',
+                'body' => 'Salary searches often start with a gross annual figure such as £25,000, £30,000, £40,000, or £50,000. Using the same tax year, region, tax code, pension, and loan settings keeps each after-tax comparison consistent.',
+                'formula' => 'monthly_take_home = net_annual / 12',
+                'steps' => [
+                    'Enter the gross salary as an annual amount.',
+                    'Keep the same tax year and deduction settings for each comparison.',
+                    'Compare the annual, monthly, and weekly net pay figures in the results panel.',
                 ],
             ],
         ];
@@ -344,6 +358,7 @@ final class App
                 'applicationCategory' => 'FinanceApplication',
                 'operatingSystem' => 'Any',
                 'url' => $canonicalUrl,
+                'keywords' => 'UK salary calculator, take home pay calculator, salary after tax, monthly salary after tax, net pay calculator',
             ];
             $graph[count($graph) - 1]['about'] = [
                 [

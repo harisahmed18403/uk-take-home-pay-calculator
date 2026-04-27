@@ -107,7 +107,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <main>
         <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
-                <h1>UK take home pay calculator for salary after tax, PAYE, and net pay in 2026/27</h1>
+                <h1>UK salary calculator for take-home pay after tax in 2026/27</h1>
                 <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
                     <span class="mobile-results-bar__prompt">Current take-home pay</span>
                     <span class="mobile-results-bar__grid">
@@ -117,7 +117,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     </span>
                     <span class="mobile-results-bar__link">Full breakdown</span>
                 </button>
-                <p class="section-copy">Choose your salary, tax setup, pension treatment, and student loan settings to estimate UK salary after tax, PAYE deductions, monthly take-home pay, and net pay.</p>
+                <p class="section-copy">Choose your salary, tax setup, pension treatment, and student loan settings to estimate UK salary after tax, PAYE deductions, monthly take-home pay, weekly take-home pay, and net pay.</p>
 
                 <?php if ($errors !== []): ?>
                     <div class="alert" role="alert" data-calculator-errors>
@@ -374,7 +374,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             <section class="hero-card">
                 <div class="eyebrow">UK PAYE estimate</div>
                 <h2>Estimate UK salary after tax, monthly net pay, and PAYE deductions</h2>
-                <p class="lede">Estimate annual, monthly, or weekly take-home pay with this UK salary after tax calculator. Use it for monthly salary to monthly take-home pay checks or annual PAYE comparisons, including National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
+                <p class="lede">Estimate annual, monthly, or weekly take-home pay with this UK salary calculator. Use it for monthly salary to monthly take-home pay checks or annual PAYE comparisons, including National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
                 <nav class="seo-links" aria-label="On-page sections">
                     <a href="#calculator">Use the calculator</a>
                     <a href="#salary-guides">Read the salary after tax guides</a>
@@ -418,7 +418,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <section class="intent-grid" aria-label="Popular UK salary calculator scenarios">
             <article class="intent-card">
                 <h2>Monthly salary to monthly take-home pay</h2>
-                <p>Switch the salary period to monthly when you want a fast estimate from a payslip amount or recruiter message instead of an annual salary figure.</p>
+                <p>Switch the salary period to monthly when you want a fast monthly salary after tax estimate from a payslip amount or recruiter message instead of an annual salary figure.</p>
                 <p><a href="#calculator">Calculate monthly salary after tax</a></p>
             </article>
             <article class="intent-card">
@@ -441,6 +441,8 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <li><a href="#calculator">Calculate £30,000 salary after tax</a></li>
                 <li><a href="#calculator">Calculate £40,000 salary after tax</a></li>
                 <li><a href="#calculator">Calculate £50,000 salary after tax</a></li>
+                <li><a href="#calculator">Estimate monthly salary after tax</a></li>
+                <li><a href="#calculator">Check weekly take-home pay after tax</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('guides')) ?>">Read how salary after tax is calculated</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('faq')) ?>">Check PAYE and tax code questions</a></li>
             </ul>
@@ -460,6 +462,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             <p class="section-copy">Use these pages to compare salary, region, deductions, take-home pay, and net pay more easily.</p>
             <ul class="guide-links">
                 <li><a href="<?= htmlspecialchars($routeUrl()) ?>">UK take home pay calculator for salary after tax</a></li>
+                <li><a href="<?= htmlspecialchars($routeUrl()) ?>">UK salary calculator for monthly net pay</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('guides')) ?>">UK take home pay calculator guides</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('faq')) ?>">UK take home pay calculator FAQ</a></li>
             </ul>
