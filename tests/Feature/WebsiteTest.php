@@ -67,7 +67,7 @@ final class WebsiteTest extends TestCase
         $html = $response['body'];
 
         self::assertSame(200, $response['status']);
-        self::assertStringContainsString('UK salary calculator for take-home pay after tax in 2026/27', $html);
+        self::assertStringContainsString('UK salary calculator 2026/27 for take-home pay after tax', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);
@@ -88,9 +88,11 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Salary Calculator 2026/27 | Take Home Pay After Tax</title>', $html);
-        self::assertStringContainsString('Use this UK salary calculator to estimate 2026/27 take-home pay after tax. Check monthly net pay, PAYE Income Tax, National Insurance, pension, bonus, and student loan deductions.', $html);
-        self::assertStringContainsString('UK salary calculator for take-home pay after tax in 2026/27', $html);
+        self::assertStringContainsString('<title>UK Salary Calculator 2026/27 | Take Home Pay After Tax &amp; NI</title>', $html);
+        self::assertStringContainsString('Use this UK salary calculator for 2026/27 take-home pay after tax and NI. Estimate monthly net pay, PAYE, pension, bonus, and student loan deductions.', $html);
+        self::assertStringContainsString('UK salary calculator 2026/27 for take-home pay after tax', $html);
+        self::assertStringContainsString('Salary calculator 2026/27 tax year', $html);
+        self::assertStringContainsString('Salary calculator 2026 27', $html);
         self::assertStringContainsString('Popular UK salary after tax checks', $html);
         self::assertStringContainsString('Calculate £30,000 salary after tax', $html);
         self::assertStringContainsString('Estimate monthly salary after tax', $html);
