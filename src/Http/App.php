@@ -187,8 +187,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Salary Calculator 2026/27 | Take Home Pay After Tax & NI',
-                'description' => 'Use this UK salary calculator for 2026/27 take-home pay after tax and NI. Estimate monthly net pay, PAYE, pension, bonus, and student loan deductions.',
+                'title' => 'UK Salary Calculator 2026/27 | Take Home Pay After Tax',
+                'description' => 'Use this UK salary calculator 2026/27 to estimate take-home pay after tax, NI, pension, bonus, and student loan deductions. See monthly and weekly net pay.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -202,6 +202,10 @@ final class App
     private function faqItems(): array
     {
         return [
+            [
+                'question' => 'Is this a salary calculator for the 2026/27 tax year?',
+                'answer' => 'Yes. The default tax year is 2026/27, so you can use it as a UK salary calculator 2026 27 for take-home pay after Income Tax, National Insurance, pension, and student loan deductions.',
+            ],
             [
                 'question' => 'Does this calculator cover Scotland and the rest of the UK?',
                 'answer' => 'Yes. Scottish tax bands are applied when you choose Scotland or enter a tax code that starts with S, and the calculator is built for UK take-home pay estimates.',
@@ -281,8 +285,8 @@ final class App
                 ],
             ],
             [
-                'title' => '4. Compare common gross salary examples',
-                'body' => 'Salary searches often start with a gross annual figure such as £25,000, £30,000, £40,000, or £50,000. Using the same tax year, region, tax code, pension, and loan settings keeps each after-tax comparison consistent.',
+                'title' => '4. Compare 2026/27 salary examples',
+                'body' => 'Salary calculator 2026/27 searches often start with a gross annual figure such as £25,000, £30,000, £40,000, or £50,000. Using the same tax year, region, tax code, pension, and loan settings keeps each after-tax comparison consistent.',
                 'formula' => 'monthly_take_home = net_annual / 12',
                 'steps' => [
                     'Enter the gross salary as an annual amount.',

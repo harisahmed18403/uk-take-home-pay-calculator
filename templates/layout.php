@@ -107,7 +107,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <main>
         <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
-                <h1>UK salary calculator 2026/27 for take-home pay after tax</h1>
+                <h1>UK salary calculator 2026/27: take-home pay after tax</h1>
                 <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
                     <span class="mobile-results-bar__prompt">Current take-home pay</span>
                     <span class="mobile-results-bar__grid">
@@ -117,7 +117,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     </span>
                     <span class="mobile-results-bar__link">Full breakdown</span>
                 </button>
-                <p class="section-copy">Choose your salary, tax setup, pension treatment, and student loan settings to estimate UK salary after tax for the 2026/27 tax year, including PAYE deductions, monthly take-home pay, weekly take-home pay, and net pay.</p>
+                <p class="section-copy">Choose your salary, tax setup, pension treatment, and student loan settings to estimate UK salary after tax for the 2026/27 tax year. This salary calculator 2026 27 estimate covers PAYE deductions, monthly take-home pay, weekly take-home pay, and net pay.</p>
 
                 <?php if ($errors !== []): ?>
                     <div class="alert" role="alert" data-calculator-errors>
@@ -418,7 +418,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <section class="intent-grid" aria-label="Popular UK salary calculator scenarios">
             <article class="intent-card">
                 <h2>Salary calculator 2026/27 tax year</h2>
-                <p>Use the 2026/27 tax year option to estimate salary after tax with the current thresholds included in this calculator.</p>
+                <p>Use the 2026/27 tax year option to estimate salary after tax with the current thresholds included in this calculator. It is built for searches like salary calculator 2026 27 and UK take-home pay after tax.</p>
                 <p><a href="#calculator">Use the 2026/27 salary calculator</a></p>
             </article>
             <article class="intent-card">
