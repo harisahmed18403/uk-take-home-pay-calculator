@@ -88,11 +88,14 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Salary Calculator 2026/27 | Take Home Pay After Tax</title>', $html);
-        self::assertStringContainsString('Use this UK salary calculator 2026/27 to estimate take-home pay after tax, NI, pension, bonus, and student loan deductions. See monthly and weekly net pay.', $html);
+        self::assertStringContainsString('<title>UK Salary Calculator 2026/27 | Take Home Pay &amp; Salary Exchange</title>', $html);
+        self::assertStringContainsString('Use this UK salary calculator 2026/27 to estimate take-home pay after tax, NI, salary exchange pension, bonus, and student loan deductions.', $html);
         self::assertStringContainsString('UK salary calculator 2026/27: take-home pay after tax', $html);
         self::assertStringContainsString('Salary calculator 2026/27 tax year', $html);
         self::assertStringContainsString('Salary calculator 2026 27', $html);
+        self::assertStringContainsString('Salary exchange pension calculator', $html);
+        self::assertStringContainsString('Use the salary exchange calculator', $html);
+        self::assertStringContainsString('Can I use this as a salary exchange calculator?', $html);
         self::assertStringContainsString('Is this a salary calculator for the 2026/27 tax year?', $html);
         self::assertStringContainsString('Popular UK salary after tax checks', $html);
         self::assertStringContainsString('Calculate £30,000 salary after tax', $html);

@@ -36,7 +36,7 @@ $calculatorBootstrap = [
     'assumptions' => [
         'PAYE estimate using annualised earnings.',
         'National Insurance calculated using annual thresholds.',
-        'Pension can be treated as salary sacrifice, net pay arrangement, or post-tax deduction.',
+        'Pension can be treated as salary sacrifice/salary exchange, net pay arrangement, or post-tax deduction.',
         'Student loan repayments use current published thresholds for the selected tax year.',
     ],
 ];
@@ -117,7 +117,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     </span>
                     <span class="mobile-results-bar__link">Full breakdown</span>
                 </button>
-                <p class="section-copy">Choose your salary, tax setup, pension treatment, and student loan settings to estimate UK salary after tax for the 2026/27 tax year. This salary calculator 2026 27 estimate covers PAYE deductions, monthly take-home pay, weekly take-home pay, and net pay.</p>
+                <p class="section-copy">Choose your salary, tax setup, pension treatment, and student loan settings to estimate UK salary after tax for the 2026/27 tax year. This salary calculator 2026 27 estimate covers PAYE deductions, salary exchange pension, monthly take-home pay, weekly take-home pay, and net pay.</p>
 
                 <?php if ($errors !== []): ?>
                     <div class="alert" role="alert" data-calculator-errors>
@@ -374,7 +374,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             <section class="hero-card">
                 <div class="eyebrow">UK PAYE estimate</div>
                 <h2>Estimate UK salary after tax, monthly net pay, and PAYE deductions</h2>
-                <p class="lede">Estimate annual, monthly, or weekly take-home pay with this UK salary calculator for 2026/27. Use it for monthly salary to monthly take-home pay checks or annual PAYE comparisons, including National Insurance, bonus income, pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
+                <p class="lede">Estimate annual, monthly, or weekly take-home pay with this UK salary calculator for 2026/27. Use it for monthly salary to monthly take-home pay checks or annual PAYE comparisons, including National Insurance, bonus income, salary exchange pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
                 <nav class="seo-links" aria-label="On-page sections">
                     <a href="#calculator">Use the calculator</a>
                     <a href="#salary-guides">Read the salary after tax guides</a>
@@ -407,7 +407,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             <article class="content-panel">
                 <h2>See your UK take-home pay breakdown, then inspect each deduction.</h2>
                 <p>The calculator is designed for salary comparisons, budgeting, and sense-checking job offers. It annualises your earnings, applies the selected tax year, and shows how Income Tax, National Insurance, pension treatment, and student loan plans affect your monthly and weekly take-home pay, including monthly salary to monthly take-home pay checks.</p>
-                <p>Use the supporting <a href="<?= htmlspecialchars($routeUrl('guides')) ?>">salary after tax guides</a> for the methodology and the <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a> for common edge cases such as Scottish tax bands, postgraduate loans, pension salary sacrifice, or salary after tax questions.</p>
+                <p>Use the supporting <a href="<?= htmlspecialchars($routeUrl('guides')) ?>">salary after tax guides</a> for the methodology and the <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a> for common edge cases such as Scottish tax bands, postgraduate loans, pension salary sacrifice, salary exchange, or salary after tax questions.</p>
             </article>
             <aside class="ad-slot" aria-label="Advertisement">
                 <div class="ad-slot__label">Sponsored</div>
@@ -427,9 +427,9 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <p><a href="#calculator">Calculate monthly salary after tax</a></p>
             </article>
             <article class="intent-card">
-                <h2>Salary sacrifice pension comparison</h2>
-                <p>Check how salary sacrifice changes net pay compared with net pay arrangement or post-tax pension contributions using the same gross salary.</p>
-                <p><a href="#calculator">Compare pension deductions</a></p>
+                <h2>Salary exchange pension calculator</h2>
+                <p>Check how salary sacrifice or salary exchange changes net pay compared with net pay arrangement or post-tax pension contributions using the same gross salary.</p>
+                <p><a href="#calculator">Compare salary exchange pension deductions</a></p>
             </article>
             <article class="intent-card">
                 <h2>Bonus and student loan impact</h2>
@@ -447,6 +447,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <li><a href="#calculator">Calculate £40,000 salary after tax</a></li>
                 <li><a href="#calculator">Calculate £50,000 salary after tax</a></li>
                 <li><a href="#calculator">Estimate monthly salary after tax</a></li>
+                <li><a href="#calculator">Use the salary exchange calculator</a></li>
                 <li><a href="#calculator">Check weekly take-home pay after tax</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('guides')) ?>">Read how salary after tax is calculated</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('faq')) ?>">Check PAYE and tax code questions</a></li>

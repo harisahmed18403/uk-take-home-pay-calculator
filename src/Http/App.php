@@ -22,6 +22,14 @@ final class App
         $basePath = BasePath::current();
         $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
         $relativePath = BasePath::stripFromRequestPath((string) ($requestPath ?: '/'), $basePath);
+        $canonicalRedirect = $this->canonicalHostRedirect();
+        if ($canonicalRedirect !== null) {
+            return [
+                'status' => 301,
+                'content' => '',
+                'headers' => ['Location: ' . $canonicalRedirect],
+            ];
+        }
 
         if ($relativePath === '/robots.txt') {
             return [
@@ -142,6 +150,36 @@ final class App
         return ['page' => null, 'redirect' => null];
     }
 
+    private function canonicalHostRedirect(): ?string
+    {
+        $method = strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET'));
+        if (!in_array($method, ['GET', 'HEAD'], true)) {
+            return null;
+        }
+
+        $configuredRoot = $_ENV['APP_ROOT_URL']
+            ?? $_SERVER['APP_ROOT_URL']
+            ?? getenv('APP_ROOT_URL')
+            ?: '';
+
+        if ($configuredRoot === '') {
+            return null;
+        }
+
+        $targetHost = parse_url((string) $configuredRoot, PHP_URL_HOST);
+        $targetScheme = parse_url((string) $configuredRoot, PHP_URL_SCHEME) ?: 'https';
+        $currentHost = strtolower((string) ($_SERVER['HTTP_HOST'] ?? ''));
+        $currentHost = preg_replace('/:\d+$/', '', $currentHost) ?: $currentHost;
+
+        if ($targetHost === null || strtolower($targetHost) === strtolower($currentHost)) {
+            return null;
+        }
+
+        $requestUri = (string) ($_SERVER['REQUEST_URI'] ?? '/');
+
+        return $targetScheme . '://' . $targetHost . $requestUri;
+    }
+
     /**
      * @return array{title:string, description:string, canonical:string, robots:string, og_type:string}
      */
@@ -187,8 +225,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Salary Calculator 2026/27 | Take Home Pay After Tax',
-                'description' => 'Use this UK salary calculator 2026/27 to estimate take-home pay after tax, NI, pension, bonus, and student loan deductions. See monthly and weekly net pay.',
+                'title' => 'UK Salary Calculator 2026/27 | Take Home Pay & Salary Exchange',
+                'description' => 'Use this UK salary calculator 2026/27 to estimate take-home pay after tax, NI, salary exchange pension, bonus, and student loan deductions.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -212,7 +250,7 @@ final class App
             ],
             [
                 'question' => 'Can I include student loans, pension deductions, and salary sacrifice?',
-                'answer' => 'Yes. The calculator supports undergraduate student loan plans, postgraduate loans, salary sacrifice, and three pension treatments.',
+                'answer' => 'Yes. The calculator supports undergraduate student loan plans, postgraduate loans, salary sacrifice, salary exchange, and three pension treatments.',
             ],
             [
                 'question' => 'How accurate is this UK take-home pay estimate?',
@@ -224,7 +262,11 @@ final class App
             ],
             [
                 'question' => 'Does salary sacrifice pension reduce National Insurance as well as Income Tax in the UK?',
-                'answer' => 'Yes. Salary sacrifice reduces both taxable pay and NI-able pay, while net pay reduces taxable pay only and post-tax pension does not reduce either calculation before deductions.',
+                'answer' => 'Yes. Salary sacrifice, also called salary exchange, reduces both taxable pay and NI-able pay, while net pay reduces taxable pay only and post-tax pension does not reduce either calculation before deductions.',
+            ],
+            [
+                'question' => 'Can I use this as a salary exchange calculator?',
+                'answer' => 'Yes. Choose salary sacrifice as the pension method to estimate salary exchange pension deductions and see the effect on take-home pay, Income Tax, and National Insurance.',
             ],
             [
                 'question' => 'Can I include a bonus or additional income in my take-home pay estimate?',
@@ -263,7 +305,7 @@ final class App
             ],
             [
                 'title' => '2. Work out taxable pay and deductions',
-                'body' => 'Income Tax, National Insurance, and pension are calculated from slightly different versions of your pay. That matters because salary sacrifice affects National Insurance differently from net pay or post-tax pension contributions.',
+                'body' => 'Income Tax, National Insurance, and pension are calculated from slightly different versions of your pay. That matters because salary sacrifice, also called salary exchange, affects National Insurance differently from net pay or post-tax pension contributions.',
                 'formula' => 'net_annual = gross_annual - income_tax - national_insurance - student_loan - pension',
                 'steps' => [
                     'Pension is gross annual pay multiplied by your pension percentage.',
@@ -362,7 +404,7 @@ final class App
                 'applicationCategory' => 'FinanceApplication',
                 'operatingSystem' => 'Any',
                 'url' => $canonicalUrl,
-                'keywords' => 'UK salary calculator 2026/27, salary calculator 2026 27, take home pay calculator, salary after tax, monthly salary after tax, net pay calculator',
+                'keywords' => 'UK salary calculator 2026/27, salary calculator 2026 27, take home pay calculator, salary after tax, salary exchange calculator, monthly salary after tax, net pay calculator',
             ];
             $graph[count($graph) - 1]['about'] = [
                 [
@@ -392,6 +434,7 @@ final class App
                 'alternateName' => [
                     'UK salary after tax calculator',
                     'Salary calculator 2026 27',
+                    'Salary exchange calculator',
                     'UK net pay calculator',
                     'Monthly take-home pay calculator',
                 ],
@@ -405,9 +448,9 @@ final class App
                     'PAYE Income Tax and National Insurance estimates',
                     'England, Wales, Scotland, and Northern Ireland regions',
                     'Student loan and postgraduate loan deductions',
-                    'Salary sacrifice, net pay, and post-tax pension methods',
+                    'Salary sacrifice, salary exchange, net pay, and post-tax pension methods',
                 ],
-                'keywords' => 'UK take home pay calculator, UK salary calculator 2026/27, salary calculator 2026 27, UK salary after tax calculator, net pay calculator, monthly take-home pay calculator, PAYE calculator',
+                'keywords' => 'UK take home pay calculator, UK salary calculator 2026/27, salary calculator 2026 27, salary exchange calculator, UK salary after tax calculator, net pay calculator, monthly take-home pay calculator, PAYE calculator',
                 'audience' => [
                     '@type' => 'Audience',
                     'audienceType' => 'UK employees comparing salary after tax and net pay',
