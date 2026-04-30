@@ -225,6 +225,16 @@ final class WebsiteTest extends TestCase
         self::assertContains('Location: /guides/', $response['headers']);
     }
 
+    public function testNonWwwHostRedirectsToCanonicalWwwHost(): void
+    {
+        $response = $this->request('GET', '/uk-take-home-pay-calculator/', [], [
+            'Host' => 'no-cap-tools.com',
+        ]);
+
+        self::assertSame(301, $response['status']);
+        self::assertContains('Location: https://www.no-cap-tools.com/uk-take-home-pay-calculator/', $response['headers']);
+    }
+
     public function testUnknownRouteReturns404(): void
     {
         $response = $this->request('GET', '/missing-page/');

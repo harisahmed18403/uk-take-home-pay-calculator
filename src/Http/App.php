@@ -162,14 +162,19 @@ final class App
             ?? getenv('APP_ROOT_URL')
             ?: '';
 
+        $currentHost = strtolower((string) ($_SERVER['HTTP_HOST'] ?? ''));
+        $currentHost = preg_replace('/:\d+$/', '', $currentHost) ?: $currentHost;
+
         if ($configuredRoot === '') {
-            return null;
+            if ($currentHost !== 'no-cap-tools.com') {
+                return null;
+            }
+
+            $configuredRoot = 'https://www.no-cap-tools.com';
         }
 
         $targetHost = parse_url((string) $configuredRoot, PHP_URL_HOST);
         $targetScheme = parse_url((string) $configuredRoot, PHP_URL_SCHEME) ?: 'https';
-        $currentHost = strtolower((string) ($_SERVER['HTTP_HOST'] ?? ''));
-        $currentHost = preg_replace('/:\d+$/', '', $currentHost) ?: $currentHost;
 
         if ($targetHost === null || strtolower($targetHost) === strtolower($currentHost)) {
             return null;
