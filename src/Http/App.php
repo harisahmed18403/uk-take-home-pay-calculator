@@ -230,8 +230,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Salary Calculator 2026/27 | Take Home Pay & Salary Exchange',
-                'description' => 'Use this UK salary calculator 2026/27 to estimate take-home pay after tax, NI, salary exchange pension, bonus, and student loan deductions.',
+                'title' => 'UK Salary Calculator 2026/27 | Salary Sacrifice & Exchange',
+                'description' => 'Use this UK salary calculator 2026/27 to estimate take-home pay after tax, NI, salary sacrifice or salary exchange pension, bonus, and student loan deductions.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -256,6 +256,10 @@ final class App
             [
                 'question' => 'Can I include student loans, pension deductions, and salary sacrifice?',
                 'answer' => 'Yes. The calculator supports undergraduate student loan plans, postgraduate loans, salary sacrifice, salary exchange, and three pension treatments.',
+            ],
+            [
+                'question' => 'Is this a salary calculator with salary sacrifice?',
+                'answer' => 'Yes. Enter your pension percentage and choose salary sacrifice to estimate salary after tax with salary sacrifice, including the effect on taxable pay, National Insurance, and take-home pay.',
             ],
             [
                 'question' => 'How accurate is this UK take-home pay estimate?',
@@ -440,6 +444,7 @@ final class App
                     'UK salary after tax calculator',
                     'Salary calculator 2026 27',
                     'Salary exchange calculator',
+                    'Salary calculator with salary sacrifice',
                     'UK net pay calculator',
                     'Monthly take-home pay calculator',
                 ],
@@ -447,7 +452,7 @@ final class App
                 'operatingSystem' => 'Any',
                 'isAccessibleForFree' => true,
                 'url' => $canonicalUrl,
-                'description' => 'Calculate UK salary after tax for the 2026/27 tax year, including monthly take-home pay, PAYE Income Tax, National Insurance, pension, bonus, and student loan deductions.',
+                'description' => 'Calculate UK salary after tax for the 2026/27 tax year, including monthly take-home pay, PAYE Income Tax, National Insurance, salary sacrifice pension, salary exchange pension, bonus, and student loan deductions.',
                 'featureList' => [
                     'Annual, monthly, and weekly salary inputs',
                     'PAYE Income Tax and National Insurance estimates',
@@ -455,7 +460,7 @@ final class App
                     'Student loan and postgraduate loan deductions',
                     'Salary sacrifice, salary exchange, net pay, and post-tax pension methods',
                 ],
-                'keywords' => 'UK take home pay calculator, UK salary calculator 2026/27, salary calculator 2026 27, salary exchange calculator, UK salary after tax calculator, net pay calculator, monthly take-home pay calculator, PAYE calculator',
+                'keywords' => 'UK take home pay calculator, UK salary calculator 2026/27, salary calculator 2026 27, salary exchange calculator, salary calculator with salary sacrifice, UK salary after tax calculator, net pay calculator, monthly take-home pay calculator, PAYE calculator',
                 'audience' => [
                     '@type' => 'Audience',
                     'audienceType' => 'UK employees comparing salary after tax and net pay',
