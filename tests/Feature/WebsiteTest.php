@@ -88,8 +88,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Salary Calculator 2026/27 | Sacrifice, Exchange &amp; Student Loan</title>', $html);
-        self::assertStringContainsString('Use this UK salary calculator 2026/27 to estimate take-home pay after tax, NI, salary sacrifice or salary exchange pension, bonus, and student loan repayments.', $html);
+        self::assertStringContainsString('<title>UK Salary Calculator 2026/27 | Exchange, Sacrifice &amp; Loans</title>', $html);
+        self::assertStringContainsString('Use this UK salary calculator 2026/27 for take-home pay after tax, NI, salary exchange or salary sacrifice pension, bonus sacrifice, and student loans.', $html);
         self::assertStringContainsString('UK salary calculator 2026/27: take-home pay, salary sacrifice, salary exchange, and student loans', $html);
         self::assertStringContainsString('Salary calculator 2026/27 tax year', $html);
         self::assertStringContainsString('Salary calculator 2026 27', $html);
@@ -99,9 +99,12 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Use the salary calculator with salary sacrifice', $html);
         self::assertStringContainsString('Salary calculator with student loan', $html);
         self::assertStringContainsString('Use the salary calculator with student loan', $html);
+        self::assertStringContainsString('Bonus sacrifice calculator', $html);
+        self::assertStringContainsString('Use the bonus sacrifice calculator', $html);
         self::assertStringContainsString('Can I use this as a salary exchange calculator?', $html);
         self::assertStringContainsString('Is this a salary calculator with salary sacrifice?', $html);
         self::assertStringContainsString('Is this a salary calculator with student loan deductions?', $html);
+        self::assertStringContainsString('Can I use it as a bonus sacrifice calculator?', $html);
         self::assertStringContainsString('Is this a salary calculator for the 2026/27 tax year?', $html);
         self::assertStringContainsString('Popular UK salary after tax checks', $html);
         self::assertStringContainsString('Calculate £30,000 salary after tax', $html);
