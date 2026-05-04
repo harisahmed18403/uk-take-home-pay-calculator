@@ -67,7 +67,7 @@ final class WebsiteTest extends TestCase
         $html = $response['body'];
 
         self::assertSame(200, $response['status']);
-        self::assertStringContainsString('UK salary calculator 2026/27: take-home pay, salary sacrifice, salary exchange, and student loans', $html);
+        self::assertStringContainsString('UK salary calculator 2026/27: salary sacrifice, student loan deductions, and take-home pay', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);
@@ -88,9 +88,9 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Salary Calculator 2026/27 | Exchange, Sacrifice &amp; Loans</title>', $html);
-        self::assertStringContainsString('Use this UK salary calculator 2026/27 for take-home pay after tax, NI, salary exchange or salary sacrifice pension, bonus sacrifice, and student loans.', $html);
-        self::assertStringContainsString('UK salary calculator 2026/27: take-home pay, salary sacrifice, salary exchange, and student loans', $html);
+        self::assertStringContainsString('<title>UK Salary Calculator 2026/27 | Sacrifice, Student Loan &amp; Net Pay</title>', $html);
+        self::assertStringContainsString('Calculate UK salary after tax for 2026/27 with salary sacrifice, salary exchange, bonus sacrifice, student loan deductions, NI, pension, and monthly net pay.', $html);
+        self::assertStringContainsString('UK salary calculator 2026/27: salary sacrifice, student loan deductions, and take-home pay', $html);
         self::assertStringContainsString('Salary calculator 2026/27 tax year', $html);
         self::assertStringContainsString('Salary calculator 2026 27', $html);
         self::assertStringContainsString('Salary exchange pension calculator', $html);
@@ -99,6 +99,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Use the salary calculator with salary sacrifice', $html);
         self::assertStringContainsString('Salary calculator with student loan', $html);
         self::assertStringContainsString('Use the salary calculator with student loan', $html);
+        self::assertStringContainsString('Use it as a salary calculator student loan check', $html);
         self::assertStringContainsString('Bonus sacrifice calculator', $html);
         self::assertStringContainsString('Use the bonus sacrifice calculator', $html);
         self::assertStringContainsString('Can I use this as a salary exchange calculator?', $html);
@@ -112,6 +113,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Check PAYE and tax code questions', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
         self::assertStringContainsString('"@type":"SoftwareApplication"', $html);
+        self::assertStringContainsString('"@type":"ItemList"', $html);
+        self::assertStringContainsString('#student-loan-salary-calculator', $html);
         self::assertStringContainsString('"mainEntity":{"@type":"SoftwareApplication"', $html);
         self::assertStringContainsString('property="og:image"', $html);
     }
@@ -281,7 +284,7 @@ final class WebsiteTest extends TestCase
         $index = (string) file_get_contents($root . '/deploy/root/index.html');
 
         self::assertStringContainsString('Sitemap: https://www.no-cap-tools.com/uk-take-home-pay-calculator/sitemap.xml', $robots);
-        self::assertStringContainsString('UK Salary Calculator 2026/27 | Take Home Pay Tools | No Cap Tools', $index);
+        self::assertStringContainsString('UK Salary Calculator 2026/27 | Sacrifice, Student Loan & Net Pay Tools', $index);
         self::assertStringContainsString('Open the UK salary after tax calculator', $index);
     }
 

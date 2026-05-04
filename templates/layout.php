@@ -107,7 +107,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <main>
         <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
-                <h1>UK salary calculator 2026/27: take-home pay, salary sacrifice, salary exchange, and student loans</h1>
+                <h1>UK salary calculator 2026/27: salary sacrifice, student loan deductions, and take-home pay</h1>
                 <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
                     <span class="mobile-results-bar__prompt">Current take-home pay</span>
                     <span class="mobile-results-bar__grid">
@@ -373,7 +373,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <section class="hero-layout">
             <section class="hero-card">
                 <div class="eyebrow">UK PAYE estimate</div>
-                <h2>Estimate UK salary after tax, salary sacrifice pension, student loans, and monthly net pay</h2>
+                <h2>Estimate UK salary after tax, salary sacrifice pension, student loan repayments, and monthly net pay</h2>
                 <p class="lede">Estimate annual, monthly, or weekly take-home pay with this UK salary calculator for 2026/27. Use it for monthly salary to monthly take-home pay checks or annual PAYE comparisons, including National Insurance, bonus income, bonus sacrifice, salary exchange pension deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
                 <nav class="seo-links" aria-label="On-page sections">
                     <a href="#calculator">Use the calculator</a>
@@ -416,7 +416,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         </section>
 
         <section class="intent-grid" aria-label="Popular UK salary calculator scenarios">
-            <article class="intent-card">
+            <article class="intent-card" id="salary-calculator-2026-27">
                 <h2>Salary calculator 2026/27 tax year</h2>
                 <p>Use the 2026/27 tax year option to estimate salary after tax with the current thresholds included in this calculator. It is built for searches like salary calculator 2026 27 and UK take-home pay after tax.</p>
                 <p><a href="#calculator">Use the 2026/27 salary calculator</a></p>
@@ -426,24 +426,24 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <p>Switch the salary period to monthly when you want a fast monthly salary after tax estimate from a payslip amount or recruiter message instead of an annual salary figure.</p>
                 <p><a href="#calculator">Calculate monthly salary after tax</a></p>
             </article>
-            <article class="intent-card">
+            <article class="intent-card" id="salary-exchange-calculator">
                 <h2>Salary exchange pension calculator</h2>
                 <p>Check how salary sacrifice or salary exchange changes net pay compared with net pay arrangement or post-tax pension contributions using the same gross salary.</p>
                 <p><a href="#calculator">Compare salary exchange pension deductions</a></p>
             </article>
-            <article class="intent-card">
+            <article class="intent-card" id="salary-sacrifice-calculator">
                 <h2>Salary calculator with salary sacrifice</h2>
                 <p>Choose the salary sacrifice pension method to estimate how sacrificed pay affects taxable income, National Insurance, and your monthly take-home pay.</p>
                 <p><a href="#calculator">Calculate salary after salary sacrifice</a></p>
             </article>
-            <article class="intent-card">
+            <article class="intent-card" id="bonus-sacrifice-calculator">
                 <h2>Bonus sacrifice calculator</h2>
                 <p>Add bonus income, choose salary sacrifice or salary exchange pension, and compare the effect on tax, National Insurance, student loan deductions, and the effective take-home rate.</p>
                 <p><a href="#calculator">Estimate bonus sacrifice take-home pay</a></p>
             </article>
-            <article class="intent-card">
+            <article class="intent-card" id="student-loan-salary-calculator">
                 <h2>Salary calculator with student loan</h2>
-                <p>Select Plan 1, Plan 2, Plan 4, Plan 5, or postgraduate loan to estimate salary after tax with student loan repayments included.</p>
+                <p>Select Plan 1, Plan 2, Plan 4, Plan 5, or postgraduate loan to estimate salary after tax with student loan repayments included. Use it as a salary calculator student loan check when comparing monthly net pay.</p>
                 <p><a href="#calculator">Calculate salary with student loan deductions</a></p>
             </article>
         </section>
@@ -457,10 +457,10 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <li><a href="#calculator">Calculate £40,000 salary after tax</a></li>
                 <li><a href="#calculator">Calculate £50,000 salary after tax</a></li>
                 <li><a href="#calculator">Estimate monthly salary after tax</a></li>
-                <li><a href="#calculator">Use the salary exchange calculator</a></li>
-                <li><a href="#calculator">Use the salary calculator with salary sacrifice</a></li>
-                <li><a href="#calculator">Use the salary calculator with student loan</a></li>
-                <li><a href="#calculator">Use the bonus sacrifice calculator</a></li>
+                <li><a href="#salary-exchange-calculator">Use the salary exchange calculator</a></li>
+                <li><a href="#salary-sacrifice-calculator">Use the salary calculator with salary sacrifice</a></li>
+                <li><a href="#student-loan-salary-calculator">Use the salary calculator with student loan</a></li>
+                <li><a href="#bonus-sacrifice-calculator">Use the bonus sacrifice calculator</a></li>
                 <li><a href="#calculator">Check weekly take-home pay after tax</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('guides')) ?>">Read how salary after tax is calculated</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('faq')) ?>">Check PAYE and tax code questions</a></li>

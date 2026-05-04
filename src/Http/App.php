@@ -230,8 +230,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Salary Calculator 2026/27 | Exchange, Sacrifice & Loans',
-                'description' => 'Use this UK salary calculator 2026/27 for take-home pay after tax, NI, salary exchange or salary sacrifice pension, bonus sacrifice, and student loans.',
+                'title' => 'UK Salary Calculator 2026/27 | Sacrifice, Student Loan & Net Pay',
+                'description' => 'Calculate UK salary after tax for 2026/27 with salary sacrifice, salary exchange, bonus sacrifice, student loan deductions, NI, pension, and monthly net pay.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -418,10 +418,11 @@ final class App
             $graph[count($graph) - 1]['mainEntity'] = [
                 '@type' => 'SoftwareApplication',
                 'name' => 'UK Take Home Pay Calculator 2026/27',
+                'alternateName' => 'UK salary calculator with salary sacrifice and student loan deductions',
                 'applicationCategory' => 'FinanceApplication',
                 'operatingSystem' => 'Any',
                 'url' => $canonicalUrl,
-                'keywords' => 'UK salary calculator 2026/27, salary calculator 2026 27, take home pay calculator, salary after tax, salary exchange calculator, salary calculator with salary sacrifice, salary calculator with student loan, bonus sacrifice calculator, monthly salary after tax, net pay calculator',
+                'keywords' => 'UK salary calculator 2026/27, salary calculator 2026 27, take home pay calculator, salary after tax, salary exchange calculator, salary sacrifice calculator, salary calculator with salary sacrifice, salary calculator student loan, salary calculator with student loan, bonus sacrifice calculator, monthly salary after tax, net pay calculator',
             ];
             $graph[count($graph) - 1]['about'] = [
                 [
@@ -481,6 +482,44 @@ final class App
                     'priceCurrency' => 'GBP',
                 ],
                 'dateModified' => $lastUpdatedIso,
+            ];
+
+            $graph[] = [
+                '@context' => 'https://schema.org',
+                '@type' => 'ItemList',
+                'name' => 'UK salary calculator scenarios',
+                'itemListElement' => [
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 1,
+                        'name' => 'Salary calculator 2026/27',
+                        'url' => $canonicalUrl . '#salary-calculator-2026-27',
+                    ],
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 2,
+                        'name' => 'Salary exchange calculator',
+                        'url' => $canonicalUrl . '#salary-exchange-calculator',
+                    ],
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 3,
+                        'name' => 'Salary calculator with salary sacrifice',
+                        'url' => $canonicalUrl . '#salary-sacrifice-calculator',
+                    ],
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 4,
+                        'name' => 'Salary calculator with student loan',
+                        'url' => $canonicalUrl . '#student-loan-salary-calculator',
+                    ],
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 5,
+                        'name' => 'Bonus sacrifice calculator',
+                        'url' => $canonicalUrl . '#bonus-sacrifice-calculator',
+                    ],
+                ],
             ];
         }
 
