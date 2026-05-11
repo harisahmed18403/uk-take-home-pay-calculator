@@ -230,8 +230,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Salary Calculator 2026/27 | Net Pay & Contributions',
-                'description' => 'Calculate UK salary after tax for 2026/27 with salary sacrifice, bonus sacrifice, pension contributions, student loan deductions, NI, and monthly net pay.',
+                'title' => 'UK Salary Calculator 2026/27 | Pension, Bonus & Net Pay',
+                'description' => 'Calculate UK salary after tax for 2026/27 with pension salary exchange, bonus sacrifice, contributions, student loan deductions, NI, and monthly net pay.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -260,6 +260,10 @@ final class App
             [
                 'question' => 'Can I use this as a UK contributions calculator?',
                 'answer' => 'Yes. Enter your salary, pension percentage, pension method, student loan plan, and bonus to estimate payroll contributions and deductions for Income Tax, National Insurance, pension, and student loans.',
+            ],
+            [
+                'question' => 'Can I use this as a final salary calculator?',
+                'answer' => 'Yes, if you mean final salary after tax and deductions. It estimates the final annual, monthly, and weekly take-home pay from a gross UK salary, but it is not a defined benefit final salary pension scheme calculator.',
             ],
             [
                 'question' => 'Is this a salary calculator with student loan deductions?',
@@ -426,7 +430,7 @@ final class App
                 'applicationCategory' => 'FinanceApplication',
                 'operatingSystem' => 'Any',
                 'url' => $canonicalUrl,
-                'keywords' => 'UK salary calculator 2026/27, salary calculator 2026 27, take home pay calculator, salary after tax, salary exchange calculator, salary sacrifice calculator, contributions calculator, salary calculator with salary sacrifice, salary calculator student loan, salary calculator with student loan, bonus sacrifice calculator, estimate net paycheck, monthly salary after tax, net pay calculator',
+                'keywords' => 'UK salary calculator 2026/27, salary calculator 2026 27, take home pay calculator, salary after tax, pension salary exchange calculator, salary exchange calculator, salary sacrifice calculator, contributions calculator, salary calculator with salary sacrifice, salary calculator student loan, salary calculator with student loan, bonus sacrifice calculator, final salary calculator, estimate net paycheck, monthly salary after tax, net pay calculator',
             ];
             $graph[count($graph) - 1]['about'] = [
                 [
@@ -456,11 +460,13 @@ final class App
                 'alternateName' => [
                     'UK salary after tax calculator',
                     'Salary calculator 2026 27',
+                    'Pension salary exchange calculator',
                     'Salary exchange calculator',
                     'Salary calculator with salary sacrifice',
                     'Salary calculator with student loan',
                     'Bonus sacrifice calculator',
                     'UK contributions calculator',
+                    'Final salary calculator',
                     'Estimate net paycheck',
                     'UK net pay calculator',
                     'Monthly take-home pay calculator',
@@ -469,7 +475,7 @@ final class App
                 'operatingSystem' => 'Any',
                 'isAccessibleForFree' => true,
                 'url' => $canonicalUrl,
-                'description' => 'Calculate UK salary after tax for the 2026/27 tax year, including monthly take-home pay, PAYE Income Tax, National Insurance, pension contributions, salary sacrifice pension, salary exchange pension, bonus sacrifice, and student loan deductions.',
+                'description' => 'Calculate UK salary after tax for the 2026/27 tax year, including monthly take-home pay, PAYE Income Tax, National Insurance, pension contributions, pension salary exchange, bonus sacrifice, and student loan deductions.',
                 'featureList' => [
                     'Annual, monthly, and weekly salary inputs',
                     'PAYE Income Tax and National Insurance estimates',
@@ -477,7 +483,7 @@ final class App
                     'Student loan and postgraduate loan deductions',
                     'Pension contribution estimates using salary sacrifice, salary exchange, net pay, and post-tax methods',
                 ],
-                'keywords' => 'UK take home pay calculator, UK salary calculator 2026/27, salary calculator 2026 27, salary exchange calculator, salary calculator with salary sacrifice, salary calculator with student loan, bonus sacrifice calculator, contributions calculator, estimate net paycheck, UK salary after tax calculator, net pay calculator, monthly take-home pay calculator, PAYE calculator',
+                'keywords' => 'UK take home pay calculator, UK salary calculator 2026/27, salary calculator 2026 27, pension salary exchange calculator, salary exchange calculator, salary calculator with salary sacrifice, salary calculator with student loan, bonus sacrifice calculator, final salary calculator, contributions calculator, estimate net paycheck, UK salary after tax calculator, net pay calculator, monthly take-home pay calculator, PAYE calculator',
                 'audience' => [
                     '@type' => 'Audience',
                     'audienceType' => 'UK employees comparing salary after tax and net pay',
@@ -530,6 +536,12 @@ final class App
                         'position' => 6,
                         'name' => 'Pension contributions calculator',
                         'url' => $canonicalUrl . '#pension-contributions-calculator',
+                    ],
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 7,
+                        'name' => 'Final salary calculator',
+                        'url' => $canonicalUrl . '#final-salary-calculator',
                     ],
                 ],
             ];
