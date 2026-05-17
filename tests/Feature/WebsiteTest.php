@@ -95,6 +95,9 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Salary calculator 2026 27', $html);
         self::assertStringContainsString('Pension salary exchange calculator', $html);
         self::assertStringContainsString('Use the pension salary exchange calculator', $html);
+        self::assertStringContainsString('Salary exchange calculator 2019/20 notes', $html);
+        self::assertStringContainsString('salary exchange calculator 2019/20', $html);
+        self::assertStringContainsString('Can I use this for salary exchange calculator 2019/20 searches?', $html);
         self::assertStringContainsString('Salary calculator with salary sacrifice', $html);
         self::assertStringContainsString('Use the salary calculator with salary sacrifice', $html);
         self::assertStringContainsString('Salary calculator with student loan', $html);

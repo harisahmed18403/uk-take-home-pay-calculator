@@ -431,6 +431,11 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <p>Check how salary sacrifice or salary exchange changes net pay compared with net pay arrangement or post-tax pension contributions using the same gross salary.</p>
                 <p><a href="#calculator">Compare pension salary exchange deductions</a></p>
             </article>
+            <article class="intent-card" id="salary-exchange-calculator-2019-20">
+                <h2>Salary exchange calculator 2019/20 notes</h2>
+                <p>Searching for a salary exchange calculator 2019/20 usually means checking how sacrificed pension pay affected Income Tax, National Insurance, and net pay in that tax year. This calculator explains the salary exchange method and currently provides 2025/26 and 2026/27 estimates.</p>
+                <p><a href="#salary-faq">Read the 2019/20 salary exchange note</a></p>
+            </article>
             <article class="intent-card" id="salary-sacrifice-calculator">
                 <h2>Salary calculator with salary sacrifice</h2>
                 <p>Choose the salary sacrifice pension method to estimate how sacrificed pay affects taxable income, National Insurance, and your monthly take-home pay.</p>
@@ -468,6 +473,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <li><a href="#calculator">Calculate £50,000 salary after tax</a></li>
                 <li><a href="#calculator">Estimate monthly salary after tax</a></li>
                 <li><a href="#salary-exchange-calculator">Use the pension salary exchange calculator</a></li>
+                <li><a href="#salary-exchange-calculator-2019-20">Read salary exchange calculator 2019/20 notes</a></li>
                 <li><a href="#salary-sacrifice-calculator">Use the salary calculator with salary sacrifice</a></li>
                 <li><a href="#student-loan-salary-calculator">Use the salary calculator with student loan</a></li>
                 <li><a href="#bonus-sacrifice-calculator">Use the bonus sacrifice calculator</a></li>

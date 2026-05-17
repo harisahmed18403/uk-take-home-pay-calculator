@@ -290,6 +290,10 @@ final class App
                 'answer' => 'Yes. Choose salary sacrifice as the pension method to estimate salary exchange pension deductions and see the effect on take-home pay, Income Tax, and National Insurance.',
             ],
             [
+                'question' => 'Can I use this for salary exchange calculator 2019/20 searches?',
+                'answer' => 'This calculator currently includes 2025/26 and 2026/27 tax years, not 2019/20 thresholds. For a 2019/20 salary exchange query, use the page to understand how salary sacrifice affects taxable pay and National Insurance, then use the available tax year selector for current-year estimates.',
+            ],
+            [
                 'question' => 'Can I include a bonus or additional income in my take-home pay estimate?',
                 'answer' => 'Yes. Bonus income is added to gross annual pay before tax, National Insurance, pension, and student loan deductions are calculated for your UK estimate.',
             ],
@@ -430,7 +434,7 @@ final class App
                 'applicationCategory' => 'FinanceApplication',
                 'operatingSystem' => 'Any',
                 'url' => $canonicalUrl,
-                'keywords' => 'UK salary calculator 2026/27, salary calculator 2026 27, take home pay calculator, salary after tax, pension salary exchange calculator, salary exchange calculator, salary sacrifice calculator, contributions calculator, salary calculator with salary sacrifice, salary calculator student loan, salary calculator with student loan, bonus sacrifice calculator, final salary calculator, estimate net paycheck, monthly salary after tax, net pay calculator',
+                'keywords' => 'UK salary calculator 2026/27, salary calculator 2026 27, take home pay calculator, salary after tax, pension salary exchange calculator, salary exchange calculator, salary exchange calculator 2019/20, salary sacrifice calculator, contributions calculator, salary calculator with salary sacrifice, salary calculator student loan, salary calculator with student loan, bonus sacrifice calculator, final salary calculator, estimate net paycheck, monthly salary after tax, net pay calculator',
             ];
             $graph[count($graph) - 1]['about'] = [
                 [
@@ -462,6 +466,7 @@ final class App
                     'Salary calculator 2026 27',
                     'Pension salary exchange calculator',
                     'Salary exchange calculator',
+                    'Salary exchange calculator 2019/20',
                     'Salary calculator with salary sacrifice',
                     'Salary calculator with student loan',
                     'Bonus sacrifice calculator',
@@ -483,7 +488,7 @@ final class App
                     'Student loan and postgraduate loan deductions',
                     'Pension contribution estimates using salary sacrifice, salary exchange, net pay, and post-tax methods',
                 ],
-                'keywords' => 'UK take home pay calculator, UK salary calculator 2026/27, salary calculator 2026 27, pension salary exchange calculator, salary exchange calculator, salary calculator with salary sacrifice, salary calculator with student loan, bonus sacrifice calculator, final salary calculator, contributions calculator, estimate net paycheck, UK salary after tax calculator, net pay calculator, monthly take-home pay calculator, PAYE calculator',
+                'keywords' => 'UK take home pay calculator, UK salary calculator 2026/27, salary calculator 2026 27, pension salary exchange calculator, salary exchange calculator, salary exchange calculator 2019/20, salary calculator with salary sacrifice, salary calculator with student loan, bonus sacrifice calculator, final salary calculator, contributions calculator, estimate net paycheck, UK salary after tax calculator, net pay calculator, monthly take-home pay calculator, PAYE calculator',
                 'audience' => [
                     '@type' => 'Audience',
                     'audienceType' => 'UK employees comparing salary after tax and net pay',
@@ -542,6 +547,12 @@ final class App
                         'position' => 7,
                         'name' => 'Final salary calculator',
                         'url' => $canonicalUrl . '#final-salary-calculator',
+                    ],
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 8,
+                        'name' => 'Salary exchange calculator 2019/20 notes',
+                        'url' => $canonicalUrl . '#salary-exchange-calculator-2019-20',
                     ],
                 ],
             ];
