@@ -121,6 +121,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Calculate £30,000 salary after tax', $html);
         self::assertStringContainsString('Estimate monthly salary after tax', $html);
         self::assertStringContainsString('Check PAYE and tax code questions', $html);
+        self::assertStringContainsString('Ecommerce calculator for store profit and margin checks', $html);
+        self::assertStringContainsString('href="https://www.no-cap-tools.com/e-comm-calculator/"', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
         self::assertStringContainsString('"@type":"SoftwareApplication"', $html);
         self::assertStringContainsString('"@type":"ItemList"', $html);
@@ -292,10 +294,13 @@ final class WebsiteTest extends TestCase
         $root = dirname(__DIR__, 2);
         $robots = (string) file_get_contents($root . '/deploy/root/robots.txt');
         $index = (string) file_get_contents($root . '/deploy/root/index.html');
+        $sitemap = (string) file_get_contents($root . '/deploy/root/sitemap.xml');
 
         self::assertStringContainsString('Sitemap: https://www.no-cap-tools.com/uk-take-home-pay-calculator/sitemap.xml', $robots);
-        self::assertStringContainsString('UK Salary Calculator 2026/27 | Sacrifice, Pension & Net Pay Tools', $index);
+        self::assertStringContainsString('No Cap Tools | UK Salary & Ecommerce Calculators', $index);
         self::assertStringContainsString('Open the UK salary after tax calculator', $index);
+        self::assertStringContainsString('Open the ecommerce calculator', $index);
+        self::assertStringContainsString('https://www.no-cap-tools.com/e-comm-calculator/', $sitemap);
     }
 
     /**
