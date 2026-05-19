@@ -230,8 +230,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Salary Calculator 2026/27 | Pension, Bonus & Net Pay',
-                'description' => 'Calculate UK salary after tax for 2026/27 with pension salary exchange, bonus sacrifice, contributions, student loan deductions, NI, and monthly net pay.',
+                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax',
+                'description' => 'Estimate UK take-home pay and salary after tax for 2026/27, including pension salary exchange, bonus sacrifice, NI, student loans, and monthly net pay.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -424,6 +424,9 @@ final class App
             'primaryImageOfPage' => Site::absoluteUrl(BasePath::asset('assets/seo/og-image.png', $basePath)),
             'inLanguage' => 'en-GB',
             'dateModified' => $lastUpdatedIso,
+            'relatedLink' => [
+                'https://www.no-cap-tools.com/e-comm-calculator/',
+            ],
         ];
 
         if ($page === 'home') {

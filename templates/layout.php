@@ -100,6 +100,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             <a href="<?= htmlspecialchars($routeUrl()) ?>">Calculator</a>
             <a href="<?= htmlspecialchars($routeUrl('guides')) ?>">Guides</a>
             <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a>
+            <a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce</a>
         </nav>
     </header>
 
@@ -379,6 +380,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     <a href="#calculator">Use the calculator</a>
                     <a href="#salary-guides">Read the salary after tax guides</a>
                     <a href="#salary-faq">Check the take-home pay FAQ</a>
+                    <a href="https://www.no-cap-tools.com/e-comm-calculator/">Open the ecommerce calculator</a>
                 </nav>
                 <p class="update-note">Last updated <?= htmlspecialchars($lastUpdatedHuman) ?> for 2026/27 thresholds and deduction rules.</p>
                 <div class="hero-metrics">
@@ -503,7 +505,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <li><a href="<?= htmlspecialchars($routeUrl()) ?>">UK salary calculator for monthly net pay</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('guides')) ?>">UK take home pay calculator guides</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('faq')) ?>">UK take home pay calculator FAQ</a></li>
-                <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce calculator for store profit and margin checks</a></li>
+                <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce calculator for store profit, margin, fees, and break-even checks</a></li>
             </ul>
         </section>
 

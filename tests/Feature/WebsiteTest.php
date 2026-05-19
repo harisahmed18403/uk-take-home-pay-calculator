@@ -88,8 +88,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Salary Calculator 2026/27 | Pension, Bonus &amp; Net Pay</title>', $html);
-        self::assertStringContainsString('Calculate UK salary after tax for 2026/27 with pension salary exchange, bonus sacrifice, contributions, student loan deductions, NI, and monthly net pay.', $html);
+        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax</title>', $html);
+        self::assertStringContainsString('Estimate UK take-home pay and salary after tax for 2026/27, including pension salary exchange, bonus sacrifice, NI, student loans, and monthly net pay.', $html);
         self::assertStringContainsString('UK salary calculator 2026/27: pension salary exchange, student loan deductions, and take-home pay', $html);
         self::assertStringContainsString('Salary calculator 2026/27 tax year', $html);
         self::assertStringContainsString('Salary calculator 2026 27', $html);
@@ -121,7 +121,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Calculate £30,000 salary after tax', $html);
         self::assertStringContainsString('Estimate monthly salary after tax', $html);
         self::assertStringContainsString('Check PAYE and tax code questions', $html);
-        self::assertStringContainsString('Ecommerce calculator for store profit and margin checks', $html);
+        self::assertStringContainsString('Open the ecommerce calculator', $html);
+        self::assertStringContainsString('Ecommerce calculator for store profit, margin, fees, and break-even checks', $html);
         self::assertStringContainsString('href="https://www.no-cap-tools.com/e-comm-calculator/"', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
         self::assertStringContainsString('"@type":"SoftwareApplication"', $html);
