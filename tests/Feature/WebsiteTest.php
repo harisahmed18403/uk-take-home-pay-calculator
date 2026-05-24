@@ -67,7 +67,7 @@ final class WebsiteTest extends TestCase
         $html = $response['body'];
 
         self::assertSame(200, $response['status']);
-        self::assertStringContainsString('UK salary calculator 2026/27: pension salary exchange, student loan deductions, and take-home pay', $html);
+        self::assertStringContainsString('UK salary calculator 2026/27: take-home pay after tax, pension salary exchange, and student loans', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);
@@ -88,9 +88,9 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax</title>', $html);
-        self::assertStringContainsString('Estimate UK take-home pay and salary after tax for 2026/27, including pension salary exchange, bonus sacrifice, NI, student loans, and monthly net pay.', $html);
-        self::assertStringContainsString('UK salary calculator 2026/27: pension salary exchange, student loan deductions, and take-home pay', $html);
+        self::assertStringContainsString('<title>UK Salary Calculator 2026/27 | Take Home Pay After Tax</title>', $html);
+        self::assertStringContainsString('Calculate UK take-home pay after tax for 2026/27, including PAYE, NI, pension salary exchange, bonus sacrifice, student loans, and monthly net pay.', $html);
+        self::assertStringContainsString('UK salary calculator 2026/27: take-home pay after tax, pension salary exchange, and student loans', $html);
         self::assertStringContainsString('Salary calculator 2026/27 tax year', $html);
         self::assertStringContainsString('Salary calculator 2026 27', $html);
         self::assertStringContainsString('Pension salary exchange calculator', $html);
@@ -121,8 +121,9 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Calculate £30,000 salary after tax', $html);
         self::assertStringContainsString('Estimate monthly salary after tax', $html);
         self::assertStringContainsString('Check PAYE and tax code questions', $html);
-        self::assertStringContainsString('Open the ecommerce calculator', $html);
+        self::assertStringContainsString('Open the ecommerce calculator for margin and profit', $html);
         self::assertStringContainsString('Ecommerce calculator for store profit, margin, fees, and break-even checks', $html);
+        self::assertStringContainsString('No Cap Tools calculator hub', $html);
         self::assertStringContainsString('href="https://www.no-cap-tools.com/e-comm-calculator/"', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
         self::assertStringContainsString('"@type":"SoftwareApplication"', $html);
@@ -277,6 +278,7 @@ final class WebsiteTest extends TestCase
         self::assertContains('Content-Type: application/xml; charset=UTF-8', $response['headers']);
         self::assertStringContainsString('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', $response['body']);
         self::assertStringContainsString('<loc>http://127.0.0.1:8099/guides/</loc>', $response['body']);
+        self::assertStringContainsString('<priority>1.0</priority>', $response['body']);
         self::assertStringContainsString('<lastmod>', $response['body']);
     }
 

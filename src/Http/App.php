@@ -230,8 +230,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax',
-                'description' => 'Estimate UK take-home pay and salary after tax for 2026/27, including pension salary exchange, bonus sacrifice, NI, student loans, and monthly net pay.',
+                'title' => 'UK Salary Calculator 2026/27 | Take Home Pay After Tax',
+                'description' => 'Calculate UK take-home pay after tax for 2026/27, including PAYE, NI, pension salary exchange, bonus sacrifice, student loans, and monthly net pay.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -650,15 +650,15 @@ final class App
     {
         $lastModified = gmdate('Y-m-d', $this->lastUpdated());
         $urls = [
-            Site::absoluteUrl(BasePath::route('home', $basePath)),
-            Site::absoluteUrl(BasePath::route('guides', $basePath)),
-            Site::absoluteUrl(BasePath::route('faq', $basePath)),
-            Site::absoluteUrl(BasePath::route('privacy', $basePath)),
-            Site::absoluteUrl(BasePath::route('cookies', $basePath)),
+            [Site::absoluteUrl(BasePath::route('home', $basePath)), 'weekly', '1.0'],
+            [Site::absoluteUrl(BasePath::route('guides', $basePath)), 'monthly', '0.8'],
+            [Site::absoluteUrl(BasePath::route('faq', $basePath)), 'monthly', '0.8'],
+            [Site::absoluteUrl(BasePath::route('privacy', $basePath)), 'yearly', '0.3'],
+            [Site::absoluteUrl(BasePath::route('cookies', $basePath)), 'yearly', '0.3'],
         ];
 
         $items = array_map(
-            static fn (string $url): string => "  <url>\n    <loc>{$url}</loc>\n    <lastmod>{$lastModified}</lastmod>\n  </url>",
+            static fn (array $url): string => "  <url>\n    <loc>{$url[0]}</loc>\n    <lastmod>{$lastModified}</lastmod>\n    <changefreq>{$url[1]}</changefreq>\n    <priority>{$url[2]}</priority>\n  </url>",
             $urls
         );
 

@@ -108,7 +108,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <main>
         <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
-                <h1>UK salary calculator 2026/27: pension salary exchange, student loan deductions, and take-home pay</h1>
+                <h1>UK salary calculator 2026/27: take-home pay after tax, pension salary exchange, and student loans</h1>
                 <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
                     <span class="mobile-results-bar__prompt">Current take-home pay</span>
                     <span class="mobile-results-bar__grid">
@@ -118,7 +118,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     </span>
                     <span class="mobile-results-bar__link">Full breakdown</span>
                 </button>
-                <p class="section-copy">Choose your salary, tax setup, pension contribution treatment, bonus, and student loan settings to estimate UK salary after tax for the 2026/27 tax year. This salary calculator 2026 27 estimate covers PAYE deductions, pension salary exchange, salary sacrifice pension, bonus sacrifice, student loan repayments, monthly take-home pay, weekly take-home pay, and net pay.</p>
+                <p class="section-copy">Choose your salary, tax setup, pension contribution treatment, bonus, and student loan settings to calculate UK take-home pay after tax for the 2026/27 tax year. This salary calculator 2026 27 estimate covers PAYE deductions, pension salary exchange, salary sacrifice pension, bonus sacrifice, student loan repayments, monthly take-home pay, weekly take-home pay, and net pay.</p>
 
                 <?php if ($errors !== []): ?>
                     <div class="alert" role="alert" data-calculator-errors>
@@ -374,13 +374,13 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <section class="hero-layout">
             <section class="hero-card">
                 <div class="eyebrow">UK PAYE estimate</div>
-                <h2>Estimate UK salary after tax, pension salary exchange, student loan repayments, and monthly net pay</h2>
+                <h2>Calculate UK take-home pay after tax, pension salary exchange, student loan repayments, and monthly net pay</h2>
                 <p class="lede">Estimate annual, monthly, or weekly take-home pay with this UK salary calculator for 2026/27. Use it to estimate net paycheck figures from monthly salary or annual PAYE comparisons, including National Insurance, pension contributions, bonus income, bonus sacrifice, pension salary exchange deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
                 <nav class="seo-links" aria-label="On-page sections">
                     <a href="#calculator">Use the calculator</a>
                     <a href="#salary-guides">Read the salary after tax guides</a>
                     <a href="#salary-faq">Check the take-home pay FAQ</a>
-                    <a href="https://www.no-cap-tools.com/e-comm-calculator/">Open the ecommerce calculator</a>
+                    <a href="https://www.no-cap-tools.com/e-comm-calculator/">Open the ecommerce calculator for margin and profit</a>
                 </nav>
                 <p class="update-note">Last updated <?= htmlspecialchars($lastUpdatedHuman) ?> for 2026/27 thresholds and deduction rules.</p>
                 <div class="hero-metrics">
@@ -506,6 +506,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <li><a href="<?= htmlspecialchars($routeUrl('guides')) ?>">UK take home pay calculator guides</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('faq')) ?>">UK take home pay calculator FAQ</a></li>
                 <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce calculator for store profit, margin, fees, and break-even checks</a></li>
+                <li><a href="https://www.no-cap-tools.com/">No Cap Tools calculator hub</a></li>
             </ul>
         </section>
 
