@@ -100,7 +100,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             <a href="<?= htmlspecialchars($routeUrl()) ?>">Calculator</a>
             <a href="<?= htmlspecialchars($routeUrl('guides')) ?>">Guides</a>
             <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a>
-            <a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce</a>
+            <a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce calculator</a>
         </nav>
     </header>
 
@@ -380,7 +380,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     <a href="#calculator">Use the calculator</a>
                     <a href="#salary-guides">Read the salary after tax guides</a>
                     <a href="#salary-faq">Check the take-home pay FAQ</a>
-                    <a href="https://www.no-cap-tools.com/e-comm-calculator/">Open the ecommerce calculator for margin and profit</a>
+                    <a href="https://www.no-cap-tools.com/e-comm-calculator/">Open the ecommerce calculator for store margin and profit</a>
                 </nav>
                 <p class="update-note">Last updated <?= htmlspecialchars($lastUpdatedHuman) ?> for 2026/27 thresholds and deduction rules.</p>
                 <div class="hero-metrics">
@@ -499,7 +499,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
 
         <section class="panel panel--seo-links" aria-labelledby="salary-pages-heading">
             <h2 id="salary-pages-heading">Related UK salary after tax pages</h2>
-            <p class="section-copy">Use these pages to compare salary, region, deductions, take-home pay, and net pay more easily.</p>
+            <p class="section-copy">Use these pages to compare salary, region, deductions, take-home pay, net pay, and related ecommerce profit calculations more easily.</p>
             <ul class="guide-links">
                 <li><a href="<?= htmlspecialchars($routeUrl()) ?>">UK take home pay calculator for salary after tax</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl()) ?>">UK salary calculator for monthly net pay</a></li>

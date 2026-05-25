@@ -230,8 +230,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Salary Calculator 2026/27 | Take Home Pay After Tax',
-                'description' => 'Calculate UK take-home pay after tax for 2026/27, including PAYE, NI, pension salary exchange, bonus sacrifice, student loans, and monthly net pay.',
+                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax',
+                'description' => 'Calculate UK salary after tax for 2026/27 with PAYE, National Insurance, pension salary exchange, bonus sacrifice, student loans, and monthly net pay.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -438,6 +438,11 @@ final class App
                 'operatingSystem' => 'Any',
                 'url' => $canonicalUrl,
                 'keywords' => 'UK salary calculator 2026/27, salary calculator 2026 27, take home pay calculator, salary after tax, pension salary exchange calculator, salary exchange calculator, salary exchange calculator 2019/20, salary sacrifice calculator, contributions calculator, salary calculator with salary sacrifice, salary calculator student loan, salary calculator with student loan, bonus sacrifice calculator, final salary calculator, estimate net paycheck, monthly salary after tax, net pay calculator',
+                'potentialAction' => [
+                    '@type' => 'UseAction',
+                    'target' => $canonicalUrl . '#calculator',
+                    'name' => 'Calculate UK take-home pay',
+                ],
             ];
             $graph[count($graph) - 1]['about'] = [
                 [
@@ -500,6 +505,11 @@ final class App
                     '@type' => 'Offer',
                     'price' => '0',
                     'priceCurrency' => 'GBP',
+                ],
+                'potentialAction' => [
+                    '@type' => 'UseAction',
+                    'target' => $canonicalUrl . '#calculator',
+                    'name' => 'Calculate salary after tax',
                 ],
                 'dateModified' => $lastUpdatedIso,
             ];
