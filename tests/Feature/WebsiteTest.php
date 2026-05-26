@@ -300,9 +300,9 @@ final class WebsiteTest extends TestCase
         $sitemap = (string) file_get_contents($root . '/deploy/root/sitemap.xml');
 
         self::assertStringContainsString('Sitemap: https://www.no-cap-tools.com/uk-take-home-pay-calculator/sitemap.xml', $robots);
-        self::assertStringContainsString('No Cap Tools | UK Salary & Ecommerce Calculator Hub', $index);
+        self::assertStringContainsString('No Cap Tools | UK Take Home Pay & Ecommerce Calculators', $index);
         self::assertStringContainsString('Open the UK salary after tax calculator', $index);
-        self::assertStringContainsString('Open the ecommerce calculator for profit, margin, fees, and break-even checks', $index);
+        self::assertStringContainsString('Open the ecommerce calculator for margin and profit', $index);
         self::assertStringContainsString('https://www.no-cap-tools.com/e-comm-calculator/', $sitemap);
     }
 
