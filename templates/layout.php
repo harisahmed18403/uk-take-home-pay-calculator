@@ -100,7 +100,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             <a href="<?= htmlspecialchars($routeUrl()) ?>">Calculator</a>
             <a href="<?= htmlspecialchars($routeUrl('guides')) ?>">Guides</a>
             <a href="<?= htmlspecialchars($routeUrl('faq')) ?>">FAQ</a>
-            <a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce calculator</a>
+            <a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce profit calculator</a>
         </nav>
     </header>
 
@@ -108,7 +108,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <main>
         <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
-                <h1>UK salary calculator 2026/27: take-home pay after tax, pension salary exchange, and student loans</h1>
+                <h1>UK salary after tax calculator 2026/27: take-home pay, pension salary exchange, and student loans</h1>
                 <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
                     <span class="mobile-results-bar__prompt">Current take-home pay</span>
                     <span class="mobile-results-bar__grid">
@@ -380,7 +380,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     <a href="#calculator">Use the calculator</a>
                     <a href="#salary-guides">Read the salary after tax guides</a>
                     <a href="#salary-faq">Check the take-home pay FAQ</a>
-                    <a href="https://www.no-cap-tools.com/e-comm-calculator/">Open the ecommerce calculator for store margin and profit</a>
+                    <a href="https://www.no-cap-tools.com/e-comm-calculator/">Open the ecommerce calculator for profit, margin, fees, and break-even checks</a>
                 </nav>
                 <p class="update-note">Last updated <?= htmlspecialchars($lastUpdatedHuman) ?> for 2026/27 thresholds and deduction rules.</p>
                 <div class="hero-metrics">
@@ -499,13 +499,13 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
 
         <section class="panel panel--seo-links" aria-labelledby="salary-pages-heading">
             <h2 id="salary-pages-heading">Related UK salary after tax pages</h2>
-            <p class="section-copy">Use these pages to compare salary, region, deductions, take-home pay, net pay, and related ecommerce profit calculations more easily.</p>
+            <p class="section-copy">Use these pages to compare salary, region, deductions, take-home pay, net pay, and related ecommerce calculator profit checks more easily.</p>
             <ul class="guide-links">
                 <li><a href="<?= htmlspecialchars($routeUrl()) ?>">UK take home pay calculator for salary after tax</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl()) ?>">UK salary calculator for monthly net pay</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('guides')) ?>">UK take home pay calculator guides</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('faq')) ?>">UK take home pay calculator FAQ</a></li>
-                <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce calculator for store profit, margin, fees, and break-even checks</a></li>
+                <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce calculator for store profit, margin, fees, pricing, and break-even checks</a></li>
                 <li><a href="https://www.no-cap-tools.com/">No Cap Tools calculator hub</a></li>
             </ul>
         </section>
