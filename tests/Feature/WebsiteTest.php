@@ -88,8 +88,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Salary After Tax Calculator 2026/27 | Take Home Pay</title>', $html);
-        self::assertStringContainsString('Use the UK take-home pay calculator for 2026/27 salary after tax, PAYE, National Insurance, pension salary exchange, bonus sacrifice, student loans, and monthly net pay.', $html);
+        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax &amp; Exchange</title>', $html);
+        self::assertStringContainsString('Calculate UK take-home pay for 2026/27 with salary after tax, PAYE, National Insurance, pension salary exchange, bonus sacrifice, student loans, and monthly net pay.', $html);
         self::assertStringContainsString('UK salary after tax calculator 2026/27: take-home pay, pension salary exchange, and student loans', $html);
         self::assertStringContainsString('Salary calculator 2026/27 tax year', $html);
         self::assertStringContainsString('Salary calculator 2026 27', $html);
@@ -121,9 +121,11 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Calculate £30,000 salary after tax', $html);
         self::assertStringContainsString('Estimate monthly salary after tax', $html);
         self::assertStringContainsString('Check PAYE and tax code questions', $html);
-        self::assertStringContainsString('Open the ecommerce calculator for profit, margin, fees, and break-even checks', $html);
-        self::assertStringContainsString('Ecommerce calculator for store profit, margin, fees, pricing, and break-even checks', $html);
+        self::assertStringContainsString('Open the ecommerce pricing calculator for profit, margin, fees, and break-even checks', $html);
+        self::assertStringContainsString('Ecommerce pricing calculator for store profit, margin, fees, pricing, and break-even checks', $html);
         self::assertStringContainsString('No Cap Tools calculator hub', $html);
+        self::assertStringContainsString('Use the ecommerce calculator', $html);
+        self::assertStringContainsString('Open the ecommerce pricing calculator', $html);
         self::assertStringContainsString('href="https://www.no-cap-tools.com/e-comm-calculator/"', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
         self::assertStringContainsString('"@type":"SoftwareApplication"', $html);
@@ -302,7 +304,7 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Sitemap: https://www.no-cap-tools.com/uk-take-home-pay-calculator/sitemap.xml', $robots);
         self::assertStringContainsString('No Cap Tools | UK Take Home Pay & Ecommerce Calculators', $index);
         self::assertStringContainsString('Open the UK salary after tax calculator', $index);
-        self::assertStringContainsString('Open the ecommerce calculator for margin and profit', $index);
+        self::assertStringContainsString('Open the ecommerce pricing calculator for margin and profit', $index);
         self::assertStringContainsString('https://www.no-cap-tools.com/e-comm-calculator/', $sitemap);
     }
 

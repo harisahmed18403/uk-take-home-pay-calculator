@@ -380,7 +380,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     <a href="#calculator">Use the calculator</a>
                     <a href="#salary-guides">Read the salary after tax guides</a>
                     <a href="#salary-faq">Check the take-home pay FAQ</a>
-                    <a href="https://www.no-cap-tools.com/e-comm-calculator/">Open the ecommerce calculator for profit, margin, fees, and break-even checks</a>
+                    <a href="https://www.no-cap-tools.com/e-comm-calculator/">Open the ecommerce pricing calculator for profit, margin, fees, and break-even checks</a>
                 </nav>
                 <p class="update-note">Last updated <?= htmlspecialchars($lastUpdatedHuman) ?> for 2026/27 thresholds and deduction rules.</p>
                 <div class="hero-metrics">
@@ -505,8 +505,18 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <li><a href="<?= htmlspecialchars($routeUrl()) ?>">UK salary calculator for monthly net pay</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('guides')) ?>">UK take home pay calculator guides</a></li>
                 <li><a href="<?= htmlspecialchars($routeUrl('faq')) ?>">UK take home pay calculator FAQ</a></li>
-                <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce calculator for store profit, margin, fees, pricing, and break-even checks</a></li>
+                <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce pricing calculator for store profit, margin, fees, pricing, and break-even checks</a></li>
                 <li><a href="https://www.no-cap-tools.com/">No Cap Tools calculator hub</a></li>
+            </ul>
+        </section>
+
+        <section class="panel panel--seo-links" aria-labelledby="calculator-hub-heading">
+            <h2 id="calculator-hub-heading">No Cap Tools calculator hub</h2>
+            <p class="section-copy">Switch between the UK salary calculator for personal take-home pay checks and the ecommerce pricing calculator for store margin, fees, profit, and break-even checks.</p>
+            <ul class="guide-links">
+                <li><a href="<?= htmlspecialchars($routeUrl()) ?>">Use the UK salary after tax calculator</a></li>
+                <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Use the ecommerce calculator</a></li>
+                <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Open the ecommerce pricing calculator</a></li>
             </ul>
         </section>
 

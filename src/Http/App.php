@@ -230,8 +230,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Salary After Tax Calculator 2026/27 | Take Home Pay',
-                'description' => 'Use the UK take-home pay calculator for 2026/27 salary after tax, PAYE, National Insurance, pension salary exchange, bonus sacrifice, student loans, and monthly net pay.',
+                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax & Exchange',
+                'description' => 'Calculate UK take-home pay for 2026/27 with salary after tax, PAYE, National Insurance, pension salary exchange, bonus sacrifice, student loans, and monthly net pay.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -426,6 +426,14 @@ final class App
             'dateModified' => $lastUpdatedIso,
             'relatedLink' => [
                 'https://www.no-cap-tools.com/e-comm-calculator/',
+            ],
+            'mentions' => [
+                [
+                    '@type' => 'WebApplication',
+                    'name' => 'Ecommerce pricing calculator',
+                    'url' => 'https://www.no-cap-tools.com/e-comm-calculator/',
+                    'applicationCategory' => 'BusinessApplication',
+                ],
             ],
         ];
 
