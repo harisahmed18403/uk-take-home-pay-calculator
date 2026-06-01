@@ -67,7 +67,7 @@ final class WebsiteTest extends TestCase
         $html = $response['body'];
 
         self::assertSame(200, $response['status']);
-        self::assertStringContainsString('UK salary after tax calculator 2026/27: take-home pay, pension salary exchange, and student loans', $html);
+        self::assertStringContainsString('UK take-home pay calculator 2026/27: salary after tax, pension salary exchange, and student loans', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);
@@ -88,9 +88,9 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax &amp; Exchange</title>', $html);
-        self::assertStringContainsString('Calculate UK take-home pay for 2026/27 with salary after tax, PAYE, National Insurance, pension salary exchange, bonus sacrifice, student loans, and monthly net pay.', $html);
-        self::assertStringContainsString('UK salary after tax calculator 2026/27: take-home pay, pension salary exchange, and student loans', $html);
+        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax</title>', $html);
+        self::assertStringContainsString('Free UK take-home pay calculator for 2026/27. Estimate salary after tax, monthly net pay, PAYE, NI, pension salary exchange, bonus sacrifice, and student loans.', $html);
+        self::assertStringContainsString('UK take-home pay calculator 2026/27: salary after tax, pension salary exchange, and student loans', $html);
         self::assertStringContainsString('Salary calculator 2026/27 tax year', $html);
         self::assertStringContainsString('Salary calculator 2026 27', $html);
         self::assertStringContainsString('Pension salary exchange calculator', $html);

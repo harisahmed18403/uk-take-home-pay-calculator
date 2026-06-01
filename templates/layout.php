@@ -108,7 +108,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <main>
         <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
-                <h1>UK salary after tax calculator 2026/27: take-home pay, pension salary exchange, and student loans</h1>
+                <h1>UK take-home pay calculator 2026/27: salary after tax, pension salary exchange, and student loans</h1>
                 <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
                     <span class="mobile-results-bar__prompt">Current take-home pay</span>
                     <span class="mobile-results-bar__grid">
@@ -118,7 +118,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     </span>
                     <span class="mobile-results-bar__link">Full breakdown</span>
                 </button>
-                <p class="section-copy">Choose your salary, tax setup, pension contribution treatment, bonus, and student loan settings to calculate UK take-home pay after tax for the 2026/27 tax year. This salary calculator 2026 27 estimate covers PAYE deductions, pension salary exchange, salary sacrifice pension, bonus sacrifice, student loan repayments, monthly take-home pay, weekly take-home pay, and net pay.</p>
+                <p class="section-copy">Choose your salary, tax setup, pension contribution treatment, bonus, and student loan settings to calculate UK take-home pay after tax for the 2026/27 tax year. This salary calculator 2026 27 estimate covers PAYE deductions, pension salary exchange, salary sacrifice pension, bonus sacrifice, student loan repayments, monthly salary after tax, weekly take-home pay, and net pay.</p>
 
                 <?php if ($errors !== []): ?>
                     <div class="alert" role="alert" data-calculator-errors>
@@ -435,7 +435,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
             </article>
             <article class="intent-card" id="salary-exchange-calculator-2019-20">
                 <h2>Salary exchange calculator 2019/20 notes</h2>
-                <p>Searching for a salary exchange calculator 2019/20 usually means checking how sacrificed pension pay affected Income Tax, National Insurance, and net pay in that tax year. This calculator explains the salary exchange method and currently provides 2025/26 and 2026/27 estimates.</p>
+                <p>Searching for a salary exchange calculator 2019/20 usually means checking how sacrificed pension pay affected Income Tax, National Insurance, and net pay in that tax year. This calculator explains the salary exchange method and currently provides 2025/26 and 2026/27 estimates, so use the 2019/20 note as method guidance rather than an old-threshold calculation.</p>
                 <p><a href="#salary-faq">Read the 2019/20 salary exchange note</a></p>
             </article>
             <article class="intent-card" id="salary-sacrifice-calculator">
