@@ -230,8 +230,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax',
-                'description' => 'Free UK take-home pay calculator for 2026/27. Estimate salary after tax, monthly net pay, PAYE, NI, pension salary exchange, bonus sacrifice, and student loans.',
+                'title' => 'UK Salary Calculator 2026/27 | Take Home Pay & Salary Exchange',
+                'description' => 'Free UK salary calculator for 2026/27 take-home pay. Estimate salary after tax, monthly net pay, PAYE, NI, pension salary exchange, bonus sacrifice, and student loans.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -291,7 +291,11 @@ final class App
             ],
             [
                 'question' => 'Can I use this for salary exchange calculator 2019/20 searches?',
-                'answer' => 'This calculator currently includes 2025/26 and 2026/27 tax years, not 2019/20 thresholds. For a salary exchange calculator 2019/20 query, use this page to understand the salary sacrifice method, then use the available tax year selector only for current-year estimates.',
+                'answer' => 'This calculator currently includes 2025/26 and 2026/27 tax years, not 2019/20 thresholds. For a salary exchange calculator 2019/20 query, use this page to understand how salary exchange reduces taxable pay and National Insurance, then use the tax year selector only for current-year estimates.',
+            ],
+            [
+                'question' => 'What changed since salary exchange calculator 2019/20 searches?',
+                'answer' => 'The salary exchange method is still based on sacrificing gross pay before PAYE and National Insurance, but tax bands, allowances, NI thresholds, student loan thresholds, and pension settings have changed since 2019/20. Use the current tax year options for a current take-home pay estimate.',
             ],
             [
                 'question' => 'Can I include a bonus or additional income in my take-home pay estimate?',

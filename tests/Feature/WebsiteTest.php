@@ -88,8 +88,8 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax</title>', $html);
-        self::assertStringContainsString('Free UK take-home pay calculator for 2026/27. Estimate salary after tax, monthly net pay, PAYE, NI, pension salary exchange, bonus sacrifice, and student loans.', $html);
+        self::assertStringContainsString('<title>UK Salary Calculator 2026/27 | Take Home Pay &amp; Salary Exchange</title>', $html);
+        self::assertStringContainsString('Free UK salary calculator for 2026/27 take-home pay. Estimate salary after tax, monthly net pay, PAYE, NI, pension salary exchange, bonus sacrifice, and student loans.', $html);
         self::assertStringContainsString('UK take-home pay calculator 2026/27: salary after tax, pension salary exchange, and student loans', $html);
         self::assertStringContainsString('Salary calculator 2026/27 tax year', $html);
         self::assertStringContainsString('Salary calculator 2026 27', $html);
@@ -97,7 +97,10 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Use the pension salary exchange calculator', $html);
         self::assertStringContainsString('Salary exchange calculator 2019/20 notes', $html);
         self::assertStringContainsString('salary exchange calculator 2019/20', $html);
+        self::assertStringContainsString('Current salary exchange calculator for take-home pay', $html);
+        self::assertStringContainsString('Use the current salary exchange calculator', $html);
         self::assertStringContainsString('Can I use this for salary exchange calculator 2019/20 searches?', $html);
+        self::assertStringContainsString('What changed since salary exchange calculator 2019/20 searches?', $html);
         self::assertStringContainsString('Salary calculator with salary sacrifice', $html);
         self::assertStringContainsString('Use the salary calculator with salary sacrifice', $html);
         self::assertStringContainsString('Salary calculator with student loan', $html);
@@ -303,7 +306,7 @@ final class WebsiteTest extends TestCase
 
         self::assertStringContainsString('Sitemap: https://www.no-cap-tools.com/uk-take-home-pay-calculator/sitemap.xml', $robots);
         self::assertStringContainsString('No Cap Tools | UK Take Home Pay & Ecommerce Calculators', $index);
-        self::assertStringContainsString('Open the UK salary after tax calculator', $index);
+        self::assertStringContainsString('Open the UK salary after tax and salary exchange calculator', $index);
         self::assertStringContainsString('Open the ecommerce pricing calculator for margin and profit', $index);
         self::assertStringContainsString('https://www.no-cap-tools.com/e-comm-calculator/', $sitemap);
     }

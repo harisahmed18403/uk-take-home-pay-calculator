@@ -118,7 +118,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     </span>
                     <span class="mobile-results-bar__link">Full breakdown</span>
                 </button>
-                <p class="section-copy">Choose your salary, tax setup, pension contribution treatment, bonus, and student loan settings to calculate UK take-home pay after tax for the 2026/27 tax year. This salary calculator 2026 27 estimate covers PAYE deductions, pension salary exchange, salary sacrifice pension, bonus sacrifice, student loan repayments, monthly salary after tax, weekly take-home pay, and net pay.</p>
+                <p class="section-copy">Choose your salary, tax setup, pension contribution treatment, bonus, and student loan settings to calculate UK take-home pay after tax for the 2026/27 tax year. This UK salary calculator 2026 27 estimate covers PAYE deductions, pension salary exchange, salary sacrifice pension, bonus sacrifice, student loan repayments, monthly salary after tax, weekly take-home pay, and net pay.</p>
 
                 <?php if ($errors !== []): ?>
                     <div class="alert" role="alert" data-calculator-errors>
@@ -438,6 +438,11 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <p>Searching for a salary exchange calculator 2019/20 usually means checking how sacrificed pension pay affected Income Tax, National Insurance, and net pay in that tax year. This calculator explains the salary exchange method and currently provides 2025/26 and 2026/27 estimates, so use the 2019/20 note as method guidance rather than an old-threshold calculation.</p>
                 <p><a href="#salary-faq">Read the 2019/20 salary exchange note</a></p>
             </article>
+            <article class="intent-card" id="current-salary-exchange-calculator">
+                <h2>Current salary exchange calculator for take-home pay</h2>
+                <p>For current payroll checks, choose salary sacrifice as the pension method and select 2026/27 or 2025/26. The calculator estimates how pension salary exchange changes taxable pay, National Insurance, student loan repayments, and monthly take-home pay.</p>
+                <p><a href="#calculator">Calculate current salary exchange take-home pay</a></p>
+            </article>
             <article class="intent-card" id="salary-sacrifice-calculator">
                 <h2>Salary calculator with salary sacrifice</h2>
                 <p>Choose the salary sacrifice pension method to estimate how sacrificed pay affects taxable income, National Insurance, and your monthly take-home pay.</p>
@@ -476,6 +481,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <li><a href="#calculator">Estimate monthly salary after tax</a></li>
                 <li><a href="#salary-exchange-calculator">Use the pension salary exchange calculator</a></li>
                 <li><a href="#salary-exchange-calculator-2019-20">Read salary exchange calculator 2019/20 notes</a></li>
+                <li><a href="#current-salary-exchange-calculator">Use the current salary exchange calculator</a></li>
                 <li><a href="#salary-sacrifice-calculator">Use the salary calculator with salary sacrifice</a></li>
                 <li><a href="#student-loan-salary-calculator">Use the salary calculator with student loan</a></li>
                 <li><a href="#bonus-sacrifice-calculator">Use the bonus sacrifice calculator</a></li>
