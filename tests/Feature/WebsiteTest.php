@@ -67,7 +67,7 @@ final class WebsiteTest extends TestCase
         $html = $response['body'];
 
         self::assertSame(200, $response['status']);
-        self::assertStringContainsString('UK take-home pay calculator 2026/27: salary after tax, pension salary exchange, and student loans', $html);
+        self::assertStringContainsString('UK take-home pay calculator 2026/27 for salary after tax, pension salary exchange, and student loans', $html);
         self::assertStringContainsString('Calculator', $html);
         self::assertStringContainsString('300 x 250 above-the-fold feature ad', $html);
         self::assertStringContainsString('320 x 100 sticky companion', $html);
@@ -88,9 +88,9 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('Read the salary after tax guides', $html);
         self::assertStringContainsString('href="/guides/"', $html);
         self::assertStringContainsString('action="/"', $html);
-        self::assertStringContainsString('<title>UK Salary Calculator 2026/27 | Take Home Pay &amp; Salary Exchange</title>', $html);
-        self::assertStringContainsString('Free UK salary calculator for 2026/27 take-home pay. Estimate salary after tax, monthly net pay, PAYE, NI, pension salary exchange, bonus sacrifice, and student loans.', $html);
-        self::assertStringContainsString('UK take-home pay calculator 2026/27: salary after tax, pension salary exchange, and student loans', $html);
+        self::assertStringContainsString('<title>UK Take Home Pay Calculator 2026/27 | Salary After Tax</title>', $html);
+        self::assertStringContainsString('Free UK take-home pay calculator for 2026/27. Estimate salary after tax, monthly net pay, PAYE, NI, pension salary exchange, bonus sacrifice, and student loans.', $html);
+        self::assertStringContainsString('UK take-home pay calculator 2026/27 for salary after tax, pension salary exchange, and student loans', $html);
         self::assertStringContainsString('Salary calculator 2026/27 tax year', $html);
         self::assertStringContainsString('Salary calculator 2026 27', $html);
         self::assertStringContainsString('Pension salary exchange calculator', $html);
@@ -129,6 +129,9 @@ final class WebsiteTest extends TestCase
         self::assertStringContainsString('No Cap Tools calculator hub', $html);
         self::assertStringContainsString('Use the ecommerce calculator', $html);
         self::assertStringContainsString('Open the ecommerce pricing calculator', $html);
+        self::assertStringContainsString('Related ecommerce and markup calculators', $html);
+        self::assertStringContainsString('Markup calculator UK for ecommerce pricing', $html);
+        self::assertStringContainsString('Shop calculator for product profit checks', $html);
         self::assertStringContainsString('href="https://www.no-cap-tools.com/e-comm-calculator/"', $html);
         self::assertStringContainsString('<link rel="canonical" href="http://127.0.0.1:8099/">', $html);
         self::assertStringContainsString('"@type":"SoftwareApplication"', $html);
@@ -283,6 +286,7 @@ final class WebsiteTest extends TestCase
         self::assertContains('Content-Type: application/xml; charset=UTF-8', $response['headers']);
         self::assertStringContainsString('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', $response['body']);
         self::assertStringContainsString('<loc>http://127.0.0.1:8099/guides/</loc>', $response['body']);
+        self::assertStringContainsString('<loc>https://www.no-cap-tools.com/e-comm-calculator/</loc>', $response['body']);
         self::assertStringContainsString('<priority>1.0</priority>', $response['body']);
         self::assertStringContainsString('<lastmod>', $response['body']);
     }
@@ -305,9 +309,10 @@ final class WebsiteTest extends TestCase
         $sitemap = (string) file_get_contents($root . '/deploy/root/sitemap.xml');
 
         self::assertStringContainsString('Sitemap: https://www.no-cap-tools.com/uk-take-home-pay-calculator/sitemap.xml', $robots);
-        self::assertStringContainsString('No Cap Tools | UK Take Home Pay & Ecommerce Calculators', $index);
+        self::assertStringContainsString('No Cap Tools | UK Take Home Pay, Markup & Ecommerce Calculators', $index);
         self::assertStringContainsString('Open the UK salary after tax calculator', $index);
         self::assertStringContainsString('Open the ecommerce pricing calculator for margin and profit', $index);
+        self::assertStringContainsString('markup calculator UK', $index);
         self::assertStringContainsString('https://www.no-cap-tools.com/e-comm-calculator/', $sitemap);
     }
 

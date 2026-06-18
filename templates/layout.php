@@ -108,7 +108,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <main>
         <section id="calculator" class="calculator-layout">
             <section class="panel panel--form">
-                <h1>UK take-home pay calculator 2026/27: salary after tax, pension salary exchange, and student loans</h1>
+                <h1>UK take-home pay calculator 2026/27 for salary after tax, pension salary exchange, and student loans</h1>
                 <button class="mobile-results-bar" type="button" data-mobile-results-bar hidden aria-label="Jump to your results">
                     <span class="mobile-results-bar__prompt">Current take-home pay</span>
                     <span class="mobile-results-bar__grid">
@@ -118,7 +118,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                     </span>
                     <span class="mobile-results-bar__link">Full breakdown</span>
                 </button>
-                <p class="section-copy">Choose your salary, tax setup, pension contribution treatment, bonus, and student loan settings to calculate UK take-home pay after tax for the 2026/27 tax year. This UK salary calculator 2026 27 estimate covers PAYE deductions, pension salary exchange, salary sacrifice pension, bonus sacrifice, student loan repayments, monthly salary after tax, weekly take-home pay, and net pay.</p>
+                <p class="section-copy">Choose your salary, tax setup, pension contribution treatment, bonus, and student loan settings to calculate UK take-home pay after tax for the 2026/27 tax year. This UK salary calculator 2026 27 estimate covers PAYE deductions, National Insurance, pension salary exchange, salary sacrifice pension, bonus sacrifice, student loan repayments, monthly salary after tax, weekly take-home pay, and net pay.</p>
 
                 <?php if ($errors !== []): ?>
                     <div class="alert" role="alert" data-calculator-errors>
@@ -374,7 +374,7 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
         <section class="hero-layout">
             <section class="hero-card">
                 <div class="eyebrow">UK PAYE estimate</div>
-                <h2>Calculate UK take-home pay after tax, pension salary exchange, student loan repayments, and monthly net pay</h2>
+                <h2>Calculate UK salary after tax, monthly take-home pay, pension salary exchange, and student loan repayments</h2>
                 <p class="lede">Estimate annual, monthly, or weekly take-home pay with this UK salary calculator for 2026/27. Use it to estimate net paycheck figures from monthly salary or annual PAYE comparisons, including National Insurance, pension contributions, bonus income, bonus sacrifice, pension salary exchange deductions, and student loan repayments across England, Wales, Scotland, and Northern Ireland.</p>
                 <nav class="seo-links" aria-label="On-page sections">
                     <a href="#calculator">Use the calculator</a>
@@ -523,6 +523,16 @@ $routeUrl = static fn (string $targetPage = 'home'): string => BasePath::route($
                 <li><a href="<?= htmlspecialchars($routeUrl()) ?>">Use the UK salary after tax calculator</a></li>
                 <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Use the ecommerce calculator</a></li>
                 <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Open the ecommerce pricing calculator</a></li>
+            </ul>
+        </section>
+
+        <section class="panel panel--seo-links" aria-labelledby="business-calculators-heading">
+            <h2 id="business-calculators-heading">Related ecommerce and markup calculators</h2>
+            <p class="section-copy">For shop pricing rather than personal salary after tax, use the ecommerce calculator to compare UK markup, margin, product cost, platform fees, VAT assumptions, profit, and break-even pricing.</p>
+            <ul class="guide-links">
+                <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Markup calculator UK for ecommerce pricing</a></li>
+                <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Ecommerce pricing calculator for margin and fees</a></li>
+                <li><a href="https://www.no-cap-tools.com/e-comm-calculator/">Shop calculator for product profit checks</a></li>
             </ul>
         </section>
 

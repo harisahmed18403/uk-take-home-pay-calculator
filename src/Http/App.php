@@ -230,8 +230,8 @@ final class App
                 'og_type' => 'website',
             ],
             default => [
-                'title' => 'UK Salary Calculator 2026/27 | Take Home Pay & Salary Exchange',
-                'description' => 'Free UK salary calculator for 2026/27 take-home pay. Estimate salary after tax, monthly net pay, PAYE, NI, pension salary exchange, bonus sacrifice, and student loans.',
+                'title' => 'UK Take Home Pay Calculator 2026/27 | Salary After Tax',
+                'description' => 'Free UK take-home pay calculator for 2026/27. Estimate salary after tax, monthly net pay, PAYE, NI, pension salary exchange, bonus sacrifice, and student loans.',
                 'canonical' => $canonical,
                 'robots' => 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
                 'og_type' => 'website',
@@ -677,6 +677,7 @@ final class App
             [Site::absoluteUrl(BasePath::route('faq', $basePath)), 'monthly', '0.8'],
             [Site::absoluteUrl(BasePath::route('privacy', $basePath)), 'yearly', '0.3'],
             [Site::absoluteUrl(BasePath::route('cookies', $basePath)), 'yearly', '0.3'],
+            ['https://www.no-cap-tools.com/e-comm-calculator/', 'weekly', '0.8'],
         ];
 
         $items = array_map(
